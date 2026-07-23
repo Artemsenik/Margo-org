@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Margo Animal Care Initiative</title>
+  <meta name="description" content="Zugang zur öffentlichen Website und zum internen Arbeitsbereich der Margo Animal Care Initiative.">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --paper: #f5f3ee;
+      --cream: #f7f3eb;
+      --cream-soft: rgba(247, 243, 235, 0.76);
+      --ink: #f7f3eb;
+      --petrol: #143f3c;
+      --petrol-dark: #0e2e2c;
+      --petrol-deep: #071c1a;
+      --rose: #e5b7a5;
+      --rose-soft: rgba(229, 183, 165, 0.78);
+      --line: rgba(255, 255, 255, 0.18);
+      --line-strong: rgba(255, 255, 255, 0.28);
+      --glass: rgba(255, 255, 255, 0.11);
+      --glass-strong: rgba(255, 255, 255, 0.16);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background: var(--petrol-dark);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -5;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(7, 28, 26, 0.92), rgba(20, 63, 60, 0.82)),
+        url("https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=2200&q=82") center / cover no-repeat;
+    }
+
+    .background::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 24%, rgba(255,255,255,0.08), transparent 30%),
+        radial-gradient(circle at 84% 18%, rgba(229,183,165,0.16), transparent 26%),
+        linear-gradient(105deg, rgba(5, 18, 17, 0.86), rgba(14, 46, 44, 0.55) 45%, rgba(5, 18, 17, 0.82));
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      pointer-events: none;
+      opacity: 0.055;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.86'/%3E%3C/svg%3E");
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      width: min(100%, 1280px);
+      margin: 0 auto;
+      padding: clamp(20px, 2.6vw, 34px);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 48px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
+    }
+
+    .mark svg { width: 21px; height: 21px; }
+
+    .brand-text { display: flex; flex-direction: column; line-height: 1.06; }
+
+    .brand-text strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.14rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      margin-top: 3px;
+      color: var(--cream-soft);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .top-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--cream-soft);
+      font-size: 0.84rem;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--rose);
+      box-shadow: 0 0 0 6px rgba(229,183,165,0.13);
+    }
+
+    /* ---- Breiter Karten-Abschnitt (Standortkarte) ---- */
+    .map-band {
+      margin: clamp(26px, 4vw, 48px) 0 0;
+    }
+
+    .map-band figure { margin: 0; }
+
+    .map-band img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .map-band figcaption {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 18px;
+      margin-top: 14px;
+      color: rgba(247, 243, 235, 0.55);
+      font-size: 0.78rem;
+    }
+
+    /* ---- Hero (zweispaltig) ---- */
+    main { flex: 1; display: grid; align-items: center; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+      gap: clamp(34px, 5.8vw, 74px);
+      align-items: center;
+      padding: clamp(48px, 7vw, 90px) 0 clamp(44px, 6vw, 70px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 26px;
+      color: rgba(247, 243, 235, 0.82);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 35px;
+      height: 1px;
+      background: rgba(247, 243, 235, 0.76);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 700px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      letter-spacing: -0.058em;
+      line-height: 0.98;
+      font-size: clamp(3rem, 6.9vw, 6.15rem);
+      text-wrap: balance;
+    }
+
+    h1 em { color: var(--rose); font-style: italic; }
+
+    .lead {
+      max-width: 610px;
+      margin: 30px 0 0;
+      color: rgba(247, 243, 235, 0.82);
+      font-size: clamp(1.02rem, 1.45vw, 1.14rem);
+      line-height: 1.75;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 760;
+      letter-spacing: -0.01em;
+      transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .btn svg { width: 18px; height: 18px; transition: transform 0.24s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:hover svg { transform: translateX(3px); }
+
+    .btn-primary {
+      background: var(--paper);
+      color: var(--petrol-dark);
+      box-shadow: 0 14px 38px rgba(0,0,0,0.24);
+    }
+    .btn-primary:hover { background: #fffaf0; }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.34);
+      background: rgba(255,255,255,0.13);
+    }
+
+    /* ---- Rechte Box (Willkommen + Foto) ---- */
+    .intro-panel {
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.075));
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 3vw, 32px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,255,255,0.14), transparent 32%),
+        radial-gradient(circle at 85% 100%, rgba(229,183,165,0.12), transparent 34%);
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-header h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.28rem, 1.85vw, 1.72rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.22;
+      text-wrap: balance;
+    }
+
+    .panel-header h2 em { color: var(--rose); font-style: italic; }
+
+    .portrait-frame {
+      flex: 1;
+      min-height: 380px;
+      margin-top: 22px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      width: 100%;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      color: rgba(247, 243, 235, 0.62);
+      font-size: 0.82rem;
+    }
+
+    footer span:last-child { text-align: right; }
+
+    @media (max-width: 1040px) {
+      .hero { grid-template-columns: 1fr; }
+      .intro-panel { min-height: auto; }
+      .portrait-frame { min-height: 420px; }
+    }
+
+    @media (max-width: 680px) {
+      .shell { padding: 18px; }
+      header { align-items: flex-start; }
+      .top-note { display: none; }
+      .hero { padding: 40px 0 34px; gap: 28px; }
+      h1 { font-size: clamp(2.72rem, 17vw, 4.35rem); }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .map-band img { border-radius: 18px; }
+      .map-band figcaption { flex-direction: column; }
+      .intro-panel { border-radius: 22px; padding: 20px; }
+      .portrait-frame { min-height: 340px; }
+      footer { flex-direction: column; }
+      footer span:last-child { text-align: left; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+      .background video { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background" aria-hidden="true">
+    <!--
+      Optionales eigenes Ambient-Video:
+      1. Im Repository einen Ordner "assets" anlegen.
+      2. Video als "margo-ambient.mp4" hochladen.
+      3. Dann wird es automatisch im Hintergrund abgespielt.
+      Ohne Video bleibt das hochwertige Hintergrundbild sichtbar.
+    -->
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=2200&q=82">
+      <source src="assets/margo-ambient.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="shell">
+    <header>
+      <a class="brand" href="./index.html" aria-label="Margo Animal Care Initiative">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s-7-4.35-7-10.1C5 7.67 7.58 5.2 10.54 6.05c.63.18 1.17.56 1.46 1.03.29-.47.83-.85 1.46-1.03C16.42 5.2 19 7.67 19 10.9 19 16.65 12 21 12 21Z" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>Margo Animal Care</strong>
+          <span>Initiative</span>
+        </span>
+      </a>
+
+      <div class="top-note">
+        <span class="pulse" aria-hidden="true"></span>
+        Aufbauphase · interne Orientierung
+      </div>
+    </header>
+
+    <!-- Breiter Karten-Abschnitt -->
+    <section class="map-band" aria-label="Standorte rund um Artemida">
+      <figure>
+        <img src="karte-standorte.png" alt="Luftbild der Küstenregion rund um Artemida mit markierten Versorgungsstandorten">
+        <figcaption>
+          <span>Versorgungsorte rund um Artemida · Übersichtskarte</span>
+          <span>Farm · private Versorgungsstellen · Futterkolonien</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <div class="eyebrow">Straßenkatzenhilfe · Artemida, Griechenland</div>
+
+          <h1 id="page-title">
+            Aus Fürsorge<br>
+            wird <em>ein</em><br>
+            <em>getragenes</em><br>
+            <em>System.</em>
+          </h1>
+
+          <p class="lead">
+            Margo versorgt seit Jahren eine große Zahl verlassener Katzen. Diese Initiative bündelt Hilfe,
+            macht Fortschritte sichtbar und gibt dem Team einen klaren Ort für die gemeinsame Arbeit.
+          </p>
+
+          <div class="actions" aria-label="Hauptzugänge">
+            <a class="btn btn-primary" href="margo-oeffentlich.html">
+              Öffentliche Seite besuchen
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn btn-secondary" href="volunteer.html">
+              Mithelfen
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <aside class="intro-panel" aria-label="Willkommen">
+          <div class="panel-content">
+            <div class="panel-header">
+              <h2>Herzlich Willkommen, ich bin Margo, lebe in Artemida und versorge an mehreren Standorten Katzen und Hunde mit Tierfutter, Wasser, Medikation und <em>Tierarztbehandlungen.</em></h2>
+            </div>
+
+            <div class="portrait-frame">
+              <img src="margo-portrait.png" alt="Margo versorgt eine Katze mit Medikation">
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>Margo Animal Care Initiative · Working Draft</span>
+      <span>Retten. Heilen. Vertrauen schenken.</span>
+    </footer>
+  </div>
+</body>
+</html>

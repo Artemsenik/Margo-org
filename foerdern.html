@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="de">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fördern & Unterstützen — Margo Animal Care Initiative</title>
+  <meta name="description" content="Unterstützen Sie die tägliche Versorgung von rund 250–300 Tieren in Artemida: Förderwege, Mittelverwendung und Transparenz der Margo Animal Care Initiative.">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
+      --ink:#1B1A16; --ink-soft:#4A473F;
+      --petrol:#143F3C; --petrol-mid:#1C5450; --petrol-dark:#0E2E2C; --petrol-tint:#E7EEEB;
+      --clay:#9A5B3F;
+      --hair:rgba(20,63,60,0.14); --hair-warm:#E3DED2;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-0.012em;text-wrap:balance;}
+    .display em, h1 em, h2 em{font-style:italic;color:var(--petrol);}
+    .muted{color:var(--ink-soft);}
+    a{text-decoration:none;}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--petrol);}
+    .eyebrow::before{content:"";width:1.8rem;height:1.5px;background:var(--petrol);display:inline-block;}
+
+    .soft-shadow{box-shadow:0 1px 2px rgba(14,46,44,0.06),0 6px 14px rgba(14,46,44,0.07),0 18px 40px rgba(14,46,44,0.06);}
+    .framed{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--card);}
+    .accent-top{position:relative;}
+    .accent-top::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--petrol);border-radius:12px 12px 0 0;z-index:2;}
+
+    .ed-card{background:var(--card);border:1px solid var(--hair);border-radius:12px;transition:transform .4s cubic-bezier(0.22,1,0.36,1),box-shadow .4s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .ed-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(14,46,44,0.07),0 10px 22px rgba(14,46,44,0.09),0 24px 48px rgba(14,46,44,0.07);} }
+
+    .icon-circle{width:46px;height:46px;border-radius:9999px;background:var(--petrol-tint);color:var(--petrol);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+    .pill{border-radius:100px;border:1px solid var(--hair);background:var(--card);font-size:.85rem;color:var(--ink-soft);}
+    .pill-invert{border-radius:100px;border:1px solid rgba(20,63,60,0.25);background:var(--petrol-tint);color:var(--petrol-dark);font-size:.85rem;font-weight:500;}
+
+    .btn{border-radius:7px;font-weight:600;font-size:.95rem;transition:transform .3s ease,box-shadow .3s ease,background .3s ease;}
+    .btn-primary{background:var(--petrol);color:#fff;}
+    .btn-primary:hover{background:var(--petrol-mid);box-shadow:0 8px 20px rgba(14,46,44,0.22);}
+    .btn-ghost{border:1px solid var(--hair);color:var(--petrol-dark);background:transparent;}
+    .btn-ghost:hover{background:var(--petrol-tint);}
+    .btn .arrow{transition:transform .3s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .btn:hover .arrow{transform:translateX(3px);} }
+
+    .contact-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--petrol-dark);font-weight:500;padding:.5rem .85rem;border:1px solid var(--hair);border-radius:8px;transition:background .25s ease,border-color .25s ease;}
+    .contact-link:hover{background:var(--petrol-tint);border-color:rgba(20,63,60,0.28);}
+    .contact-link i{color:var(--petrol);}
+
+    .section-dark{background:linear-gradient(165deg,var(--petrol-dark) 0%,var(--petrol) 70%,var(--petrol-mid) 100%);color:#EDF3F1;}
+    .section-dark h2, .section-dark .display{color:#fff;}
+    .section-dark .display em{color:#B9D4CE;}
+
+    .section-tint{background:var(--paper-2);border-top:1px solid var(--hair-warm);border-bottom:1px solid var(--hair-warm);}
+    .section-petrol-tint{background:var(--petrol-tint);}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(0.22,1,0.36,1),transform .8s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.in{opacity:1;transform:none;}
+
+    .grain{position:relative;}
+    @media (min-width:768px){
+      .grain::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.03;
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
+    }
+
+    #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--petrol);z-index:80;transition:width .1s linear;}
+    ::selection{background:var(--petrol);color:#fff;}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:4px;}
+    #nav-shadow-target{transition:box-shadow .3s ease;background:rgba(245,243,238,0.85);}
+    #nav-shadow-target.scrolled{box-shadow:0 1px 0 var(--hair),0 8px 24px rgba(14,46,44,0.06);}
+    .measure{max-width:62ch;}
+
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+      html{scroll-behavior:auto;}
+    }
+  </style>
+ </head>
+ <body class="w-full min-h-screen grain">
+  <div id="progress" aria-hidden="true"></div>
+
+  <header id="nav-shadow-target" class="sticky top-0 z-50 w-full backdrop-blur" style="border-bottom:1px solid var(--hair);">
+   <nav class="max-w-[1160px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <a href="margo-oeffentlich.html" class="display" style="font-size:1.25rem;color:var(--petrol-dark);">Margo <em>Animal Care</em> Initiative</a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:var(--ink-soft);">
+     <a href="ansatz.html" class="hover:opacity-70 transition">Unser Ansatz</a>
+     <a href="katzen.html" class="hover:opacity-70 transition">Katzen</a>
+     <a href="immersive-reise.html" class="hover:opacity-70 transition">Versorgungsroute</a>
+     <a href="partner.html" class="hover:opacity-70 transition">Partner</a>
+     <a href="foerdern.html" class="transition" style="color:var(--petrol);font-weight:600;">Fördern</a>
+     <a href="veterinaerkosten.html" class="hover:opacity-70 transition">Transparenz</a>
+     <a href="volunteer.html" class="hover:opacity-70 transition">Mithelfen</a>
+    </div>
+    <a href="volunteer.html" class="btn btn-primary hidden sm:inline-flex items-center gap-2 px-4 py-2">
+     <span>Mithelfen</span>
+     <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
+    </a>
+   </nav>
+  </header>
+
+  <main class="w-full">
+
+   <!-- HERO -->
+   <section class="w-full py-20 md:py-28">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-6">Fördern &amp; Unterstützen</span>
+     <h1 class="reveal mb-7" style="font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.04;">Tägliche Versorgung braucht <em>verlässliche Mittel.</em></h1>
+     <p class="reveal measure muted leading-relaxed" style="font-size:1.1rem;">
+      In Artemida bei Athen werden nach aktuellem Stand rund 250–300 Katzen sowie einige Hunde und
+      Hasen täglich mit Futter, Wasser und medizinischer Versorgung betreut – über private
+      Versorgungsorte, eine Farm und mehrere Futterkolonien. Diese Seite zeigt, wofür Mittel
+      gebraucht werden, wer bereits mitträgt und wie eine Förderung konkret aussehen kann.</p>
+     <div class="reveal mt-9 flex flex-wrap gap-3">
+      <a href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rderung%20der%20Margo%20Animal%20Care%20Initiative" class="btn btn-primary inline-flex items-center gap-2 px-6 py-3">
+       <i data-lucide="mail" style="width:16px;height:16px;"></i><span>Gespräch vereinbaren</span>
+      </a>
+      <a href="#mittel" class="btn btn-ghost inline-flex items-center gap-2 px-6 py-3">
+       <span>Wofür Mittel gebraucht werden</span>
+       <i data-lucide="arrow-down" class="arrow" style="width:16px;height:16px;"></i>
+      </a>
+     </div>
+    </div>
+   </section>
+
+   <!-- ZAHLEN -->
+   <section class="section-petrol-tint w-full py-14 md:py-16">
+    <div class="max-w-[1160px] mx-auto px-6 grid gap-8 sm:grid-cols-3 text-center">
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">250–300</p>
+      <p class="muted text-sm mt-1">Katzen in täglicher Versorgung<br>(nach aktuellem Stand)</p>
+     </div>
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">13+</p>
+      <p class="muted text-sm mt-1">erfasste Versorgungsstationen<br>rund um Artemida</p>
+     </div>
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">365</p>
+      <p class="muted text-sm mt-1">Tage im Jahr, an denen<br>gefüttert und kontrolliert wird</p>
+     </div>
+    </div>
+   </section>
+
+   <!-- MITTELVERWENDUNG -->
+   <section id="mittel" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Mittelverwendung</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Wofür Mittel gebraucht werden</h2>
+     <p class="reveal muted mb-12 measure">Vier Kostenbereiche tragen die laufende Arbeit. Für die tierärztliche Versorgung liegt inzwischen eine vollständig ausgewertete Abrechnung vor – dokumentiert und nachvollziehbar. Für die übrigen Bereiche legen wir konkrete Zahlen im direkten Gespräch offen.</p>
+     <div class="reveal framed p-5 mb-10" style="border-left:3px solid var(--petrol);max-width:680px;">
+      <p class="text-sm muted"><strong style="color:var(--petrol-dark);">Hauptstandort:</strong> Farm in der Region Athen, Griechenland – Plus Code XXHH+P3C Ag. Serafim. Weitere Standorte: Elternhaus, Zweitsitz, Surfschule und vier Kolonien im Freien.</p>
+     </div>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="utensils" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Futter</h3>
+       <p class="muted text-sm leading-relaxed">Der größte laufende Posten: Trocken- und Nassfutter für alle Versorgungsorte und Kolonien – jeden Tag, bei jedem Wetter. Vier Tierfutter-Geschäfte gewähren bereits Rabatte; die Mengen bleiben dennoch erheblich.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="stethoscope" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Tierärztliche Behandlungen</h3>
+       <p class="muted text-sm leading-relaxed mb-4">Untersuchungen, Medikamente, Operationen und Notfälle. Zwei Partnerpraxen behandeln zu vergünstigten Konditionen – die Kosten bleiben trotzdem ein erheblicher Block.</p>
+       <div class="p-4 mb-4" style="background:var(--petrol-tint);border-radius:8px;">
+        <p class="text-sm" style="color:var(--petrol-dark);"><strong>Belegt:</strong> 32 Rechnungen über 3.954,70 € im Zeitraum 23. März bis 20. Juli 2026 – rund 1.000 € pro Monat.</p>
+       </div>
+       <a href="veterinaerkosten.html" class="contact-link"><i data-lucide="file-text" style="width:15px;height:15px;"></i>Vollständige Auswertung ansehen</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="scissors" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Kastrationen</h3>
+       <p class="muted text-sm leading-relaxed">Der wirksamste Hebel gegen wachsendes Tierleid: Jede Kastration verhindert neue Würfe auf der Straße. Kastrationsförderungen sind deshalb besonders wirkungsvoll einsetzbare Mittel.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="truck" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Fahrten &amp; Material</h3>
+       <p class="muted text-sm leading-relaxed">Tägliche Versorgungsrouten, Tierarzttransporte, Wasserkanister, Näpfe, Transportboxen und Winterschutz für die Kolonien.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- VERTRAUEN -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Warum man uns vertrauen kann</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Andere tragen bereits mit</h2>
+     <p class="reveal muted mb-10 measure">Eine Förderung ist Vertrauenssache. Diese Strukturen bestehen bereits – prüfbar und mit Ansprechpartnern:</p>
+     <div class="grid gap-5 md:grid-cols-2">
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Tierschutzverein Murka-Katzenhilfe e.&nbsp;V. (Deutschland)</h3>
+       <p class="muted text-sm">Fördert bereits Futter und Tierarztkosten und übernimmt die verantwortungsvolle Vermittlung einzelner Katzen nach Deutschland – ein eingetragener Verein (Amtsgericht Bochum, VR 4939).</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Zwei Tierarztpraxen</h3>
+       <p class="muted text-sm">Vets4life und OmniVET behandeln die Tiere fachkundig zu vergünstigten Preisen – langjährige, direkte Zusammenarbeit.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Vier Tierfutter-Geschäfte</h3>
+       <p class="muted text-sm">Pet City, Pet Shop Manos, Pet Point und Dogit unterstützen mit Rabatten auf Futter.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Die Windsurfing-Schule</h3>
+       <p class="muted text-sm">Trägt finanziell bei und ist Zuhause für rund 25 Katzen; Margo arbeitet dort als Surflehrerin – die Initiative steht auf mehreren Schultern.</p>
+      </div>
+     </div>
+     <p class="reveal mt-8"><a href="partner.html" class="contact-link"><i data-lucide="users" style="width:15px;height:15px;"></i>Alle Partner im Detail</a></p>
+    </div>
+   </section>
+
+   <!-- TRANSPARENZ -->
+   <section class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Transparenz</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Was Förderer von uns erwarten können</h2>
+     <div class="grid gap-6 md:grid-cols-3 mt-10">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="file-text" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Nachvollziehbare Verwendung</h3>
+       <p class="muted text-sm leading-relaxed mb-3">Auf Wunsch berichten wir regelmäßig, wofür Mittel eingesetzt wurden – mit Belegen statt Pauschalaussagen.</p><a href="veterinaerkosten.html" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Beispiel: Veterinärkosten</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="eye" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Ehrliche Kommunikation</h3>
+       <p class="muted text-sm leading-relaxed">Wir nennen Tierzahlen als Schätzungen, kennzeichnen offene Punkte und versprechen nichts, was wir nicht halten können.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="shield" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Klare Zuständigkeiten</h3>
+       <p class="muted text-sm leading-relaxed">Vermittlungen laufen über Murka-Katzenhilfe e.&nbsp;V.; die Initiative bündelt Versorgung, Dokumentation und Aufbauarbeit vor Ort.</p>
+      </article>
+     </div>
+     <div class="reveal mt-10 framed p-6" style="border-left:3px solid var(--clay);">
+      <p class="muted text-sm leading-relaxed"><strong style="color:var(--petrol-dark);">Offen gesagt:</strong> Die Initiative befindet sich im Aufbau und ist selbst kein eingetragener Verein. Formale Fragen – etwa zu Zuwendungswegen oder Spendenbescheinigungen – klären wir individuell und ehrlich im direkten Gespräch, gegebenenfalls gemeinsam mit unseren Vereinspartnern.</p>
+     </div>
+    </div>
+   </section>
+
+   <!-- FÖRDERWEGE -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Förderwege</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">So können Sie unterstützen</h2>
+     <p class="reveal muted mb-12 measure">Vom einmaligen Beitrag bis zur langfristigen Partnerschaft – jede Form hilft, die tägliche Versorgung planbarer zu machen.</p>
+     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="heart" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Einmalige Förderung</h3>
+       <p class="muted text-sm leading-relaxed">Ein einmaliger Beitrag – frei oder zweckgebunden, etwa für eine Kastrationsaktion oder einen Futtermonat.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="repeat" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Monatliche Förderung</h3>
+       <p class="muted text-sm leading-relaxed">Der wertvollste Weg: Wiederkehrende Beiträge machen Futter- und Tierarztkosten planbar – auch kleine Beträge tragen weit.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="package" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Sachspenden</h3>
+       <p class="muted text-sm leading-relaxed">Futter, Transportboxen, Näpfe oder medizinisches Material – wir stimmen gern ab, was aktuell gebraucht wird.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="paw-print" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Patenschaften</h3>
+       <p class="muted text-sm leading-relaxed">Eine Patenschaft für eine Katze oder eine ganze Futterstelle – mit persönlichem Bezug und Updates zu Ihrem Schützling.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="building-2" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Unternehmen &amp; Organisationen</h3>
+       <p class="muted text-sm leading-relaxed">Von der Futterpatenschaft bis zur Projektförderung (z.&nbsp;B. Kastrationsprogramm) – auf Wunsch mit Sichtbarkeit auf unserer Partnerseite.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="megaphone" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Reichweite &amp; Kontakte</h3>
+       <p class="muted text-sm leading-relaxed">Auch Vermittlung von Kontakten, Reichweite oder Know-how (Fundraising, Recht, Logistik) ist wertvolle Förderung.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- CTA -->
+   <section class="section-dark w-full py-20 md:py-24">
+    <div class="max-w-[820px] mx-auto px-6 text-center">
+     <span class="reveal inline-flex items-center gap-2 mb-6" style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#B9D4CE;">
+      <i data-lucide="mail" style="width:15px;height:15px;"></i>Der nächste Schritt
+     </span>
+     <p class="reveal display leading-snug mb-8" style="font-size:clamp(1.5rem,3.4vw,2.2rem);">Ein Gespräch genügt, um zu sehen, <em>ob es passt.</em></p>
+     <p class="reveal mx-auto mb-9" style="max-width:54ch;color:rgba(237,243,241,0.82);">
+      Schreiben Sie uns kurz, wer Sie sind und welche Form der Unterstützung Sie sich vorstellen können.
+      Wir antworten persönlich, legen Zahlen offen und finden gemeinsam den Weg, der zu Ihnen passt.</p>
+     <a href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rderung%20der%20Margo%20Animal%20Care%20Initiative" class="btn reveal inline-flex items-center gap-2 px-6 py-3" style="background:#fff;color:var(--petrol-dark);">
+      <i data-lucide="mail" style="width:16px;height:16px;"></i><span>hello@margoanimalcare.org</span>
+     </a>
+     <p class="reveal mt-8" style="color:rgba(237,243,241,0.6);font-size:.85rem;">
+      Mehr Hintergrund: <a href="ansatz.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Unser Ansatz</a> ·
+      <a href="immersive-reise.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Die Versorgungsroute erleben</a></p>
+    </div>
+   </section>
+
+  </main>
+
+  <footer class="w-full py-12" style="background:var(--petrol-dark);color:rgba(237,243,241,0.85);">
+   <div class="max-w-[1000px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <span>© 2026 Margo Animal Care Initiative · Artemida, Griechenland</span>
+    <a href="mailto:hello@margoanimalcare.org" class="inline-flex items-center gap-1.5 text-sm underline underline-offset-4 opacity-80 hover:opacity-100 transition"><i data-lucide="mail" style="width:13px;height:13px;"></i>hello@margoanimalcare.org</a>
+    <a href="margo-oeffentlich.html" class="btn inline-flex items-center gap-2 px-5 py-2" style="background:#fff;color:var(--petrol-dark);">
+     <span>Zur Startseite</span>
+     <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
+    </a>
+   </div>
+  </footer>
+
+  <script>
+    try { lucide.createIcons(); } catch (e) { /* Icon-CDN nicht erreichbar */ }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            e.target.style.transitionDelay = Math.min(i * 55, 220) + 'ms';
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+    const bar = document.getElementById('progress');
+    const nav = document.getElementById('nav-shadow-target');
+    function onScroll() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+      nav.classList.toggle('scrolled', h.scrollTop > 8);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+ </body>
+</html>

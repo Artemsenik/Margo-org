@@ -1,0 +1,420 @@
+<!--
+  ============================================================
+  KATZENPROFIL-VORLAGE - Margo Animal Care Initiative
+  ============================================================
+  Diese Datei erscheint NICHT in der Navigation und wird NICHT verlinkt.
+  Sie ist ausschliesslich Kopiervorlage. Direkt geoeffnet zeigt sie kaputte
+  Pfade - das ist normal: die "../"-Pfade gelten erst im Ordner /katzen/.
+
+  SO GEHT ES
+  1. Kopieren nach:        katzen/<SLUG>.html   (klein, ohne Umlaute/Leerzeichen)
+  2. Bilder ablegen unter: assets/cats/<SLUG>/
+  3. Diesen Kommentarblock loeschen.
+  4. Alle {{PLATZHALTER}} ersetzen, danach pruefen:  grep -n "{{" katzen/<SLUG>.html
+  5. Karte in katzen.html ergaenzen (Block zwischen den KATZENKARTE-Markierungen kopieren).
+  6. Vollstaendige Anleitung: CAT_PROFILE_GUIDE.md
+
+  PFADE (die Seite liegt im Unterordner /katzen/)
+     CSS     ../assets/css/cats.css
+     Bilder  ../assets/cats/<SLUG>/...
+     Seiten  ../katzen.html, ../margo-oeffentlich.html
+
+  STATUSWERTE (Klasse UND Text muessen zusammenpassen)
+     sucht Zuhause               status-sucht
+     in Klaerung                 status-klaerung
+     reserviert                  status-reserviert
+     vermittelt                  status-vermittelt
+     derzeit nicht vermittelbar  status-nicht
+
+  MEDIZINISCHE FORMULIERUNGEN - verbindlich
+     NICHT: "FIV/FeLV negativ", "vollstaendig gesund", "garantiert vertraeglich",
+            "fuer jede Familie geeignet", "sofort ausreisebereit", "schmerzfrei garantiert"
+     SONDERN: "Ein FIV- und FeLV-Test wird vor der Ausreise durchgefuehrt."
+              "Laut aktuellem Informationsstand ist ... gut verheilt."
+              "Nach den bisherigen Beobachtungen zeigt sich ..."
+              "Die endgueltige Einschaetzung erfolgt individuell im Vermittlungsprozess."
+     Alter immer als Geburtsjahr ("ca. 2020/2021"), nie als feste Jahreszahl.
+     Unbekanntes weglassen oder offen benennen - niemals ausschmuecken.
+
+  KITTEN-REGEL: "Kitten werden nur zu zweit oder zu einem gleichaltrigen Spielpartner
+  vermittelt" gehoert NUR in Kitten-Profile.
+
+  DATENSCHUTZ VOR VEROEFFENTLICHUNG
+     [ ] keine Adresse, keine Koordinaten, keine Pflegestelle
+     [ ] Ort nur als "Region Artemida, Griechenland"
+     [ ] keine Chipnummer, keine Tierarztakten, keine offenen Befunde
+     [ ] keine privaten Telefonnummern/Namen ohne Freigabe
+     [ ] Foto-Hintergruende geprueft (Hausnummern, Kennzeichen, Klingelschilder)
+     [ ] EXIF/GPS entfernt
+     [ ] Fotos ausdruecklich freigegeben
+
+  BILDER
+     nur echte Fotos dieses Tieres - keine Stock-, keine KI-Bilder
+     Hero: fetchpriority="high", KEIN loading="lazy" | alle anderen: loading="lazy"
+     width/height immer setzen | Alt-Texte beschreiben, was zu sehen ist
+  ============================================================
+-->
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{NAME}} sucht ein Zuhause | Margo Animal Care Initiative</title>
+<meta name="description" content="{{META_DESCRIPTION – max. ca. 155 Zeichen, sachlich}}">
+<link rel="canonical" href="https://www.margoanimalcare.org/katzen/{{SLUG}}.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="{{NAME}} sucht ein Zuhause | Margo Animal Care Initiative">
+<meta property="og:description" content="{{META_DESCRIPTION – max. ca. 155 Zeichen, sachlich}}">
+<meta property="og:url" content="https://www.margoanimalcare.org/katzen/{{SLUG}}.html">
+<meta property="og:image" content="https://www.margoanimalcare.org/assets/cats/{{SLUG}}/{{SLUG}}-hero-960.webp">
+<meta property="og:image:alt" content="{{NAME}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{NAME}} sucht ein Zuhause | Margo Animal Care Initiative">
+<meta name="twitter:description" content="{{META_DESCRIPTION_KURZ}}">
+<meta name="twitter:image" content="https://www.margoanimalcare.org/assets/cats/{{SLUG}}/{{SLUG}}-hero-960.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/cats.css">
+<script>document.documentElement.classList.remove('no-js');</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.margoanimalcare.org/margo-oeffentlich.html"},
+{"@type":"ListItem","position":2,"name":"Katzen","item":"https://www.margoanimalcare.org/katzen.html"},
+{"@type":"ListItem","position":3,"name":"{{NAME}}","item":"https://www.margoanimalcare.org/katzen/{{SLUG}}.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"{{NAME}} sucht ein Zuhause","url":"https://www.margoanimalcare.org/katzen/{{SLUG}}.html","inLanguage":"de","description":"Profil von {{NAME}} aus der Region Artemida, Griechenland.","primaryImageOfPage":{"@type":"ImageObject","contentUrl":"https://www.margoanimalcare.org/assets/cats/{{SLUG}}/{{SLUG}}-hero-960.webp"},"isPartOf":{"@type":"WebSite","name":"Margo Animal Care Initiative","url":"https://www.margoanimalcare.org/"}}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+ <nav class="site-nav" aria-label="Hauptnavigation">
+  <a class="brand" href="../margo-oeffentlich.html">Margo <em>Animal Care</em> Initiative</a>
+  <div class="nav-links">
+   <a href="../ansatz.html">Unser Ansatz</a>
+   <a href="../katzen.html" aria-current="page">Katzen</a>
+   <a href="../immersive-reise.html">Versorgungsroute</a>
+   <a href="../partner.html">Partner</a>
+   <a href="../volunteer.html">Mithelfen</a>
+  </div>
+  <a class="btn btn-primary" href="#interesse">Interesse an {{NAME}}</a>
+ </nav>
+</header>
+
+<nav class="breadcrumb wrap" aria-label="Brotkrumennavigation">
+ <ol>
+  <li><a href="../katzen.html">Katzen</a></li>
+  <li aria-current="page">{{NAME}}</li>
+ </ol>
+</nav>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="section" style="padding-top:36px">
+  <div class="wrap">
+   <div class="profile-hero">
+    <div class="profile-hero__media">
+     <img src="../assets/cats/{{SLUG}}/{{SLUG}}-hero-960.webp"
+          srcset="../assets/cats/{{SLUG}}/{{SLUG}}-hero-480.webp 480w, ../assets/cats/{{SLUG}}/{{SLUG}}-hero-960.webp 960w"
+          sizes="(min-width:900px) 46vw, 92vw"
+          width="960" height="1200" fetchpriority="high" decoding="async" alt="{{ALT_TEXT_HERO – beschreibe, was zu sehen ist}}">
+    </div>
+    <div>
+     <p class="eyebrow" style="margin-bottom:18px">{{KATER_ODER_KATZE}} · {{STATUS_TEXT}}</p>
+     <h1 style="font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.02;margin-bottom:16px">{{NAME}}</h1>
+     <p class="display" style="font-size:clamp(1.15rem,2vw,1.45rem);color:var(--petrol-dark);margin-bottom:22px">
+      {{POSITIONIERUNG – ein Satz}}</p>
+     <p class="fact-line" style="margin-bottom:24px">
+      {{GESCHLECHT}} · geboren ca. {{GEBURTSJAHR}} · {{KASTRIERT}} · {{GEIMPFT}} · Region Artemida</p>
+     <p style="margin-bottom:28px"><span class="status status-sucht">sucht Zuhause</span></p>
+     <a class="btn btn-primary" href="#interesse">Interesse an {{NAME}}
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- FAKTEN -->
+ <section class="section section-tint" aria-labelledby="fakten">
+  <div class="wrap">
+   <h2 id="fakten" class="reveal" style="font-size:clamp(1.5rem,2.6vw,1.9rem);margin-bottom:24px">{{NAME}} auf einen Blick</h2>
+   <dl class="facts reveal">
+    <div><dt>Name</dt><dd>{{NAME}}</dd></div>
+    <div><dt>Geschlecht</dt><dd>{{GESCHLECHT}}</dd></div>
+    <div><dt>Geboren</dt><dd>ca. {{GEBURTSJAHR}}</dd></div>
+    <div><dt>Rasse</dt><dd>{{RASSE}}</dd></div>
+    <div><dt>Größe</dt><dd>{{GROESSE}}</dd></div>
+    <div><dt>Aufenthaltsregion</dt><dd>Region Artemida, Griechenland</dd></div>
+    <div><dt>Kastriert</dt><dd>ja</dd></div>
+    <div><dt>Geimpft</dt><dd>ja</dd></div>
+    <div><dt>FIV-/FeLV-Test</dt><dd>{{FIV_FELV – z. B. „vor der Ausreise vorgesehen“}}</dd></div>
+    <div><dt>Gewünschte Haltungsform</dt><dd>{{HALTUNGSFORM}}</dd></div>
+    <div><dt>Vermittlung über</dt><dd>Murka-Katzenhilfe e.&nbsp;V.</dd></div>
+    <div><dt>Status</dt><dd>{{STATUS_TEXT}}</dd></div>
+   </dl>
+  </div>
+ </section>
+
+ <!-- SO IST ALI -->
+ <section class="section" aria-labelledby="charakter">
+  <div class="wrap">
+   <p class="eyebrow reveal" style="margin-bottom:18px">Sein Wesen</p>
+   <h2 id="charakter" class="reveal" style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px">So ist {{NAME}}</h2>
+   <p class="reveal muted measure" style="margin-bottom:36px">
+    {{CHARAKTER_EINLEITUNG – Hinweis, dass es Beobachtungen sind}}</p>
+   <div class="trait-grid reveal">
+    <div class="trait-card"><h3>{{MERKMAL_1_TITEL}}</h3>
+     <p>{{MERKMAL_1_TEXT – konkrete Beobachtung, keine Garantie}}</p></div>
+    <div class="trait-card"><h3>{{MERKMAL_2_TITEL}}</h3>
+     <p>{{MERKMAL_2_TEXT}}</p></div>
+    <div class="trait-card"><h3>{{MERKMAL_3_TITEL}}</h3>
+     <p>{{MERKMAL_3_TEXT}}</p></div>
+    <div class="trait-card"><h3>{{MERKMAL_4_TITEL}}</h3>
+     <p>{{MERKMAL_4_TEXT}}</p></div>
+    <div class="trait-card"><h3>{{MERKMAL_5_TITEL – Karte löschen, falls unbekannt}}</h3>
+     <p>{{MERKMAL_5_TEXT}}</p></div>
+    <div class="trait-card"><h3>{{MERKMAL_6_TITEL – Karte löschen, falls unbekannt}}</h3>
+     <p>{{MERKMAL_6_TEXT}}</p></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- GESCHICHTE -->
+ <section class="section section-petrol-tint" aria-labelledby="geschichte">
+  <div class="wrap">
+   <div class="profile-hero">
+    <div class="profile-hero__media">
+     <img src="../assets/cats/{{SLUG}}/{{SLUG}}-02-960.webp"
+          srcset="../assets/cats/{{SLUG}}/{{SLUG}}-02-480.webp 480w, ../assets/cats/{{SLUG}}/{{SLUG}}-02-960.webp 960w"
+          sizes="(min-width:900px) 46vw, 92vw"
+          width="960" height="1280" loading="lazy" decoding="async" alt="{{ALT_TEXT_HERO – beschreibe, was zu sehen ist}}">
+    </div>
+    <div>
+     <p class="eyebrow" style="margin-bottom:18px">Seine Geschichte</p>
+     <h2 id="geschichte" style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:20px">{{GESCHICHTE_UEBERSCHRIFT}}</h2>
+     <p class="muted" style="margin-bottom:16px">
+      {{GESCHICHTE_1 – Fund/Herkunft, ruhig erzählt, nur Bestätigtes}}</p>
+     <p class="muted" style="margin-bottom:16px">
+      {{GESCHICHTE_2 – was schwierig war, ohne Dramatisierung}}</p>
+     <p class="muted" style="margin-bottom:16px">
+      {{GESCHICHTE_3 – Behandlung/Verlauf, nur Bestätigtes}}</p>
+     <p class="muted">
+      {{GESCHICHTE_4 – wie das Tier heute ist}}</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- IDEALES ZUHAUSE -->
+ <section class="section" aria-labelledby="zuhause">
+  <div class="wrap">
+   <p class="eyebrow reveal" style="margin-bottom:18px">Was zu ihm passt</p>
+   <h2 id="zuhause" class="reveal" style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px">Sein ideales Zuhause</h2>
+   <p class="reveal muted measure" style="margin-bottom:36px">
+    Kein Anforderungskatalog – eher eine Beschreibung dessen, worin {{NAME}} nach unseren Beobachtungen aufblüht.</p>
+   <div class="trait-grid reveal">
+    <div class="trait-card"><h3>{{ZUHAUSE_1_TITEL}}</h3>
+     <p>{{ZUHAUSE_1_TEXT}}</p></div>
+    <div class="trait-card"><h3>{{ZUHAUSE_2_TITEL}}</h3>
+     <p>{{ZUHAUSE_2_TEXT}}</p></div>
+    <div class="trait-card"><h3>{{ZUHAUSE_3_TITEL – löschen, falls nicht zutreffend}}</h3>
+     <p>{{ZUHAUSE_3_TEXT}}</p></div>
+    <div class="trait-card"><h3>Haltungsform nach Prüfung</h3>
+     <p>Ob Wohnungshaltung oder gesicherter Freigang: Das wird individuell und nach den Vorgaben des
+      Vereins entschieden.</p></div>
+    <div class="trait-card"><h3>Andere Katzen? Individuell</h3>
+     <p>{{VERTRAEGLICHKEIT – nur Beobachtungen. Nie „garantiert verträglich“. Nicht festlegen, dass das Tier zwingend Einzeltier oder zwingend Zweitkatze sein muss.}}</p></div>
+    <div class="trait-card"><h3>{{ZUHAUSE_6_TITEL}}</h3>
+     <p>{{ZUHAUSE_6_TEXT}}</p></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- GESUNDHEIT -->
+ <section class="section section-tint" aria-labelledby="gesundheit">
+  <div class="wrap-narrow">
+   <p class="eyebrow reveal" style="margin-bottom:18px">Medizinischer Stand</p>
+   <h2 id="gesundheit" class="reveal" style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px">Gesundheit und medizinischer Verlauf</h2>
+   <p class="reveal muted" style="margin-bottom:28px">
+    Diese Angaben halten wir bewusst getrennt von seiner Geschichte – sie sollen nüchtern nachvollziehbar sein.</p>
+   <div class="med reveal">
+    <h3 style="font-size:1.05rem;color:var(--petrol-dark)">Was gesichert ist</h3>
+    <ul>
+     <li>{{MEDIZIN_1 – z. B. „{{NAME}} ist kastriert.“}}</li>
+     <li>{{MEDIZIN_2 – z. B. „{{NAME}} ist geimpft.“}}</li>
+     <li>{{MEDIZIN_3 – Befund, sachlich. Zeile löschen, falls keiner vorliegt.}}</li>
+     <li>{{MEDIZIN_4 – Behandlung. Zeile löschen, falls nicht zutreffend.}}</li>
+     <li>{{MEDIZIN_5 – Verlauf, immer mit „laut aktuellem Informationsstand“.}}</li>
+    </ul>
+    <h3 style="font-size:1.05rem;color:var(--petrol-dark);margin-top:1.4rem">Was noch aussteht</h3>
+    <ul>
+     <li>Ein FIV- und FeLV-Test wird vor der Ausreise durchgeführt.</li>
+     <li>Die abschließende medizinische Prüfung erfolgt im Rahmen des Vermittlungsprozesses.</li>
+    </ul>
+    <p class="note">
+     Wir machen bewusst keine Aussage über Befunde, die noch nicht vorliegen. Alle medizinischen
+     Angaben geben den Stand wieder, der uns zum Zeitpunkt der letzten Aktualisierung bekannt war.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- GALERIE -->
+ <section class="section" aria-labelledby="galerie">
+  <div class="wrap">
+   <p class="eyebrow reveal" style="margin-bottom:18px">Bilder</p>
+   <h2 id="galerie" class="reveal" style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px">{{NAME}} in Bildern</h2>
+   <p class="reveal muted measure" style="margin-bottom:32px">
+    {{GALERIE_EINLEITUNG}} Zum Vergrößern anklicken – oder mit der Tastatur ansteuern und
+    mit Enter öffnen.</p>
+   <div class="gallery reveal" id="gallery">
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-hero-960.webp" aria-label="Foto 1 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-hero-480.webp" width="480" height="600" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_1 – beschreibe, was zu sehen ist}}"></button>
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-02-960.webp" aria-label="Foto 2 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-02-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_2 – beschreibe, was zu sehen ist}}"></button>
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-NN-960.webp" aria-label="Foto 3 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-NN-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_3 – beschreibe, was zu sehen ist}}"></button>
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-NN-960.webp" aria-label="Foto 4 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-NN-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_4 – beschreibe, was zu sehen ist}}"></button>
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-NN-720.webp" aria-label="Foto 5 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-NN-480.webp" width="480" height="853" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_5 – beschreibe, was zu sehen ist}}"></button>
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-NN-720.webp" aria-label="Foto 6 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-NN-480.webp" width="480" height="853" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_6 – beschreibe, was zu sehen ist}}"></button>
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-NN-720.webp" aria-label="Foto 7 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-NN-480.webp" width="480" height="853" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_7 – beschreibe, was zu sehen ist}}"></button>
+    <button type="button" data-full="../assets/cats/{{SLUG}}/{{SLUG}}-NN-720.webp" aria-label="Foto 8 von {{NAME}} vergrößern"><img src="../assets/cats/{{SLUG}}/{{SLUG}}-NN-480.webp" width="480" height="853" loading="lazy" decoding="async" alt="{{ALT_TEXT_FOTO_8 – beschreibe, was zu sehen ist}}"></button>
+   </div>
+  </div>
+ </section>
+
+ <!-- VERMITTLUNGSORGANISATION -->
+ <section class="section section-tint" aria-labelledby="organisation">
+  <div class="wrap">
+   <p class="eyebrow reveal" style="margin-bottom:18px">Verantwortlich für die Vermittlung</p>
+   <h2 id="organisation" class="reveal" style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:32px">Murka-Katzenhilfe e.&nbsp;V.</h2>
+   <div class="org reveal">
+    <div class="org-box">
+     <p class="muted" style="margin-bottom:1rem">
+      Die Margo Animal Care Initiative stellt {{NAME}} und seine Geschichte vor. Bewerbung, Prüfung und
+      Vermittlung erfolgen über Murka-Katzenhilfe e.&nbsp;V.</p>
+     <p class="muted">
+      Das bedeutet: Alle Fragen zu Ablauf, Schutzgebühr, Vorkontrolle und Übergabe beantwortet der Verein.
+      Eine Bewerbung ist keine Zusage, sondern der Beginn einer sorgfältigen Prüfung.</p>
+     <div class="linklist">
+      <a href="https://murka-katzenhilfe-russland.de/Bewerbung" target="_blank" rel="noopener noreferrer">
+       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+       Bewerbungsformular<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+      <a href="https://murka-katzenhilfe-russland.de" target="_blank" rel="noopener noreferrer">
+       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15 0 18M12 3c-2.5 2.6-2.5 15 0 18" stroke="currentColor" stroke-width="1.8"/></svg>
+       Vermittlungsverfahren<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+      <a href="mailto:info@murka-katzenhilfe-russland.de">
+       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m3 7 9 6 9-6" stroke="currentColor" stroke-width="1.8"/></svg>
+       info@murka-katzenhilfe-russland.de</a>
+      <a href="https://www.instagram.com/murka_katzenhilfe/" target="_blank" rel="noopener noreferrer">
+       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+       @murka_katzenhilfe<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+     </div>
+    </div>
+    <div class="org-box">
+     <h3 style="font-size:1.05rem;color:var(--petrol-dark);margin-bottom:.7rem">Vereinsangaben</h3>
+     <address>
+      Murka-Katzenhilfe e.&nbsp;V.<br>
+      Karl-Friedrich-Straße 35<br>
+      44795 Bochum<br><br>
+      Registergericht: Amtsgericht Bochum<br>
+      Registernummer: VR 4939
+     </address>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- ABSCHLUSS-CTA -->
+ <section class="section section-dark" id="interesse" aria-labelledby="cta">
+  <div class="wrap-narrow" style="text-align:center">
+   <h2 id="cta" class="reveal" style="font-size:clamp(1.6rem,3.4vw,2.3rem);margin-bottom:18px">
+    Könnte {{NAME}} zu <em>deinem Leben</em> passen?</h2>
+   <p class="reveal" style="color:rgba(237,243,241,.82);max-width:54ch;margin:0 auto 34px">
+    Wenn du dir vorstellen kannst, {{NAME}} ein ruhiges Zuhause zu geben, führt der nächste Schritt zu
+    Murka-Katzenhilfe e.&nbsp;V. Dort wird gemeinsam mit dir geprüft, ob es für euch beide passt.</p>
+   <p class="reveal" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+    <a class="btn btn-light" href="https://murka-katzenhilfe-russland.de/Bewerbung" target="_blank" rel="noopener noreferrer">
+     Bewerbungsformular öffnen
+     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+     <span class="visually-hidden">(öffnet in neuem Tab)</span></a>
+    <a class="btn btn-ghost" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)" href="https://murka-katzenhilfe-russland.de" target="_blank" rel="noopener noreferrer">
+     Vermittlungsverfahren ansehen<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+    <a class="btn btn-ghost" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)" href="../katzen.html">
+     Zurück zu allen Katzen</a>
+   </p>
+   <p class="reveal" style="color:rgba(237,243,241,.6);font-size:.82rem;margin-top:28px">
+    Letzte Aktualisierung des Profils: {{DATUM}}</p>
+  </div>
+ </section>
+
+</main>
+
+<dialog class="lightbox" id="lightbox" aria-label="Bildansicht">
+ <div class="lightbox__inner">
+  <img id="lb-img" alt="">
+  <div class="lightbox__bar">
+   <button type="button" class="lb-btn" id="lb-close" aria-label="Bildansicht schließen">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+  <button type="button" class="lb-btn lb-nav lb-prev" id="lb-prev" aria-label="Vorheriges Bild">
+   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" class="lb-btn lb-nav lb-next" id="lb-next" aria-label="Nächstes Bild">
+   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <p class="lightbox__count" id="lb-count"></p>
+ </div>
+</dialog>
+
+<footer class="site-footer">
+ <div class="wrap">
+  <span>© 2026 Margo Animal Care Initiative · Artemida, Griechenland</span>
+  <a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a>
+  <a href="../katzen.html">Alle Katzen</a>
+ </div>
+</footer>
+
+<script>
+(function(){
+  /* Reveal */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
+
+  /* Lightbox — nur als Ergänzung; ohne JS bleiben alle Bilder sichtbar */
+  var dlg = document.getElementById('lightbox');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var btns  = Array.prototype.slice.call(document.querySelectorAll('#gallery button'));
+  var img   = document.getElementById('lb-img');
+  var count = document.getElementById('lb-count');
+  var idx = 0, opener = null;
+
+  function show(i){
+    idx = (i + btns.length) % btns.length;
+    var b = btns[idx];
+    img.src = b.dataset.full;
+    img.alt = b.querySelector('img').alt;
+    count.textContent = (idx+1) + ' von ' + btns.length;
+  }
+  btns.forEach(function(b,i){
+    b.addEventListener('click', function(){ opener = b; show(i); dlg.showModal(); document.getElementById('lb-close').focus(); });
+  });
+  document.getElementById('lb-close').addEventListener('click', function(){ dlg.close(); });
+  document.getElementById('lb-prev').addEventListener('click', function(){ show(idx-1); });
+  document.getElementById('lb-next').addEventListener('click', function(){ show(idx+1); });
+  dlg.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); show(idx-1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); show(idx+1); }
+  });
+  dlg.addEventListener('close', function(){ if (opener) opener.focus(); });
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+})();
+</script>
+</body>
+</html>
