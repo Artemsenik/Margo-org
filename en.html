@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support Us — Margo Animal Care Initiative</title>
   <meta name="description" content="Supporting the daily care of approximately 250–300 animals near Athens, Greece: funding needs, documented costs and how to contribute.">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="assets/js/lucide.min.js"></script>
   <style>
     :root{
       --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
@@ -81,20 +77,22 @@
       html{scroll-behavior:auto;}
     }
   </style>
- </head>
+ <link rel="stylesheet" href="assets/css/tw.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+</head>
  <body class="w-full min-h-screen grain">
   <div id="progress" aria-hidden="true"></div>
 
   <header id="nav-shadow-target" class="sticky top-0 z-50 w-full backdrop-blur" style="border-bottom:1px solid var(--hair);">
    <nav class="max-w-[1160px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
-    <a href="margo-oeffentlich.html" class="display" style="font-size:1.25rem;color:var(--petrol-dark);">Margo <em>Animal Care</em> Initiative</a>
+    <a href="index.html" class="display" style="font-size:1.25rem;color:var(--petrol-dark);">Margo <em>Animal Care</em> Initiative</a>
     <div class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:var(--ink-soft);">
-     <a href="margo-oeffentlich.html" class="hover:opacity-70 transition">Deutsch</a>
+     <a href="index.html" class="hover:opacity-70 transition">Deutsch</a>
      <a href="en.html" class="transition" style="color:var(--petrol);font-weight:600;">English</a>
      <a href="katzen.html" class="hover:opacity-70 transition">Cats</a>
-     <a href="veterinaerkosten.html" class="hover:opacity-70 transition">Cost transparency</a>
+     <a href="wirkung-transparenz.html" class="hover:opacity-70 transition">Cost transparency</a>
     </div>
-    <a href="volunteer.html" class="btn btn-primary hidden sm:inline-flex items-center gap-2 px-4 py-2">
+    <a href="mitmachen.html" class="btn btn-primary hidden sm:inline-flex items-center gap-2 px-4 py-2">
      <span>Mithelfen</span>
      <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
     </a>
@@ -119,7 +117,7 @@
      <div class="reveal mt-9 flex flex-wrap gap-3">
       <a href="mailto:hello@margoanimalcare.org?subject=Margo%20Animal%20Care%20%E2%80%93%20Partnership%20enquiry" class="btn btn-primary inline-flex items-center gap-2 px-6 py-3">
        <i data-lucide="mail" style="width:16px;height:16px;"></i><span>Contact us</span></a>
-      <a href="veterinaerkosten.html" class="btn btn-ghost inline-flex items-center gap-2 px-6 py-3">
+      <a href="wirkung-transparenz.html" class="btn btn-ghost inline-flex items-center gap-2 px-6 py-3">
        <span>Documented veterinary costs</span>
        <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i></a>
      </div>
@@ -127,11 +125,11 @@
    </section>
 
    <section class="section-petrol-tint w-full py-14 md:py-16">
-    <div class="max-w-[1160px] mx-auto px-6 grid gap-8 sm:grid-cols-4 text-center">
+    <div class="max-w-[1160px] mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-center">
      <div class="reveal"><p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);">250–300</p><p class="muted text-sm mt-1">animals in daily care</p></div>
      <div class="reveal"><p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);">13+</p><p class="muted text-sm mt-1">documented care locations</p></div>
      <div class="reveal"><p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);">€3,954.70</p><p class="muted text-sm mt-1">vet costs documented<br>(23 Mar – 20 Jul 2026)</p></div>
-     <div class="reveal"><p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);">[X]</p><p class="muted text-sm mt-1">animals neutered to date</p></div>
+     <div class="reveal"><p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);">150–180</p><p class="muted text-sm mt-1">cats in Margo's direct care<br>– all neutered (estimate)</p></div>
     </div>
    </section>
 
@@ -145,7 +143,8 @@
        <span class="icon-circle mb-5"><i data-lucide="scissors" style="width:22px;height:22px;"></i></span>
        <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Neutering — the sustainable lever</h3>
        <p class="muted text-sm leading-relaxed mb-3">Feeding keeps animals alive. Neutering prevents new ones from arriving. <strong style="color:var(--petrol-dark);">Every neutering reduces future feeding and veterinary costs permanently.</strong></p>
-       <p class="muted text-sm leading-relaxed">Cost per procedure: [X] € (female) / [X] € (male). Currently outstanding: [X] animals.</p>
+       <p class="muted text-sm leading-relaxed mb-3">Every cat living permanently with Margo is neutered. Free-living colony cats are neutered only when treated for a medical issue. By Margo's own estimate, around 150 colony cats still need neutering — the reason is funding, not willingness.</p>
+       <p class="muted text-sm leading-relaxed">At the standard rate of €50 per procedure, that represents a rough funding gap of about <strong style="color:var(--petrol-dark);">€7,500</strong> — an order of magnitude, not a fixed budget, since no timeframe or campaign has been set yet.</p>
       </article>
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="stethoscope" style="width:22px;height:22px;"></i></span>
@@ -226,7 +225,7 @@
      <a href="mailto:hello@margoanimalcare.org?subject=Margo%20Animal%20Care%20%E2%80%93%20Partnership%20enquiry" class="btn reveal inline-flex items-center gap-2 px-6 py-3" style="background:#fff;color:var(--petrol-dark);">
       <i data-lucide="mail" style="width:16px;height:16px;"></i><span>hello@margoanimalcare.org</span></a>
      <p class="reveal mt-8" style="color:rgba(237,243,241,0.6);font-size:.85rem;">
-      Full German site: <a href="margo-oeffentlich.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">margoanimalcare.org</a></p>
+      Full German site: <a href="index.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">margoanimalcare.org</a></p>
     </div>
    </section>
 
@@ -236,7 +235,7 @@
    <div class="max-w-[1000px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
     <span>© 2026 Margo Animal Care Initiative · Artemida, Greece</span>
     <a href="mailto:hello@margoanimalcare.org" class="inline-flex items-center gap-1.5 text-sm underline underline-offset-4 opacity-80 hover:opacity-100 transition"><i data-lucide="mail" style="width:13px;height:13px;"></i>hello@margoanimalcare.org</a>
-    <a href="margo-oeffentlich.html" class="btn inline-flex items-center gap-2 px-5 py-2" style="background:#fff;color:var(--petrol-dark);"><span>Deutsche Seite</span><i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i></a>
+    <a href="index.html" class="btn inline-flex items-center gap-2 px-5 py-2" style="background:#fff;color:var(--petrol-dark);"><span>Deutsche Seite</span><i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i></a>
    </div>
   </footer>
 

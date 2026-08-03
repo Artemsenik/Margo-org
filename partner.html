@@ -3,13 +3,9 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partner & Unterstützer — Margo Animal Care Initiative</title>
-  <meta name="description" content="Wer Margos Arbeit trägt: der Tierschutzverein Murka, die Windsurfing-Schule, zwei Tierarztpraxen und vier Tierfutter-Geschäfte unterstützen die Versorgung der Katzen in Artemida, Griechenland.">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Partner — Margo Animal Care Initiative</title>
+  <meta name="description" content="Der Verein, die Tierarztpraxen und die Betriebe, die Margos tägliche Versorgungsarbeit in Artemida mittragen.">
+  <script src="assets/js/lucide.min.js"></script>
   <style>
     :root{
       --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
@@ -81,29 +77,58 @@
       html{scroll-behavior:auto;}
     }
   </style>
- </head>
+ <link rel="stylesheet" href="assets/css/tw.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/partner.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Partner — Margo Animal Care Initiative">
+<meta property="og:description" content="Der Verein, die Tierarztpraxen und die Betriebe, die Margos tägliche Versorgungsarbeit in Artemida mittragen.">
+<meta property="og:url" content="https://www.margoanimalcare.org/partner.html">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
  <body class="w-full min-h-screen grain">
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Unsere Arbeit</a>
+      <a class="site-nav__link" href="katzen.html">Katzen</a>
+      <a class="site-nav__link" href="mitmachen.html">Mitmachen</a>
+      <a class="site-nav__link" href="foerdern.html">Fördern</a>
+      <a class="site-nav__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    </nav>
+    <div class="site-header__actions">
+      <a class="site-cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Menü öffnen</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Unsere Arbeit</a>
+    <a class="site-drawer__link" href="katzen.html">Katzen</a>
+    <a class="site-drawer__link" href="mitmachen.html">Mitmachen</a>
+    <a class="site-drawer__link" href="foerdern.html">Fördern</a>
+    <a class="site-drawer__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
   <div id="progress" aria-hidden="true"></div>
 
-  <header id="nav-shadow-target" class="sticky top-0 z-50 w-full backdrop-blur" style="border-bottom:1px solid var(--hair);">
-   <nav class="max-w-[1160px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
-    <a href="margo-oeffentlich.html" class="display" style="font-size:1.25rem;color:var(--petrol-dark);">Margo <em>Animal Care</em> Initiative</a>
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:var(--ink-soft);">
-     <a href="ansatz.html" class="hover:opacity-70 transition">Unser Ansatz</a>
-     <a href="katzen.html" class="hover:opacity-70 transition">Katzen</a>
-     <a href="immersive-reise.html" class="hover:opacity-70 transition">Versorgungsroute</a>
-     <a href="partner.html" class="transition" style="color:var(--petrol);font-weight:600;">Partner</a>
-     <a href="foerdern.html" class="hover:opacity-70 transition">Fördern</a>
-     <a href="veterinaerkosten.html" class="hover:opacity-70 transition">Transparenz</a>
-     <a href="volunteer.html" class="hover:opacity-70 transition">Mithelfen</a>
-     <a href="en.html" class="hover:opacity-70 transition" style="border:1px solid var(--hair);border-radius:4px;padding:2px 7px;font-size:.78rem;">EN</a>
-    </div>
-    <a href="volunteer.html" class="btn btn-primary hidden sm:inline-flex items-center gap-2 px-4 py-2">
-     <span>Mithelfen</span>
-     <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
-    </a>
-   </nav>
-  </header>
+  
 
   <main class="w-full">
 
@@ -113,7 +138,7 @@
      <span class="eyebrow reveal mb-6">Partner &amp; Unterstützer</span>
      <h1 class="reveal mb-7" style="font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.04;">Margo trägt <em>nicht allein.</em></h1>
      <p class="reveal measure muted leading-relaxed" style="font-size:1.1rem;">
-      Hinter der täglichen Versorgung von nach aktuellem Stand rund 250–300 Tieren steht ein kleiner, verlässlicher Kreis von Partnern – finanziell, medizinisch und im Alltag. Sie machen es möglich, dass diese Arbeit in ihrem Umfang überhaupt getragen werden kann.
+      Hinter der täglichen Versorgung von geschätzt 250–300 Tieren (Stand 2026) steht ein kleiner, verlässlicher Kreis von Partnern – finanziell, medizinisch und im Alltag. Sie machen es möglich, dass diese Arbeit in ihrem Umfang überhaupt getragen werden kann.
      </p>
     </div>
    </section>
@@ -183,7 +208,7 @@
          <span class="text-xs uppercase tracking-wider" style="color:var(--clay);">Tierarztpraxis</span>
         </div>
        </div>
-       <p class="muted text-sm leading-relaxed mb-5">Kompetente tierärztliche Betreuung für Margos Schützlinge – zu vergünstigten Konditionen für die Initiative.</p>
+       <p class="muted text-sm leading-relaxed mb-5">Kompetente tierärztliche Betreuung für Margos Schützlinge – zu vergünstigten Konditionen für die Initiative. Führt auch Kastrationen zum vereinbarten Satz durch.</p>
        <div class="flex flex-wrap gap-2.5 mt-auto">
         <a href="https://vets4life.gr/en/" target="_blank" rel="noopener" class="contact-link"><i data-lucide="globe" style="width:15px;height:15px;"></i>Webseite</a>
         <a href="tel:+302106043335" class="contact-link"><i data-lucide="phone" style="width:15px;height:15px;"></i>+30 210 604 3335</a>
@@ -199,7 +224,7 @@
          <span class="text-xs uppercase tracking-wider" style="color:var(--clay);">Κτηνιατρικό κέντρο Στυλιανού–Αδάμης</span>
         </div>
        </div>
-       <p class="muted text-sm leading-relaxed mb-5">Erfahrenes tierärztliches Zentrum, das Margos Tiere fachkundig und zu vergünstigten Preisen behandelt.</p>
+       <p class="muted text-sm leading-relaxed mb-5">Erfahrenes tierärztliches Zentrum, das Margos Tiere fachkundig und zu vergünstigten Preisen behandelt. Führt auch Kastrationen zum vereinbarten Satz durch.</p>
        <div class="flex flex-wrap gap-2.5 mt-auto">
         <a href="http://omnivetclinic.gr/" target="_blank" rel="noopener" class="contact-link"><i data-lucide="globe" style="width:15px;height:15px;"></i>Webseite</a>
         <a href="tel:+302106109765" class="contact-link"><i data-lucide="phone" style="width:15px;height:15px;"></i>+30 210 610 9765</a>
@@ -227,16 +252,7 @@
 
   </main>
 
-  <footer class="w-full py-12" style="background:var(--petrol-dark);color:rgba(237,243,241,0.85);">
-   <div class="max-w-[1000px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <span>© 2026 Margo Animal Care Initiative · Artemida, Griechenland</span>
-    <a href="mailto:hello@margoanimalcare.org" class="inline-flex items-center gap-1.5 text-sm underline underline-offset-4 opacity-80 hover:opacity-100 transition"><i data-lucide="mail" style="width:13px;height:13px;"></i>hello@margoanimalcare.org</a>
-    <a href="margo-oeffentlich.html" class="btn inline-flex items-center gap-2 px-5 py-2" style="background:#fff;color:var(--petrol-dark);">
-     <span>Zur Startseite</span>
-     <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
-    </a>
-   </div>
-  </footer>
+  
 
   <script>
     try { lucide.createIcons(); } catch (e) { /* Icon-CDN nicht erreichbar */ }
@@ -256,16 +272,61 @@
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
     const bar = document.getElementById('progress');
-    const nav = document.getElementById('nav-shadow-target');
+    const nav = document.getElementById('nav-shadow-target'); // kann fehlen (Shell-Header)
     function onScroll() {
       const h = document.documentElement;
       const max = h.scrollHeight - h.clientHeight;
       const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
-      bar.style.width = pct + '%';
-      nav.classList.toggle('scrolled', h.scrollTop > 8);
+      if (bar) bar.style.width = pct + '%';
+      if (nav) nav.classList.toggle('scrolled', h.scrollTop > 8);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   </script>
- </body>
+ <!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Orientierung</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Unsere Arbeit</a></li>
+        <li><a href="katzen.html">Katzen</a></li>
+        <li><a href="mitmachen.html">Mitmachen</a></li>
+        <li><a href="foerdern.html">Fördern</a></li>
+        <li><a href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Vertiefung</h2>
+      <ul>
+        <li><a href="route.html">Versorgungsroute</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="mitmachen.html#rollen">Offene Rollen</a></li>
+        <li><a href="unterstuetzen.html">Unterstützen</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Region Artemida/Athen, Griechenland</li>
+        <li>Antwort in der Regel innerhalb von 24 Stunden</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Rechtliches</h2>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Zuletzt aktualisiert: August 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="assets/js/site.js" defer></script>
+</body>
 </html>

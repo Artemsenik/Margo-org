@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="de">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Support Volunteer — Margo Animal Care Initiative</title>
+  <meta name="description" content="Die Rolle Farm Support Volunteer: Aufgaben, Aufwand, Grenzen und der erste Schritt für den Einstieg.">
+  <script src="../assets/js/lucide.min.js"></script>
+  <style>
+    :root{
+      --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
+      --ink:#1B1A16; --ink-soft:#4A473F;
+      --petrol:#143F3C; --petrol-mid:#1C5450; --petrol-dark:#0E2E2C; --petrol-tint:#E7EEEB;
+      --clay:#9A5B3F; --clay-tint:#F3E7DF;
+      --hair:rgba(20,63,60,0.14); --hair-warm:#E3DED2;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-0.012em;text-wrap:balance;}
+    .display em, h1 em, h2 em{font-style:italic;color:var(--petrol);}
+    .muted{color:var(--ink-soft);}
+    .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--petrol);}
+    .eyebrow::before{content:"";width:1.8rem;height:1.5px;background:var(--petrol);display:inline-block;}
+    .soft-shadow{box-shadow:0 1px 2px rgba(14,46,44,0.06),0 6px 14px rgba(14,46,44,0.07),0 18px 40px rgba(14,46,44,0.06);}
+    .framed{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--card);}
+    .ed-card{background:var(--card);border:1px solid var(--hair);border-radius:12px;transition:transform .4s cubic-bezier(0.22,1,0.36,1),box-shadow .4s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .ed-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(14,46,44,0.07),0 10px 22px rgba(14,46,44,0.09),0 24px 48px rgba(14,46,44,0.07);} }
+    .icon-circle{width:46px;height:46px;border-radius:9999px;background:var(--petrol-tint);color:var(--petrol);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .pill{border-radius:100px;border:1px solid var(--hair);background:var(--card);font-size:.8rem;color:var(--ink-soft);}
+    .pill-invert{border-radius:100px;border:1px solid rgba(20,63,60,0.25);background:var(--petrol-tint);color:var(--petrol-dark);font-size:.78rem;font-weight:600;}
+    .pill-clay{border-radius:100px;background:var(--clay-tint);color:var(--clay);font-size:.78rem;font-weight:600;}
+    .btn{border-radius:7px;font-weight:600;font-size:.95rem;transition:transform .3s ease,box-shadow .3s ease,background .3s ease;}
+    .btn-primary{background:var(--petrol);color:#fff;}
+    .btn-primary:hover{background:var(--petrol-mid);box-shadow:0 8px 20px rgba(14,46,44,0.22);}
+    .btn-ghost{border:1px solid var(--hair);color:var(--petrol-dark);background:transparent;}
+    .btn-ghost:hover{background:var(--petrol-tint);}
+    .btn .arrow{transition:transform .3s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .btn:hover .arrow{transform:translateX(3px);} }
+    .section-dark{background:linear-gradient(165deg,var(--petrol-dark) 0%,var(--petrol) 70%,var(--petrol-mid) 100%);color:#EDF3F1;}
+    .section-dark h2, .section-dark .display{color:#fff;}
+    .section-tint{background:var(--paper-2);border-top:1px solid var(--hair-warm);border-bottom:1px solid var(--hair-warm);}
+    .section-petrol-tint{background:var(--petrol-tint);}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(0.22,1,0.36,1),transform .8s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.in{opacity:1;transform:none;}
+    #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--petrol);z-index:80;transition:width .1s linear;}
+    ::selection{background:var(--petrol);color:#fff;}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:4px;}
+    #nav-shadow-target{transition:box-shadow .3s ease;background:rgba(245,243,238,0.85);}
+    #nav-shadow-target.scrolled{box-shadow:0 1px 0 var(--hair),0 8px 24px rgba(14,46,44,0.06);}
+    .measure{max-width:62ch;}
+
+    /* Bewusst gestaltete Platzhalter für spätere echte Inhalte */
+    .ph{background:linear-gradient(160deg,var(--petrol-tint) 0%,#F0F3F1 100%);border:1px solid var(--hair);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem;gap:.7rem;}
+    .ph .cap{font-size:.85rem;color:var(--ink-soft);max-width:34ch;line-height:1.5;}
+    .ph .tag{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--petrol);}
+
+    /* Rollenkarten */
+    .role{background:var(--card);border:1px solid var(--hair);border-radius:14px;overflow:hidden;}
+    .role-head{padding:1.5rem 1.75rem 1.1rem;border-bottom:1px solid var(--hair);}
+    .role-body{padding:1.5rem 1.75rem;}
+    .role h3{font-size:1.45rem;}
+    .rl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--petrol);margin-bottom:.35rem;}
+    .role ul{list-style:none;}
+    .role ul li{position:relative;padding-left:1.05rem;margin-bottom:.35rem;font-size:.9rem;color:var(--ink-soft);}
+    .role ul li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:9999px;background:var(--petrol);}
+    .mission{background:var(--clay-tint);border-radius:10px;padding:1rem 1.15rem;}
+    .notbox{background:var(--paper-2);border:1px solid var(--hair);border-radius:10px;padding:1rem 1.15rem;}
+
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+      html{scroll-behavior:auto;}
+    }
+  </style>
+ <link rel="stylesheet" href="../assets/css/tw.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/rollen/farm-support.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Farm Support Volunteer — Margo Animal Care Initiative">
+<meta property="og:description" content="Die Rolle Farm Support Volunteer: Aufgaben, Aufwand, Grenzen und der erste Schritt für den Einstieg.">
+<meta property="og:url" content="https://www.margoanimalcare.org/rollen/farm-support.html">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
+ <body class="w-full min-h-screen">
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="../index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="../unsere-arbeit.html">Unsere Arbeit</a>
+      <a class="site-nav__link" href="../katzen.html">Katzen</a>
+      <a class="site-nav__link" href="../mitmachen.html" aria-current="page">Mitmachen</a>
+      <a class="site-nav__link" href="../foerdern.html">Fördern</a>
+      <a class="site-nav__link" href="../wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    </nav>
+    <div class="site-header__actions">
+      <a class="site-cta" href="../unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Menü öffnen</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="../unsere-arbeit.html">Unsere Arbeit</a>
+    <a class="site-drawer__link" href="../katzen.html">Katzen</a>
+    <a class="site-drawer__link" href="../mitmachen.html" aria-current="page">Mitmachen</a>
+    <a class="site-drawer__link" href="../foerdern.html">Fördern</a>
+    <a class="site-drawer__link" href="../wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="../unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
+  <div id="progress" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  
+
+  <main class="w-full">
+   <section class="w-full pt-8 pb-4">
+    <div class="max-w-[880px] mx-auto px-6">
+     <a href="../mitmachen.html#rollen" class="inline-flex items-center gap-2 text-sm font-medium mb-8 hover:opacity-70 transition" style="color:var(--petrol);"><i data-lucide="arrow-left" style="width:16px;height:16px;"></i>Alle Rollen</a>
+     <span class="eyebrow reveal mb-5">Volunteer-Rolle</span>
+     <h1 class="reveal mb-4" style="font-size:clamp(2rem,4.4vw,3rem);line-height:1.05;">Farm Support Volunteer</h1>
+     <p class="reveal muted measure mb-10" style="font-size:1.06rem;">Garten, Ordnung &amp; sichere Umgebung</p>
+     <div class="reveal ph mb-12" style="min-height:340px;"><span class="tag">Foto folgt</span><p class="cap">Hier steht bald ein reales Foto zu dieser Aufgabe – mit Margos Freigabe, sobald die ersten Aufnahmen da sind.</p></div>
+     <article id="rolle-farmsupport" class="role reveal soft-shadow">
+      <div class="role-head">
+       <div class="flex flex-wrap items-center gap-2 mb-3"><span class="status status--verified" data-role-status style="margin-right:2px">Offen</span><span class="pill-invert px-3 py-1">Vor Ort · Farm</span><span class="pill px-3 py-1">einzelne Einsätze à 3–4 Std. oder Projekttage</span></div>
+       <h2>Farm Support Volunteer <span class="muted" style="font-size:1rem;">— Garten, Ordnung &amp; sichere Umgebung</span></h2>
+       <p class="display italic mt-2" style="color:var(--petrol-dark);font-size:1.1rem;">Du machst aus einem belasteten Ort eine sicherere, übersichtlichere Umgebung für Tiere und Helfer.</p>
+      </div>
+      <div class="role-body grid gap-6 md:grid-cols-2">
+       <div>
+        <p class="rl">Was du konkret tust</p>
+        <ul>
+         <li>Gartenarbeiten, Aufräumen und Reinigung</li>
+         <li>Kleine Reparaturen nach Absprache</li>
+         <li>Material sortieren und Lagerplätze ordnen</li>
+         <li>Sichere Bereiche für Tiere und Helfer schaffen</li>
+        </ul>
+       </div>
+       <div>
+        <p class="rl">Warum das Margo &amp; den Tieren hilft</p>
+        <p class="text-sm muted mb-4">Ordnung ist hier keine Kosmetik: Ein übersichtlicher, sicherer Ort bedeutet weniger Verletzungsrisiko, schnellere Abläufe und weniger Dauerstress. Jeder Einsatz hinterlässt ein sichtbares Ergebnis.</p>
+        <p class="rl">Was du persönlich mitnimmst</p>
+        <p class="text-sm muted">Arbeit mit den Händen statt am Bildschirm – und am Ende des Tages siehst du, was du geschafft hast. Ehrliche, körperlich-praktische Hilfe mit sofort sichtbarer Wirkung.</p>
+       </div>
+       <div>
+        <p class="rl">Was du fachlich lernst</p>
+        <ul><li>Materialorganisation und Lagerlogik</li><li>Sicherheitsdenken in belebten Umgebungen</li><li>Praktische Projektarbeit: planen, umsetzen, abschliessen</li></ul>
+       </div>
+       <div>
+        <p class="rl">Für wen das passt</p>
+        <p class="text-sm muted">Praktisch veranlagte Menschen, die gern anpacken – einmalig für einen Projekttag oder regelmässig. Handwerkliche Erfahrung ist ein Plus, kein Muss.</p>
+       </div>
+       <div class="md:col-span-2 notbox">
+        <p class="rl" style="color:var(--clay);">Was diese Rolle nicht ist</p>
+        <p class="text-sm muted">Keine gefährlichen Arbeiten ohne Absprache · keine baulichen Veränderungen ohne Freigabe · keine Arbeiten an Strom, Wasser oder gefährlichen Anlagen ohne Fachperson.</p>
+       </div>
+       <div class="md:col-span-2 mission">
+        <p class="rl" style="color:var(--clay);">Deine erste kleine Mission</p>
+        <p class="text-sm" style="color:var(--ink);">Ein halber Projekttag: einen abgesprochenen Bereich aufräumen, Material sortieren und ein Vorher-nachher-Foto für die interne Dokumentation machen.</p>
+       </div>
+       <div class="md:col-span-2">
+        <a href="mailto:hello@margoanimalcare.org?subject=Kurzbewerbung%20%E2%80%94%20Farm%20Support%20Volunteer&amp;body=Guten%20Tag%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Rolle%20Farm%20Support%20Volunteer.%0A%0AIn%20drei%20S%C3%A4tzen%20zu%20mir%3A%0A%0AVerf%C3%BCgbarkeit%3A%0AVor%20Ort%20oder%20remote%3A%0A%0AFreundliche%20Gr%C3%BCsse" class="btn btn-primary inline-flex items-center gap-2 px-5 py-2.5"><i data-lucide="mail" style="width:15px;height:15px;"></i>Diese Rolle interessiert mich</a>
+       </div>
+      </div>
+     </article>
+     <div class="reveal mt-12 pt-8" style="border-top:1px solid var(--hair);">
+      <a href="../mitmachen.html#rollen" class="inline-flex items-center gap-2 text-sm font-medium hover:opacity-70 transition" style="color:var(--petrol);"><i data-lucide="arrow-left" style="width:16px;height:16px;"></i>Zurück zu allen Rollen</a>
+     </div>
+    </div>
+   </section>
+  </main>
+
+
+
+  <script>
+    lucide.createIcons();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            e.target.style.transitionDelay = Math.min(i * 55, 220) + 'ms';
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+    const bar = document.getElementById('progress');
+    const nav = document.getElementById('nav-shadow-target'); // kann fehlen (Shell-Header)
+    function onScroll() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      if (bar) bar.style.width = pct + '%';
+      if (nav) nav.classList.toggle('scrolled', h.scrollTop > 8);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+ <!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Orientierung</h2>
+      <ul>
+        <li><a href="../unsere-arbeit.html">Unsere Arbeit</a></li>
+        <li><a href="../katzen.html">Katzen</a></li>
+        <li><a href="../mitmachen.html">Mitmachen</a></li>
+        <li><a href="../foerdern.html">Fördern</a></li>
+        <li><a href="../wirkung-transparenz.html">Wirkung &amp; Transparenz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Vertiefung</h2>
+      <ul>
+        <li><a href="../route.html">Versorgungsroute</a></li>
+        <li><a href="../partner.html">Partner</a></li>
+        <li><a href="../mitmachen.html#rollen">Offene Rollen</a></li>
+        <li><a href="../unterstuetzen.html">Unterstützen</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org?subject=Kurzbewerbung%20%E2%80%94%20Farm%20Support%20Volunteer&amp;body=Guten%20Tag%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Rolle%20Farm%20Support%20Volunteer.%0A%0AIn%20drei%20S%C3%A4tzen%20zu%20mir%3A%0A%0AVerf%C3%BCgbarkeit%3A%0AVor%20Ort%20oder%20remote%3A%0A%0AFreundliche%20Gr%C3%BCsse">hello@margoanimalcare.org</a></li>
+        <li>Region Artemida/Athen, Griechenland</li>
+        <li>Antwort in der Regel innerhalb von 24 Stunden</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Rechtliches</h2>
+      <ul>
+        <li><a href="../impressum.html">Impressum</a></li>
+        <li><a href="../datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Zuletzt aktualisiert: August 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

@@ -3,13 +3,9 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fördern & Unterstützen — Margo Animal Care Initiative</title>
-  <meta name="description" content="Unterstützen Sie die tägliche Versorgung von rund 250–300 Tieren in Artemida: Förderwege, Mittelverwendung und Transparenz der Margo Animal Care Initiative.">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Fördern — Spenden &amp; Partnerschaften | Margo Animal Care Initiative</title>
+  <meta name="description" content="Wofür Mittel eingesetzt werden, wer die Arbeit bereits mitträgt und wie eine private oder institutionelle Förderung abläuft.">
+  <script src="assets/js/lucide.min.js"></script>
   <style>
     :root{
       --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
@@ -81,29 +77,60 @@
       html{scroll-behavior:auto;}
     }
   </style>
- </head>
+ <link rel="stylesheet" href="assets/css/tw.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/foerdern.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Fördern — Spenden & Partnerschaften | Margo Animal Care Initiative">
+<meta property="og:description" content="Wofür Mittel eingesetzt werden, wer die Arbeit bereits mitträgt und wie eine private oder institutionelle Förderung abläuft.">
+<meta property="og:url" content="https://www.margoanimalcare.org/foerdern.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://www.margoanimalcare.org/assets/hero/og-foerdern.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.margoanimalcare.org/assets/hero/og-foerdern.jpg">
+<link rel="stylesheet" href="assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
  <body class="w-full min-h-screen grain">
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Unsere Arbeit</a>
+      <a class="site-nav__link" href="katzen.html">Katzen</a>
+      <a class="site-nav__link" href="mitmachen.html">Mitmachen</a>
+      <a class="site-nav__link" href="foerdern.html" aria-current="page">Fördern</a>
+      <a class="site-nav__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    </nav>
+    <div class="site-header__actions">
+      <a class="site-cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Menü öffnen</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Unsere Arbeit</a>
+    <a class="site-drawer__link" href="katzen.html">Katzen</a>
+    <a class="site-drawer__link" href="mitmachen.html">Mitmachen</a>
+    <a class="site-drawer__link" href="foerdern.html" aria-current="page">Fördern</a>
+    <a class="site-drawer__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
   <div id="progress" aria-hidden="true"></div>
 
-  <header id="nav-shadow-target" class="sticky top-0 z-50 w-full backdrop-blur" style="border-bottom:1px solid var(--hair);">
-   <nav class="max-w-[1160px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
-    <a href="margo-oeffentlich.html" class="display" style="font-size:1.25rem;color:var(--petrol-dark);">Margo <em>Animal Care</em> Initiative</a>
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:var(--ink-soft);">
-     <a href="ansatz.html" class="hover:opacity-70 transition">Unser Ansatz</a>
-     <a href="katzen.html" class="hover:opacity-70 transition">Katzen</a>
-     <a href="immersive-reise.html" class="hover:opacity-70 transition">Versorgungsroute</a>
-     <a href="partner.html" class="hover:opacity-70 transition">Partner</a>
-     <a href="foerdern.html" class="transition" style="color:var(--petrol);font-weight:600;">Fördern</a>
-     <a href="veterinaerkosten.html" class="hover:opacity-70 transition">Transparenz</a>
-     <a href="volunteer.html" class="hover:opacity-70 transition">Mithelfen</a>
-     <a href="en.html" class="hover:opacity-70 transition" style="border:1px solid var(--hair);border-radius:4px;padding:2px 7px;font-size:.78rem;">EN</a>
-    </div>
-    <a href="volunteer.html" class="btn btn-primary hidden sm:inline-flex items-center gap-2 px-4 py-2">
-     <span>Mithelfen</span>
-     <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
-    </a>
-   </nav>
-  </header>
+  
 
   <main class="w-full">
 
@@ -113,7 +140,7 @@
      <span class="eyebrow reveal mb-6">Fördern &amp; Unterstützen</span>
      <h1 class="reveal mb-7" style="font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.04;">Tägliche Versorgung braucht <em>verlässliche Mittel.</em></h1>
      <p class="reveal measure muted leading-relaxed" style="font-size:1.1rem;">
-      In Artemida bei Athen werden nach aktuellem Stand rund 250–300 Katzen sowie einige Hunde und
+      In Artemida bei Athen werden geschätzt 250–300 Katzen (Stand 2026) sowie einige Hunde und
       Hasen täglich mit Futter, Wasser und medizinischer Versorgung betreut – über private
       Versorgungsorte, eine Farm und mehrere Futterkolonien. Diese Seite zeigt, wofür Mittel
       gebraucht werden, wer bereits mitträgt und wie eine Förderung konkret aussehen kann.</p>
@@ -134,15 +161,77 @@
     <div class="max-w-[1160px] mx-auto px-6 grid gap-8 sm:grid-cols-3 text-center">
      <div class="reveal">
       <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">250–300</p>
-      <p class="muted text-sm mt-1">Katzen in täglicher Versorgung<br>(nach aktuellem Stand)</p>
+      <p class="muted text-sm mt-1">Regelmässig versorgte Tiere</p>
+      <p class="data-note">Schätzung · Stand 2026</p>
      </div>
      <div class="reveal">
       <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">13+</p>
-      <p class="muted text-sm mt-1">erfasste Versorgungsstationen<br>rund um Artemida</p>
+      <p class="muted text-sm mt-1">Erfasste Versorgungsstellen</p>
+      <p class="data-note">Schätzung · genaue Orte nicht öffentlich</p>
      </div>
      <div class="reveal">
       <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">365</p>
-      <p class="muted text-sm mt-1">Tage im Jahr, an denen<br>gefüttert und kontrolliert wird</p>
+      <p class="muted text-sm mt-1">Tage im Jahr mit Versorgung</p>
+      <p class="data-note">Täglicher Betrieb</p>
+     </div>
+    </div>
+   </section>
+
+
+   <!-- GOVERNANCE — für institutionelle Prüfung zuerst -->
+   <section id="governance" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Rechtsrahmen &amp; Zuständigkeit</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Wer verantwortet, wer abrechnet</h2>
+     <p class="reveal muted mb-10 measure">Für Stiftungen, Unternehmen und Vereine steht diese Frage
+      am Anfang. Deshalb hier zuerst: Die Initiative ist selbst kein eingetragener Verein. Spenden
+      und Vermittlungen laufen über einen eingetragenen deutschen Partnerverein.</p>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <span class="status status--verified" style="margin-bottom:14px">Verifiziert</span>
+       <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Eingetragener Partnerverein</h3>
+       <dl style="font-size:.9rem;line-height:1.7">
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Verein</dt>
+         <dd style="margin:0;color:var(--petrol-dark);font-weight:500">Murka-Katzenhilfe e.&nbsp;V.</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Sitz</dt>
+         <dd style="margin:0">44795 Bochum, Deutschland</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Registergericht</dt>
+         <dd style="margin:0">Amtsgericht Bochum, VR&nbsp;4939</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Status</dt>
+         <dd style="margin:0">Als gemeinnützig anerkannter Verein</dd></div>
+       </dl>
+       <p class="muted text-sm mt-4" style="line-height:1.65">Spenden über dieses Konto sind in
+        Deutschland steuerlich abzugsfähig. Der aktuelle Freistellungsbescheid wird auf Anfrage
+        vorgelegt.</p>
+      </article>
+
+      <article class="ed-card reveal p-7">
+       <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Klare Arbeitsteilung</h3>
+       <ul class="muted" style="font-size:.9rem;line-height:1.7;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
+        <li><strong style="color:var(--petrol-dark)">Margo vor Ort:</strong> tägliche Versorgung,
+         Entscheidungen zum einzelnen Tier, Freigabe jeder Vermittlung.</li>
+        <li><strong style="color:var(--petrol-dark)">Die Initiative:</strong> Dokumentation,
+         Kostenaufstellung, Koordination von Mithilfe und Kommunikation.</li>
+        <li><strong style="color:var(--petrol-dark)">Der Partnerverein:</strong> Spendenabwicklung,
+         Spendenquittungen und die Vermittlung nach Deutschland.</li>
+        <li><strong style="color:var(--petrol-dark)">Die Tierarztpraxen:</strong> medizinische
+         Entscheidungen und Abrechnung der Behandlungen.</li>
+       </ul>
+       <p class="muted text-sm mt-4" style="line-height:1.65">Zweckbindung erfolgt über den
+        Verwendungszweck, etwa &bdquo;Griechenland&ldquo;, &bdquo;Kastration Griechenland&ldquo;
+        oder den Namen einer bestimmten Katze.</p>
+      </article>
+     </div>
+
+     <div class="reveal framed mt-8" style="border-left:3px solid var(--petrol);padding:22px 24px;max-width:900px">
+      <h3 style="font-size:1.02rem;color:var(--petrol-dark);margin-bottom:.5rem">Für Organisationen</h3>
+      <p class="muted" style="font-size:.9rem;line-height:1.7;margin-bottom:1rem">Wir stellen Belege,
+       Kostenaufstellungen und Ansprechpartner für eine Prüfung bereit und stimmen Berichtsformat
+       und Zeitraum vorab ab. Ein erstes Gespräch dauert etwa 15 Minuten.</p>
+      <a class="btn inline-flex items-center gap-2 px-5 py-2.5"
+         style="background:var(--petrol);color:#fff;border-radius:7px;font-size:.88rem;font-weight:600;text-decoration:none"
+         href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rdergespr%C3%A4ch%20%E2%80%94%20Margo%20Animal%20Care&amp;body=Guten%20Tag%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20eine%20F%C3%B6rderung%20und%20m%C3%B6chten%20ein%20kurzes%20Gespr%C3%A4ch%20vereinbaren.%0A%0AOrganisation%3A%20%0AAnsprechperson%3A%20%0AM%C3%B6gliche%20Termine%3A%20%0A%0AFreundliche%20Gr%C3%BCsse">Fördergespräch vereinbaren</a>
      </div>
     </div>
    </section>
@@ -154,14 +243,14 @@
      <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Wofür Mittel gebraucht werden</h2>
      <p class="reveal muted mb-12 measure">Vier Kostenbereiche tragen die laufende Arbeit. Für die tierärztliche Versorgung liegt inzwischen eine vollständig ausgewertete Abrechnung vor – dokumentiert und nachvollziehbar. Für die übrigen Bereiche legen wir konkrete Zahlen im direkten Gespräch offen.</p>
      <div class="reveal framed p-5 mb-10" style="border-left:3px solid var(--petrol);max-width:680px;">
-      <p class="text-sm muted"><strong style="color:var(--petrol-dark);">Hauptstandort:</strong> Farm in der Region Athen, Griechenland – Plus Code XXHH+P3C Ag. Serafim. Weitere Standorte: Elternhaus, Zweitsitz, Surfschule und vier Kolonien im Freien.</p>
+      <p class="text-sm muted"><strong style="color:var(--petrol-dark);">Versorgt wird in der Region Artemida/Athen: eine Farm, mehrere private Versorgungsstellen und Futterkolonien im Freien. Genaue Standorte werden zum Schutz der Tiere und privater Haushalte nicht veröffentlicht.</p>
      </div>
 
      <div class="grid gap-6 md:grid-cols-2">
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="utensils" style="width:22px;height:22px;"></i></span>
        <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Futter</h3>
-       <p class="muted text-sm leading-relaxed">Der größte laufende Posten: Trocken- und Nassfutter für alle Versorgungsorte und Kolonien – jeden Tag, bei jedem Wetter. Vier Tierfutter-Geschäfte gewähren bereits Rabatte; die Mengen bleiben dennoch erheblich.</p>
+       <p class="muted text-sm leading-relaxed">Der grösste laufende Posten: Trocken- und Nassfutter für alle Versorgungsorte und Kolonien – jeden Tag, bei jedem Wetter. Vier Tierfutter-Geschäfte gewähren bereits Rabatte; die Mengen bleiben dennoch erheblich.</p>
       </article>
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="stethoscope" style="width:22px;height:22px;"></i></span>
@@ -170,12 +259,12 @@
        <div class="p-4 mb-4" style="background:var(--petrol-tint);border-radius:8px;">
         <p class="text-sm" style="color:var(--petrol-dark);"><strong>Belegt:</strong> 32 Rechnungen über 3.954,70 € im Zeitraum 23. März bis 20. Juli 2026 – rund 1.000 € pro Monat.</p>
        </div>
-       <a href="veterinaerkosten.html" class="contact-link"><i data-lucide="file-text" style="width:15px;height:15px;"></i>Vollständige Auswertung ansehen</a>
+       <a href="wirkung-transparenz.html" class="contact-link"><i data-lucide="file-text" style="width:15px;height:15px;"></i>Vollständige Auswertung ansehen</a>
       </article>
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="scissors" style="width:22px;height:22px;"></i></span>
        <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Kastrationen</h3>
-       <p class="muted text-sm leading-relaxed mb-4">Der wirksamste Hebel gegen wachsendes Tierleid: Jede Kastration verhindert neue Würfe auf der Straße – und senkt damit den künftigen Futter- und Tierarztbedarf dauerhaft.</p>
+       <p class="muted text-sm leading-relaxed mb-4">Der wirksamste Hebel gegen wachsendes Tierleid: Jede Kastration verhindert neue Würfe auf der Strasse – und senkt damit den künftigen Futter- und Tierarztbedarf dauerhaft.</p>
        <a href="#kastration" class="contact-link"><i data-lucide="arrow-down" style="width:15px;height:15px;"></i>Kastration im Detail</a>
       </article>
       <article class="ed-card reveal p-7">
@@ -196,40 +285,51 @@
 
      <div class="reveal framed p-7 mb-10" style="border-left:3px solid var(--clay);max-width:820px;">
       <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Warum das jede Förderung nachhaltiger macht</h3>
-      <p class="muted text-sm leading-relaxed mb-3">Ein unkastriertes Katzenpaar kann über wenige Jahre eine zweistellige Zahl an Nachkommen hervorbringen. Jedes dieser Tiere braucht anschließend täglich Futter, Wasser und medizinische Versorgung – dauerhaft.</p>
+      <p class="muted text-sm leading-relaxed mb-3">Ein unkastriertes Katzenpaar kann über wenige Jahre eine zweistellige Zahl an Nachkommen hervorbringen. Jedes dieser Tiere braucht anschliessend täglich Futter, Wasser und medizinische Versorgung – dauerhaft.</p>
       <p class="muted text-sm leading-relaxed"><strong style="color:var(--petrol-dark);">Jede Kastration reduziert den künftigen Futterbedarf</strong> und die künftigen Tierarztkosten. Eine Kastrationsförderung ist damit keine laufende Ausgabe, sondern eine einmalige Investition, die den Bedarf dauerhaft senkt.</p>
      </div>
 
-     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+     <div class="grid gap-8 sm:grid-cols-3 mb-10" style="max-width:900px;">
       <div class="reveal">
-       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">[X]</p>
-       <p class="muted text-sm mt-1">Tiere bisher kastriert</p>
+       <span class="status status--verified" style="margin-bottom:10px">Verifiziert</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">50&nbsp;€</p>
+       <p class="muted text-sm mt-1">Kosten pro Kastration</p>
+       <p class="data-note">Einheitlicher Satz, unabhängig vom Geschlecht des Tieres.</p>
       </div>
       <div class="reveal">
-       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">[X]</p>
-       <p class="muted text-sm mt-1">Kastrationen aktuell ausstehend</p>
+       <span class="status status--estimated" style="margin-bottom:10px">Schätzung</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">150–180</p>
+       <p class="muted text-sm mt-1">Katzen in Margos Obhut – alle kastriert</p>
+       <p class="data-note">Margos eigene Einschätzung, August 2026. Nach dokumentierter Aufteilung (Farm, Elternhaus, Zweitsitz, Surfschule) rund 145 Tiere.</p>
       </div>
       <div class="reveal">
-       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">[X]&nbsp;€</p>
-       <p class="muted text-sm mt-1">Kosten pro Kastration (weiblich)</p>
+       <span class="status status--estimated" style="margin-bottom:10px">Schätzung</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">~150</p>
+       <p class="muted text-sm mt-1">Kolonie-Katzen noch nicht kastriert</p>
+       <p class="data-note">Alle Tiere der freilebenden Kolonien müssten kastriert werden. Bislang fehlen dafür die finanziellen Mittel.</p>
       </div>
-      <div class="reveal">
-       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">[X]&nbsp;€</p>
-       <p class="muted text-sm mt-1">Kosten pro Kastration (männlich)</p>
-      </div>
+     </div>
+
+     <div class="reveal framed p-7 mb-10" style="border-left:3px solid var(--clay);max-width:820px;">
+      <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Der konkrete Bedarf: Kolonien vollständig kastrieren</h3>
+      <p class="muted text-sm leading-relaxed mb-3">Jede Katze, die dauerhaft bei Margo lebt – auf der Farm, im Elternhaus, am Zweitsitz oder in der Surfschule – ist kastriert. In den freilebenden Kolonien geschieht das bislang nur dort, wo ein Tier ohnehin medizinisch behandelt werden musste. Nach Margos Einschätzung sind rund 150 Kolonie-Katzen noch nicht kastriert.</p>
+      <p class="muted text-sm leading-relaxed mb-4">Der Grund ist nicht fehlende Bereitschaft, sondern fehlendes Geld. Beim genannten Einheitssatz von 50&nbsp;€ ergäbe das rechnerisch einen Finanzbedarf von rund <strong style="color:var(--petrol-dark);">7.500&nbsp;€</strong> – eine grobe Grössenordnung, kein festes Budget, da Margo bislang weder Zeitraum noch konkrete Aktion dafür festgelegt hat.</p>
+      <a href="mailto:hello@margoanimalcare.org?subject=Kolonie-Kastration%20unterst%C3%BCtzen&amp;body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20die%20Kastration%20der%20Kolonie-Katzen%20unterst%C3%BCtzen.%0A%0AFreundliche%20Gr%C3%BCsse" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Kolonie-Kastration unterstützen</a>
      </div>
 
      <div class="grid gap-6 md:grid-cols-3">
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="target" style="width:22px;height:22px;"></i></span>
-       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Was eine Kastrationspatenschaft bewirkt</h3>
-       <p class="muted text-sm leading-relaxed">Mit [X] € finanzieren Sie eine vollständige Kastration inklusive Nachsorge. Damit verhindern Sie nach fachlicher Einschätzung [X] Nachkommen in den kommenden Jahren.</p>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Einzelne Kastration übernehmen</h3>
+       <p class="muted text-sm leading-relaxed">Mit 50&nbsp;€ finanzieren Sie eine einzelne Kastration – unabhängig von einer grösseren Aktion, jederzeit möglich.</p>
       </article>
-      <article class="ed-card reveal p-7">
+      <!-- AUSGEBLENDET bis verifiziert (F3 Geplante Kastrationsaktion) — Auftrag 3.0 Abschnitt 2.2: unbestätigte Angaben werden nicht als Platzhalter gezeigt.
+<article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="calendar-check" style="width:22px;height:22px;"></i></span>
-       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Geplante Kastrationsaktion</h3>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(&#45;&#45;petrol-dark);">Geplante Kastrationsaktion</h3>
        <p class="muted text-sm leading-relaxed">Für [Zeitraum X] ist eine Aktion mit [X] Tieren geplant. Benötigtes Budget: [X] €. Durchführung gemeinsam mit [Partnerpraxis X].</p>
       </article>
+-->
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="clipboard-check" style="width:22px;height:22px;"></i></span>
        <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Dokumentation</h3>
@@ -278,7 +378,7 @@
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="file-text" style="width:22px;height:22px;"></i></span>
        <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Nachvollziehbare Verwendung</h3>
-       <p class="muted text-sm leading-relaxed mb-3">Auf Wunsch berichten wir regelmäßig, wofür Mittel eingesetzt wurden – mit Belegen statt Pauschalaussagen.</p><a href="veterinaerkosten.html" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Beispiel: Veterinärkosten</a>
+       <p class="muted text-sm leading-relaxed mb-3">Auf Wunsch berichten wir regelmässig, wofür Mittel eingesetzt wurden – mit Belegen statt Pauschalaussagen.</p><a href="wirkung-transparenz.html" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Beispiel: Veterinärkosten</a>
       </article>
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="eye" style="width:22px;height:22px;"></i></span>
@@ -318,7 +418,7 @@
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="git-branch" style="width:22px;height:22px;"></i></span>
        <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">2. Zuordnung im Verein</h3>
-       <p class="muted text-sm leading-relaxed">Murka-Katzenhilfe e.&nbsp;V. ordnet die Zahlung anhand des Verwendungszwecks der Arbeit in Griechenland zu. Ohne Vermerk fließt die Spende in die allgemeine Vereinsarbeit.</p>
+       <p class="muted text-sm leading-relaxed">Murka-Katzenhilfe e.&nbsp;V. ordnet die Zahlung anhand des Verwendungszwecks der Arbeit in Griechenland zu. Ohne Vermerk fliesst die Spende in die allgemeine Vereinsarbeit.</p>
       </article>
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="receipt" style="width:22px;height:22px;"></i></span>
@@ -359,7 +459,7 @@
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="heart" style="width:22px;height:22px;"></i></span>
        <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Einmalige Förderung</h3>
-       <p class="muted text-sm leading-relaxed">Ein einmaliger Beitrag über das Vereinskonto – mit dem Vermerk „Griechenland" oder „Athen" fließt er direkt in Margos Arbeit.</p>
+       <p class="muted text-sm leading-relaxed">Ein einmaliger Beitrag über das Vereinskonto – mit dem Vermerk „Griechenland" oder „Athen" fliesst er direkt in Margos Arbeit.</p>
       </article>
       <article class="ed-card reveal p-7">
        <span class="icon-circle mb-5"><i data-lucide="repeat" style="width:22px;height:22px;"></i></span>
@@ -404,23 +504,14 @@
       <i data-lucide="mail" style="width:16px;height:16px;"></i><span>hello@margoanimalcare.org</span>
      </a>
      <p class="reveal mt-8" style="color:rgba(237,243,241,0.6);font-size:.85rem;">
-      Mehr Hintergrund: <a href="ansatz.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Unser Ansatz</a> ·
-      <a href="immersive-reise.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Die Versorgungsroute erleben</a></p>
+      Mehr Hintergrund: <a href="unsere-arbeit.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Unser Ansatz</a> ·
+      <a href="route.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Die Versorgungsroute erleben</a></p>
     </div>
    </section>
 
   </main>
 
-  <footer class="w-full py-12" style="background:var(--petrol-dark);color:rgba(237,243,241,0.85);">
-   <div class="max-w-[1000px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <span>© 2026 Margo Animal Care Initiative · Artemida, Griechenland</span>
-    <a href="mailto:hello@margoanimalcare.org" class="inline-flex items-center gap-1.5 text-sm underline underline-offset-4 opacity-80 hover:opacity-100 transition"><i data-lucide="mail" style="width:13px;height:13px;"></i>hello@margoanimalcare.org</a>
-    <a href="margo-oeffentlich.html" class="btn inline-flex items-center gap-2 px-5 py-2" style="background:#fff;color:var(--petrol-dark);">
-     <span>Zur Startseite</span>
-     <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
-    </a>
-   </div>
-  </footer>
+  
 
   <script>
     try { lucide.createIcons(); } catch (e) { /* Icon-CDN nicht erreichbar */ }
@@ -440,15 +531,60 @@
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
     const bar = document.getElementById('progress');
-    const nav = document.getElementById('nav-shadow-target');
+    const nav = document.getElementById('nav-shadow-target'); // kann fehlen (Shell-Header)
     function onScroll() {
       const h = document.documentElement;
       const max = h.scrollHeight - h.clientHeight;
       bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-      nav.classList.toggle('scrolled', h.scrollTop > 8);
+      if (nav) nav.classList.toggle('scrolled', h.scrollTop > 8);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   </script>
- </body>
+ <!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Orientierung</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Unsere Arbeit</a></li>
+        <li><a href="katzen.html">Katzen</a></li>
+        <li><a href="mitmachen.html">Mitmachen</a></li>
+        <li><a href="foerdern.html">Fördern</a></li>
+        <li><a href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Vertiefung</h2>
+      <ul>
+        <li><a href="route.html">Versorgungsroute</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="mitmachen.html#rollen">Offene Rollen</a></li>
+        <li><a href="unterstuetzen.html">Unterstützen</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Region Artemida/Athen, Griechenland</li>
+        <li>Antwort in der Regel innerhalb von 24 Stunden</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Rechtliches</h2>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Zuletzt aktualisiert: August 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="assets/js/site.js" defer></script>
+</body>
 </html>

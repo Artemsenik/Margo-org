@@ -1,474 +1,429 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Margo Animal Care Initiative</title>
-  <meta name="description" content="Zugang zur öffentlichen Website und zum internen Arbeitsbereich der Margo Animal Care Initiative.">
-  <meta name="robots" content="noindex, nofollow">
-  <style>
-    :root {
-      --paper: #f5f3ee;
-      --cream: #f7f3eb;
-      --cream-soft: rgba(247, 243, 235, 0.76);
-      --ink: #f7f3eb;
-      --petrol: #143f3c;
-      --petrol-dark: #0e2e2c;
-      --petrol-deep: #071c1a;
-      --rose: #e5b7a5;
-      --rose-soft: rgba(229, 183, 165, 0.78);
-      --line: rgba(255, 255, 255, 0.18);
-      --line-strong: rgba(255, 255, 255, 0.28);
-      --glass: rgba(255, 255, 255, 0.11);
-      --glass-strong: rgba(255, 255, 255, 0.16);
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margo Animal Care | Tierhilfe in Artemida</title>
+<meta name="description" content="Margo versorgt rund um Artemida täglich Tiere. Die Initiative organisiert Unterstützung, dokumentiert Kosten und macht die Arbeit langfristig tragfähiger.">
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper);
+       line-height:1.65;margin:0;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:400;letter-spacing:-.014em;text-wrap:balance;margin:0}
+  h1 em,h2 em{font-style:italic;color:var(--petrol)}
+  p{margin:0}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .measure{max-width:64ch}
+  .muted{color:var(--ink-soft)}
+  .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;
+           text-transform:uppercase;font-weight:600;color:var(--petrol)}
+  .eyebrow::before{content:"";width:1.8rem;height:1.5px;background:var(--petrol)}
 
-    * { box-sizing: border-box; }
-    html { min-height: 100%; }
+  .btn{display:inline-flex;align-items:center;gap:9px;border-radius:8px;padding:12px 22px;
+       font-size:.92rem;font-weight:600;text-decoration:none;
+       transition:background .25s var(--ease),border-color .25s var(--ease)}
+  .btn--primary{background:var(--petrol);color:#fff}
+  .btn--primary:hover{background:var(--petrol-mid)}
+  .btn--ghost{border:1px solid var(--hair);color:var(--petrol-dark);background:var(--card)}
+  .btn--ghost:hover{border-color:var(--petrol)}
+  .btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+  .btn:hover svg{transform:translateX(3px)}
 
-    body {
-      min-height: 100vh;
-      margin: 0;
-      color: var(--ink);
-      background: var(--petrol-dark);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+  /* ---------- Hero ---------- */
+  .hero{padding:56px 0 20px}
+  .hero__grid{display:grid;gap:38px;align-items:center;grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.4rem);line-height:1.08;color:var(--petrol-dark);margin:.9rem 0 1.1rem}
+  .hero__sub{font-size:1.03rem;color:var(--ink-soft);max-width:56ch}
+  .hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .hero__scope{margin-top:24px;padding-top:18px;border-top:1px solid var(--hair);
+               font-size:.85rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 16px}
+  .hero__scope span{display:inline-flex;align-items:center;gap:7px}
+  .hero__scope span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--petrol)}
+  .hero__media{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--hair);
+               box-shadow:0 2px 6px rgba(14,46,44,.07),0 18px 40px rgba(14,46,44,.09)}
+  .hero__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+  .hero__caption{position:absolute;left:0;right:0;bottom:0;padding:26px 20px 16px;color:#fff;font-size:.82rem;
+                 background:linear-gradient(to top,rgba(14,46,44,.82),rgba(14,46,44,0))}
+  @media(min-width:900px){
+    .hero{padding:76px 0 34px}
+    .hero__grid{grid-template-columns:1.15fr .85fr;gap:56px}
+  }
 
-    .background {
-      position: fixed;
-      inset: 0;
-      z-index: -5;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(7, 28, 26, 0.92), rgba(20, 63, 60, 0.82)),
-        url("https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=2200&q=82") center / cover no-repeat;
-    }
+  /* ---------- Kennzahlen ---------- */
+  .facts{padding:46px 0}
+  .facts__grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .fact{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:20px 20px 17px;
+        display:flex;flex-direction:column}
+  .fact__value{font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.05rem);
+               color:var(--petrol-dark);line-height:1.15}
+  .fact__label{font-size:.92rem;color:var(--ink);margin-top:5px;font-weight:500}
+  .fact__meta{font-size:.78rem;color:var(--ink-soft);margin-top:9px;line-height:1.5}
+  .fact__foot{margin-top:auto;padding-top:13px}
+  .fact__foot a{font-size:.79rem;color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--hair)}
+  .fact__foot a:hover{border-color:var(--petrol)}
+  .fact .status{margin-bottom:11px;align-self:flex-start}
 
-    .background::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 16% 24%, rgba(255,255,255,0.08), transparent 30%),
-        radial-gradient(circle at 84% 18%, rgba(229,183,165,0.16), transparent 26%),
-        linear-gradient(105deg, rgba(5, 18, 17, 0.86), rgba(14, 46, 44, 0.55) 45%, rgba(5, 18, 17, 0.82));
-    }
+  /* ---------- Drei Wege ---------- */
+  .ways{padding:22px 0 56px}
+  .ways__grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:30px}
+  .way{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:26px 24px 22px;
+       display:flex;flex-direction:column;position:relative;overflow:hidden;
+       transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .way::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--petrol)}
+  @media(pointer:fine){.way:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(14,46,44,.10)}}
+  .way h3{font-size:1.22rem;color:var(--petrol-dark);margin-bottom:.5rem}
+  .way p{font-size:.9rem;color:var(--ink-soft);line-height:1.62}
+  .way__cta{margin-top:18px;padding-top:15px;border-top:1px solid var(--hair-warm);
+            font-size:.88rem;font-weight:600;color:var(--petrol);text-decoration:none;
+            display:inline-flex;align-items:center;gap:7px}
+  .way__cta svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+  .way:hover .way__cta svg{transform:translateX(3px)}
 
-    .grain {
-      position: fixed;
-      inset: 0;
-      z-index: -4;
-      pointer-events: none;
-      opacity: 0.055;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.86'/%3E%3C/svg%3E");
-    }
+  /* ---------- Margo-Teaser ---------- */
+  .story{background:var(--petrol-dark);color:rgba(237,243,241,.9);padding:60px 0}
+  .story__grid{display:grid;gap:34px;grid-template-columns:1fr;align-items:center}
+  .story h2{font-size:clamp(1.55rem,3.2vw,2.2rem);color:#fff;line-height:1.18;margin-bottom:1rem}
+  .story p{font-size:.98rem;line-height:1.7;max-width:56ch}
+  .story .eyebrow{color:rgba(237,243,241,.72)}
+  .story .eyebrow::before{background:rgba(237,243,241,.6)}
+  .story .btn--ghost{background:transparent;border-color:rgba(237,243,241,.35);color:#fff;margin-top:24px}
+  .story .btn--ghost:hover{border-color:#fff}
+  .story__media{border-radius:12px;overflow:hidden;border:1px solid rgba(237,243,241,.18)}
+  .story__media img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  @media(min-width:900px){.story__grid{grid-template-columns:1fr .82fr;gap:52px}}
 
-    .shell {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      width: min(100%, 1280px);
-      margin: 0 auto;
-      padding: clamp(20px, 2.6vw, 34px);
-    }
+  /* ---------- Arbeitsbereiche ---------- */
+  .work{padding:60px 0}
+  .work__grid{display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair);
+              border-radius:12px;overflow:hidden;margin-top:30px;
+              grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .work__item{background:var(--card);padding:24px 22px}
+  .work__item h3{font-size:1.06rem;color:var(--petrol-dark);margin-bottom:.45rem}
+  .work__item p{font-size:.875rem;color:var(--ink-soft);line-height:1.6}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-height: 48px;
-    }
+  /* ---------- Route-Teaser ---------- */
+  .route{padding:0 0 60px}
+  .route__box{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--hair)}
+  .route__box img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:center 35%}
+  .route__overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+                  padding:30px 26px;background:linear-gradient(to top,rgba(14,46,44,.9) 12%,rgba(14,46,44,.15))}
+  .route__overlay h2{color:#fff;font-size:clamp(1.35rem,2.8vw,1.9rem);margin-bottom:.5rem}
+  .route__overlay p{color:rgba(237,243,241,.9);font-size:.9rem;max-width:52ch;margin-bottom:16px}
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--cream);
-      text-decoration: none;
-    }
+  /* ---------- Vertrauen ---------- */
+  .trust{padding:0 0 66px}
+  .trust__box{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:28px 26px}
+  .trust__list{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:20px}
+  .trust__item h3{font-size:.98rem;color:var(--petrol-dark);margin-bottom:.3rem}
+  .trust__item p{font-size:.85rem;color:var(--ink-soft);line-height:1.58}
+  .trust__foot{margin-top:22px;padding-top:16px;border-top:1px solid var(--hair-warm);font-size:.85rem}
+  .trust__foot a{color:var(--petrol)}
 
-    .mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
-    }
-
-    .mark svg { width: 21px; height: 21px; }
-
-    .brand-text { display: flex; flex-direction: column; line-height: 1.06; }
-
-    .brand-text strong {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.14rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-text span {
-      margin-top: 3px;
-      color: var(--cream-soft);
-      font-size: 0.77rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .top-note {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 9px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--cream-soft);
-      font-size: 0.84rem;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(16px);
-    }
-
-    .pulse {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--rose);
-      box-shadow: 0 0 0 6px rgba(229,183,165,0.13);
-    }
-
-    /* ---- Breiter Karten-Abschnitt (Standortkarte) ---- */
-    .map-band {
-      margin: clamp(26px, 4vw, 48px) 0 0;
-    }
-
-    .map-band figure { margin: 0; }
-
-    .map-band img {
-      width: 100%;
-      display: block;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .map-band figcaption {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 8px 18px;
-      margin-top: 14px;
-      color: rgba(247, 243, 235, 0.55);
-      font-size: 0.78rem;
-    }
-
-    /* ---- Hero (zweispaltig) ---- */
-    main { flex: 1; display: grid; align-items: center; }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
-      gap: clamp(34px, 5.8vw, 74px);
-      align-items: center;
-      padding: clamp(48px, 7vw, 90px) 0 clamp(44px, 6vw, 70px);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 13px;
-      margin-bottom: 26px;
-      color: rgba(247, 243, 235, 0.82);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.74rem;
-      font-weight: 800;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 35px;
-      height: 1px;
-      background: rgba(247, 243, 235, 0.76);
-    }
-
-    h1 {
-      margin: 0;
-      max-width: 700px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-      letter-spacing: -0.058em;
-      line-height: 0.98;
-      font-size: clamp(3rem, 6.9vw, 6.15rem);
-      text-wrap: balance;
-    }
-
-    h1 em { color: var(--rose); font-style: italic; }
-
-    .lead {
-      max-width: 610px;
-      margin: 30px 0 0;
-      color: rgba(247, 243, 235, 0.82);
-      font-size: clamp(1.02rem, 1.45vw, 1.14rem);
-      line-height: 1.75;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 38px;
-    }
-
-    .btn {
-      min-height: 54px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 14px 20px;
-      border-radius: 12px;
-      color: var(--cream);
-      text-decoration: none;
-      font-weight: 760;
-      letter-spacing: -0.01em;
-      transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
-    }
-
-    .btn svg { width: 18px; height: 18px; transition: transform 0.24s ease; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn:hover svg { transform: translateX(3px); }
-
-    .btn-primary {
-      background: var(--paper);
-      color: var(--petrol-dark);
-      box-shadow: 0 14px 38px rgba(0,0,0,0.24);
-    }
-    .btn-primary:hover { background: #fffaf0; }
-
-    .btn-secondary {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
-    }
-    .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.34);
-      background: rgba(255,255,255,0.13);
-    }
-
-    /* ---- Rechte Box (Willkommen + Foto) ---- */
-    .intro-panel {
-      min-height: 560px;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.075));
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
-      padding: clamp(22px, 3vw, 32px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .intro-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(255,255,255,0.14), transparent 32%),
-        radial-gradient(circle at 85% 100%, rgba(229,183,165,0.12), transparent 34%);
-    }
-
-    .panel-content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .panel-header {
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .panel-header h2 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.28rem, 1.85vw, 1.72rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.22;
-      text-wrap: balance;
-    }
-
-    .panel-header h2 em { color: var(--rose); font-style: italic; }
-
-    .portrait-frame {
-      flex: 1;
-      min-height: 380px;
-      margin-top: 22px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-    }
-
-    .portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      width: 100%;
-      padding-top: 26px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      color: rgba(247, 243, 235, 0.62);
-      font-size: 0.82rem;
-    }
-
-    footer span:last-child { text-align: right; }
-
-    @media (max-width: 1040px) {
-      .hero { grid-template-columns: 1fr; }
-      .intro-panel { min-height: auto; }
-      .portrait-frame { min-height: 420px; }
-    }
-
-    @media (max-width: 680px) {
-      .shell { padding: 18px; }
-      header { align-items: flex-start; }
-      .top-note { display: none; }
-      .hero { padding: 40px 0 34px; gap: 28px; }
-      h1 { font-size: clamp(2.72rem, 17vw, 4.35rem); }
-      .actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .map-band img { border-radius: 18px; }
-      .map-band figcaption { flex-direction: column; }
-      .intro-panel { border-radius: 22px; padding: 20px; }
-      .portrait-frame { min-height: 340px; }
-      footer { flex-direction: column; }
-      footer span:last-child { text-align: left; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-        animation: none !important;
-      }
-      .background video { display: none; }
-    }
-  </style>
+  section h2.section-title{font-size:clamp(1.5rem,3vw,2.05rem);color:var(--petrol-dark);margin:.7rem 0 .7rem}
+</style>
+<link rel="stylesheet" href="assets/css/tw.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Margo Animal Care | Tierhilfe in Artemida">
+<meta property="og:description" content="Margo versorgt rund um Artemida täglich Tiere. Die Initiative organisiert Unterstützung, dokumentiert Kosten und macht die Arbeit langfristig tragfähiger.">
+<meta property="og:url" content="https://www.margoanimalcare.org/index.html">
+<meta property="og:image" content="https://www.margoanimalcare.org/assets/hero/margo-portrait-1400.webp">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/site.css">
+<!-- SHELL:HEAD:END -->
 </head>
 <body>
-  <div class="background" aria-hidden="true">
-    <!--
-      Optionales eigenes Ambient-Video:
-      1. Im Repository einen Ordner "assets" anlegen.
-      2. Video als "margo-ambient.mp4" hochladen.
-      3. Dann wird es automatisch im Hintergrund abgespielt.
-      Ohne Video bleibt das hochwertige Hintergrundbild sichtbar.
-    -->
-    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=2200&q=82">
-      <source src="assets/margo-ambient.mp4" type="video/mp4">
-    </video>
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Unsere Arbeit</a>
+      <a class="site-nav__link" href="katzen.html">Katzen</a>
+      <a class="site-nav__link" href="mitmachen.html">Mitmachen</a>
+      <a class="site-nav__link" href="foerdern.html">Fördern</a>
+      <a class="site-nav__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    </nav>
+    <div class="site-header__actions">
+      <a class="site-cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span><span class="sr-only">Menü öffnen</span>
+      </button>
+    </div>
   </div>
-  <div class="grain" aria-hidden="true"></div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Unsere Arbeit</a>
+    <a class="site-drawer__link" href="katzen.html">Katzen</a>
+    <a class="site-drawer__link" href="mitmachen.html">Mitmachen</a>
+    <a class="site-drawer__link" href="foerdern.html">Fördern</a>
+    <a class="site-drawer__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
+<main>
 
-  <div class="shell">
-    <header>
-      <a class="brand" href="./index.html" aria-label="Margo Animal Care Initiative">
-        <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M12 21s-7-4.35-7-10.1C5 7.67 7.58 5.2 10.54 6.05c.63.18 1.17.56 1.46 1.03.29-.47.83-.85 1.46-1.03C16.42 5.2 19 7.67 19 10.9 19 16.65 12 21 12 21Z" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span class="brand-text">
-          <strong>Margo Animal Care</strong>
-          <span>Initiative</span>
-        </span>
-      </a>
-
-      <div class="top-note">
-        <span class="pulse" aria-hidden="true"></span>
-        Aufbauphase · interne Orientierung
+  <!-- Modul 1 · Hero -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="eyebrow">Margo Animal Care Initiative · Region Artemida, Griechenland</span>
+        <h1>Damit Margos Hilfe <em>bleibt</em>.</h1>
+        <p class="hero__sub">Margo versorgt rund um Artemida täglich eine grosse Zahl von Tieren.
+          Wir organisieren Unterstützung, dokumentieren Kosten und verteilen Aufgaben auf mehrere
+          Schultern — damit diese Arbeit nicht dauerhaft an einer Person hängt.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="unterstuetzen.html">Aktuell unterstützen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="btn btn--ghost" href="katzen.html">Katzen kennenlernen</a>
+        </div>
+        <div class="hero__scope">
+          <span>Versorgung</span><span>Tierärztliche Behandlung</span><span>Kastration</span><span>Vermittlung</span>
+        </div>
       </div>
-    </header>
-
-    <!-- Breiter Karten-Abschnitt -->
-    <section class="map-band" aria-label="Standorte rund um Artemida">
-      <figure>
-        <img src="karte-standorte.png" alt="Luftbild der Küstenregion rund um Artemida mit markierten Versorgungsstandorten">
-        <figcaption>
-          <span>Versorgungsorte rund um Artemida · Übersichtskarte</span>
-          <span>Farm · private Versorgungsstellen · Futterkolonien</span>
-        </figcaption>
+      <figure class="hero__media" style="margin:0">
+        <img src="assets/hero/margo-portrait-900.webp"
+             srcset="assets/hero/margo-portrait-900.webp 900w, assets/hero/margo-portrait-1400.webp 1400w"
+             sizes="(min-width:900px) 40vw, 100vw"
+             width="1105" height="1423" alt="Margo mit einer der von ihr versorgten Katzen">
+        <figcaption class="hero__caption">Margo bei der täglichen Versorgung in der Region Artemida.</figcaption>
       </figure>
-    </section>
+    </div>
+  </section>
 
-    <main>
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero-copy">
-          <div class="eyebrow">Straßenkatzenhilfe · Artemida, Griechenland</div>
+  <!-- Modul 2 · Belegter Umfang -->
+  <section class="facts" aria-labelledby="umfang">
+    <div class="wrap">
+      <span class="eyebrow">Belegter Stand</span>
+      <h2 class="section-title" id="umfang">Was dokumentiert ist</h2>
+      <p class="muted measure">Wir veröffentlichen nur Angaben, die belegt oder ausdrücklich als
+        Schätzung gekennzeichnet sind. Zu jeder Zahl gehören Definition und Zeitraum.</p>
 
-          <h1 id="page-title">
-            Aus Fürsorge<br>
-            wird <em>ein</em><br>
-            <em>getragenes</em><br>
-            <em>System.</em>
-          </h1>
-
-          <p class="lead">
-            Margo versorgt seit Jahren eine große Zahl verlassener Katzen. Diese Initiative bündelt Hilfe,
-            macht Fortschritte sichtbar und gibt dem Team einen klaren Ort für die gemeinsame Arbeit.
-          </p>
-
-          <div class="actions" aria-label="Hauptzugänge">
-            <a class="btn btn-primary" href="margo-oeffentlich.html">
-              Öffentliche Seite besuchen
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a class="btn btn-secondary" href="volunteer.html">
-              Mithelfen
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
+      <div class="facts__grid" style="margin-top:26px">
+        <div class="fact">
+          <span class="status status--verified">Verifiziert</span>
+          <p class="fact__value">3.954,70&nbsp;€</p>
+          <p class="fact__label">Tierärztliche Kosten</p>
+          <p class="fact__meta">Summe inklusive Mehrwertsteuer, aus 32 Einzelrechnungen.
+            Zeitraum 23.&nbsp;März bis 20.&nbsp;Juli 2026.</p>
+          <p class="fact__foot"><a href="wirkung-transparenz.html">Vollständige Auswertung</a></p>
         </div>
 
-        <aside class="intro-panel" aria-label="Willkommen">
-          <div class="panel-content">
-            <div class="panel-header">
-              <h2>Herzlich Willkommen, ich bin Margo, lebe in Artemida und versorge an mehreren Standorten Katzen und Hunde mit Tierfutter, Wasser, Medikation und <em>Tierarztbehandlungen.</em></h2>
-            </div>
+        <div class="fact">
+          <span class="status status--verified">Verifiziert</span>
+          <p class="fact__value">32</p>
+          <p class="fact__label">Tierarztrechnungen</p>
+          <p class="fact__meta">Abgerechnete Einzelbelege im selben Zeitraum, durchschnittlich rund
+            1.000&nbsp;€ pro Monat.</p>
+          <p class="fact__foot"><a href="wirkung-transparenz.html">Woraus die Kosten entstehen</a></p>
+        </div>
 
-            <div class="portrait-frame">
-              <img src="margo-portrait.png" alt="Margo versorgt eine Katze mit Medikation">
-            </div>
+        <div class="fact">
+          <span class="status status--estimated">Schätzung</span>
+          <p class="fact__value">250–300</p>
+          <p class="fact__label">Regelmässig versorgte Tiere</p>
+          <p class="fact__meta">Näherung auf Basis der bekannten Versorgungsstellen, Stand 2026.
+            Eine exakte Zählung ist bei frei lebenden Tieren nicht möglich.</p>
+          <p class="fact__foot"><a href="unsere-arbeit.html">Wie wir arbeiten</a></p>
+        </div>
+
+        <div class="fact">
+          <span class="status status--estimated">Schätzung</span>
+          <p class="fact__value">13+</p>
+          <p class="fact__label">Erfasste Versorgungsstellen</p>
+          <p class="fact__meta">Farm, private Versorgungsorte und Futterkolonien in der Region.
+            Genaue Standorte werden zum Schutz der Tiere nicht veröffentlicht.</p>
+          <p class="fact__foot"><a href="route.html">Die Versorgungsroute</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modul 3 · Drei direkte Wege -->
+  <section class="ways" aria-labelledby="wege">
+    <div class="wrap">
+      <span class="eyebrow">Drei direkte Wege</span>
+      <h2 class="section-title" id="wege">Wo Sie ansetzen können</h2>
+      <div class="ways__grid">
+        <article class="way">
+          <h3>Eine Katze kennenlernen</h3>
+          <p>Lernen Sie Katzen mit aktuellem Status, ehrlicher Beschreibung und transparentem
+            Vermittlungsweg kennen.</p>
+          <a class="way__cta" href="katzen.html">Katzen ansehen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="way">
+          <h3>Zeit oder Können beitragen</h3>
+          <p>Übernehmen Sie eine klar begrenzte Aufgabe vor Ort oder remote — mit realistischem
+            Aufwand und festem Ansprechpartner.</p>
+          <a class="way__cta" href="mitmachen.html">Offene Rollen prüfen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="way">
+          <h3>Versorgung finanzieren</h3>
+          <p>Unterstützen Sie tierärztliche Behandlung, Kastration, Futter oder ein klar
+            beschriebenes Vorhaben.</p>
+          <a class="way__cta" href="foerdern.html">Unterstützung wählen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modul 4 · Margos Geschichte -->
+  <section class="story" aria-labelledby="geschichte">
+    <div class="wrap story__grid">
+      <div>
+        <span class="eyebrow">Wie es begann</span>
+        <h2 id="geschichte">Wie aus persönlicher Verantwortung eine gemeinsame Aufgabe wird.</h2>
+        <p>Vor Jahren begann Margo, einzelne Strassenkatzen rund um Artemida zu versorgen. Aus
+          wenigen Tieren wurden viele. Ein Brand zerstörte das Strandcafé, das sie betrieb — die
+          Tiere blieben, und mit ihnen die tägliche Verantwortung.</p>
+        <p style="margin-top:1rem">Heute fährt sie ihre Touren, organisiert Behandlungen und trägt
+          vieles selbst. Genau hier setzt die Initiative an: Wissen ordnen, Kosten offenlegen,
+          Aufgaben teilen.</p>
+        <a class="btn btn--ghost" href="unsere-arbeit.html">Margos Geschichte ansehen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <figure class="story__media" style="margin:0">
+        <img src="assets/hero/margo-versorgung-720.webp"
+             srcset="assets/hero/margo-versorgung-720.webp 720w, assets/hero/margo-versorgung-1200.webp 1200w"
+             sizes="(min-width:900px) 38vw, 100vw"
+             width="1100" height="1430" loading="lazy" alt="Margo versorgt Katzen an einer Futterstelle">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Modul 5 · Was heute geschieht -->
+  <section class="work" aria-labelledby="arbeit">
+    <div class="wrap">
+      <span class="eyebrow">Arbeitsbereiche</span>
+      <h2 class="section-title" id="arbeit">Was heute konkret geschieht</h2>
+      <div class="work__grid">
+        <div class="work__item">
+          <h3>Versorgung und Beobachtung</h3>
+          <p>Regelmässige Versorgung und Beobachtung an mehreren Stellen in der Region.</p>
+        </div>
+        <div class="work__item">
+          <h3>Behandlung und Kastration</h3>
+          <p>Tierärztliche Abklärung, Behandlung und präventive Massnahmen nach fachlicher Entscheidung.</p>
+        </div>
+        <div class="work__item">
+          <h3>Dokumentation und Vermittlung</h3>
+          <p>Profile, Gesundheitsinformationen, Zuständigkeiten und verantwortungsvolle Vermittlungswege.</p>
+        </div>
+        <div class="work__item">
+          <h3>Koordination und Entlastung</h3>
+          <p>Aufgaben, Partner, Kosten und Fortschritt so organisieren, dass nicht alles an einer Person hängt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route-Teaser -->
+  <section class="route">
+    <div class="wrap">
+      <div class="route__box">
+        <img src="assets/hero/versorgungstour-1200.webp"
+             width="931" height="1690" loading="lazy"
+             alt="Das mit Futter und Wasser beladene Fahrzeug vor einer Versorgungstour">
+        <div class="route__overlay">
+          <h2>Die Route hinter der Fürsorge</h2>
+          <p>Eine dokumentarische Reise durch die Orte, an denen aus einzelnen Fütterungen eine
+            tägliche Verantwortung entsteht.</p>
+          <a class="btn" href="route.html" style="align-self:flex-start;background:#fff;color:var(--petrol-dark)">Route ansehen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modul 7 · Wer mitträgt -->
+  <section class="trust" aria-labelledby="mittraeger">
+    <div class="wrap">
+      <div class="trust__box">
+        <span class="eyebrow">Wer mitträgt</span>
+        <h2 class="section-title" id="mittraeger" style="font-size:clamp(1.35rem,2.6vw,1.75rem)">Margo trägt das nicht allein</h2>
+        <div class="trust__list">
+          <div class="trust__item">
+            <h3>Ein eingetragener Partnerverein</h3>
+            <p>Murka-Katzenhilfe e.&nbsp;V. (Amtsgericht Bochum, VR&nbsp;4939) wickelt Spenden und
+              Vermittlungen nach Deutschland ab.</p>
           </div>
-        </aside>
-      </section>
-    </main>
+          <div class="trust__item">
+            <h3>Zwei Tierarztpraxen</h3>
+            <p>Vets4life und OmniVET behandeln die Tiere zu vergünstigten Konditionen.</p>
+          </div>
+          <div class="trust__item">
+            <h3>Vier Futtergeschäfte</h3>
+            <p>Pet City, Pet Shop Manos, Pet Point und Dogit gewähren Vergünstigungen auf Futter.</p>
+          </div>
+          <div class="trust__item">
+            <h3>Eine Windsurfing-Schule</h3>
+            <p>Trägt finanziell bei und ist Zuhause für einen Teil der versorgten Katzen.</p>
+          </div>
+        </div>
+        <p class="trust__foot muted">Alle Partner mit Kontaktangaben finden Sie auf der
+          <a href="partner.html">Partnerseite</a>. Wie Mittel eingesetzt werden, zeigt
+          <a href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      <span>Margo Animal Care Initiative · Working Draft</span>
-      <span>Retten. Heilen. Vertrauen schenken.</span>
-    </footer>
+</main>
+<!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Orientierung</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Unsere Arbeit</a></li>
+        <li><a href="katzen.html">Katzen</a></li>
+        <li><a href="mitmachen.html">Mitmachen</a></li>
+        <li><a href="foerdern.html">Fördern</a></li>
+        <li><a href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Vertiefung</h2>
+      <ul>
+        <li><a href="route.html">Versorgungsroute</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="mitmachen.html#rollen">Offene Rollen</a></li>
+        <li><a href="unterstuetzen.html">Unterstützen</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Region Artemida/Athen, Griechenland</li>
+        <li>Antwort in der Regel innerhalb von 24 Stunden</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Rechtliches</h2>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
   </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Zuletzt aktualisiert: August 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

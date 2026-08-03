@@ -1,0 +1,245 @@
+/* ============================================================
+   Margo Animal Care Initiative — site.css
+   Fundament: Design-Tokens, Header/Navigation, Footer,
+   Statussystem, Accessibility-Grundlagen.
+   Wird von allen Seiten eingebunden. Nicht seitenspezifisch
+   erweitern — Seitenstile bleiben in der jeweiligen Datei.
+   ============================================================ */
+
+/* ---------- 1. Design-Tokens ---------- */
+:root{
+  /* Flächen */
+  --paper:#F5F3EE;
+  --paper-2:#FBFAF7;
+  --card:#FFFFFF;
+
+  /* Schrift */
+  --ink:#1B1A16;
+  --ink-soft:#4A473F;
+
+  /* Marke */
+  --petrol:#143F3C;
+  --petrol-mid:#1C5450;
+  --petrol-dark:#0E2E2C;
+  --petrol-tint:#E7EEEB;
+  --clay:#9A5B3F;
+
+  /* Linien */
+  --hair:rgba(20,63,60,0.14);
+  --hair-warm:#E3DED2;
+
+  /* Status */
+  --status-verified:#1C5450;
+  --status-estimated:#7D5F27;
+  --status-open:#6B6862;
+
+  /* Masse */
+  --wrap:1160px;
+  --wrap-narrow:820px;
+  --header-h:70px;
+  --radius:12px;
+
+  /* Bewegung */
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ---------- 2. Accessibility-Grundlagen ---------- */
+
+/* Skip-Link: nur bei Tastaturfokus sichtbar */
+.skip-link{
+  position:absolute; left:0; top:0; z-index:200;
+  transform:translateY(-120%);
+  background:var(--petrol); color:#fff;
+  padding:12px 20px; border-radius:0 0 8px 0;
+  font-size:.9rem; font-weight:600; text-decoration:none;
+}
+.skip-link:focus{ transform:translateY(0); }
+
+/* Sichtbarer, konsistenter Fokusring */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible{
+  outline:2px solid var(--petrol);
+  outline-offset:3px;
+  border-radius:3px;
+}
+
+/* Nur für Screenreader */
+.sr-only{
+  position:absolute !important; width:1px !important; height:1px !important;
+  padding:0 !important; margin:-1px !important; overflow:hidden !important;
+  clip:rect(0,0,0,0); clip-path:inset(50%); white-space:nowrap; border:0;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ---------- 3. Header ---------- */
+.site-header{
+  position:sticky; top:0; z-index:100; width:100%;
+  background:rgba(245,243,238,.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair);
+}
+.site-header__bar{
+  max-width:var(--wrap); margin:0 auto;
+  padding:14px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  min-height:var(--header-h);
+}
+.site-header__brand{
+  font-family:'Newsreader',Georgia,serif;
+  font-size:1.16rem; line-height:1.2;
+  color:var(--petrol-dark); text-decoration:none;
+  letter-spacing:-.01em; white-space:nowrap;
+}
+.site-header__brand em{ font-style:italic; color:var(--petrol); }
+
+/* Desktop-Navigation */
+.site-nav{ display:none; align-items:center; gap:26px; }
+.site-nav__link{
+  font-size:.88rem; font-weight:500; color:var(--ink-soft);
+  text-decoration:none; padding:6px 0; position:relative;
+  transition:color .2s var(--ease);
+}
+.site-nav__link:hover{ color:var(--petrol); }
+.site-nav__link[aria-current="page"]{ color:var(--petrol); font-weight:600; }
+.site-nav__link[aria-current="page"]::after{
+  content:""; position:absolute; left:0; right:0; bottom:0;
+  height:1.5px; background:var(--petrol);
+}
+
+.site-header__actions{ display:flex; align-items:center; gap:12px; }
+
+.site-lang{
+  font-size:.78rem; color:var(--ink-soft); text-decoration:none;
+  border:1px solid var(--hair); border-radius:5px; padding:3px 9px;
+  transition:border-color .2s var(--ease), color .2s var(--ease);
+}
+.site-lang:hover{ border-color:var(--petrol); color:var(--petrol); }
+
+.site-cta{
+  display:none; align-items:center; gap:8px;
+  background:var(--petrol); color:#fff; text-decoration:none;
+  padding:9px 17px; border-radius:7px;
+  font-size:.86rem; font-weight:600; white-space:nowrap;
+  transition:background .25s var(--ease);
+}
+.site-cta:hover{ background:var(--petrol-mid); }
+.site-cta svg{ width:15px; height:15px; transition:transform .3s var(--ease); }
+.site-cta:hover svg{ transform:translateX(3px); }
+
+/* Menü-Schalter (nur mobil) */
+.site-burger{
+  position:relative;
+  display:inline-flex; flex-direction:column; justify-content:center;
+  gap:5px; width:42px; height:42px; padding:9px;
+  background:none; border:0; cursor:pointer; border-radius:7px;
+}
+.site-burger span:not(.sr-only){
+  display:block; width:100%; height:2px; border-radius:2px;
+  background:var(--petrol-dark);
+  transition:transform .3s var(--ease), opacity .2s var(--ease);
+}
+.site-burger[aria-expanded="true"] span:not(.sr-only):nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.site-burger[aria-expanded="true"] span:not(.sr-only):nth-child(2){ opacity:0; }
+.site-burger[aria-expanded="true"] span:not(.sr-only):nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ---------- 4. Mobile-Menü ---------- */
+.site-drawer{
+  position:fixed; inset:var(--header-h) 0 0 0; z-index:99;
+  background:var(--paper);
+  padding:10px 24px 40px;
+  overflow-y:auto;
+  display:flex; flex-direction:column;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  /* visibility bewusst NICHT mittransitionieren: sonst bleiben die Links
+     während der Einblendung unfokussierbar (Tastaturbedienung bräche). */
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.site-drawer[data-open="true"]{ opacity:1; visibility:visible; transform:translateY(0); }
+.site-drawer__link{
+  display:block; padding:15px 2px;
+  font-size:1.05rem; color:var(--ink-soft); text-decoration:none;
+  border-bottom:1px solid var(--hair-warm);
+}
+.site-drawer__link[aria-current="page"]{ color:var(--petrol); font-weight:600; }
+.site-drawer__foot{
+  margin-top:22px; display:flex; align-items:center;
+  justify-content:space-between; gap:14px; flex-wrap:wrap;
+}
+.site-drawer__cta{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--petrol); color:#fff; text-decoration:none;
+  padding:12px 20px; border-radius:7px; font-size:.94rem; font-weight:600;
+}
+body[data-nav-open="true"]{ overflow:hidden; }
+
+/* Ab 900px: Desktop-Navigation, kein Burger */
+@media (min-width:900px){
+  .site-nav{ display:flex; }
+  .site-cta{ display:inline-flex; }
+  .site-burger{ display:none; }
+  .site-drawer{ display:none; }
+}
+
+/* ---------- 5. Footer ---------- */
+.site-footer{
+  background:var(--petrol-dark);
+  color:rgba(237,243,241,.82);
+  padding:52px 0 30px;
+  font-size:.88rem;
+}
+.site-footer__grid{
+  max-width:var(--wrap); margin:0 auto; padding:0 24px;
+  display:grid; gap:34px 28px;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+}
+.site-footer h2{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:.7rem; letter-spacing:.15em; text-transform:uppercase;
+  color:rgba(237,243,241,.55); font-weight:700; margin-bottom:13px;
+}
+.site-footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+.site-footer a{ color:rgba(237,243,241,.82); text-decoration:none; transition:color .2s var(--ease); }
+.site-footer a:hover{ color:#fff; text-decoration:underline; text-underline-offset:3px; }
+.site-footer__bar{
+  max-width:var(--wrap); margin:34px auto 0; padding:18px 24px 0;
+  border-top:1px solid rgba(237,243,241,.16);
+  display:flex; flex-wrap:wrap; gap:10px 22px;
+  justify-content:space-between;
+  font-size:.8rem; color:rgba(237,243,241,.6);
+}
+
+/* ---------- 6. Statussystem (Auftrag 3.0, Abschnitt 2.2) ----------
+   VERIFIZIERT  → sichtbar, mit Stand
+   GESCHÄTZT    → sichtbar, ausdrücklich als Schätzung
+   OFFEN        → wird nicht ausgegeben: .is-open blendet aus
+   ------------------------------------------------------------- */
+.status{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
+  font-weight:700; padding:3px 9px; border-radius:100px;
+  border:1px solid currentColor; line-height:1.5;
+}
+.status::before{
+  content:""; width:5px; height:5px; border-radius:50%;
+  background:currentColor;
+}
+.status--verified{ color:var(--status-verified); background:var(--petrol-tint); }
+.status--estimated{ color:var(--status-estimated); background:#F6EEDD; }
+
+/* Datenstand-Hinweis unter Kennzahlen */
+.data-note{
+  font-size:.78rem; color:var(--ink-soft); opacity:.85;
+  margin-top:6px;
+}
+
+/* Ausblendregel: niemals sichtbare Platzhalter */
+[data-fact="open"]{ display:none !important; }
