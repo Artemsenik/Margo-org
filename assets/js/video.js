@@ -28,8 +28,20 @@
   };
   probe.src = poster;
 
-  if (badge) badge.textContent = 'Video ansehen';
-  if (note) note.textContent = 'Klicken zum Abspielen. Erst dann wird der Player von Vimeo geladen.';
+  // Beschriftungen je Seitensprache
+  var LABELS = {
+    de: { badge: 'Video ansehen',
+          note: 'Klicken zum Abspielen. Erst dann wird der Player von Vimeo geladen.' },
+    en: { badge: 'Watch the video',
+          note: 'Click to play. Only then is the player loaded from Vimeo.' },
+    el: { badge: 'Δείτε το βίντεο',
+          note: 'Κάντε κλικ για αναπαραγωγή. Μόνο τότε φορτώνεται ο player από το Vimeo.' }
+  };
+  var lang = (document.documentElement.lang || 'de').slice(0, 2);
+  var t = LABELS[lang] || LABELS.de;
+
+  if (badge) badge.textContent = t.badge;
+  if (note) note.textContent = t.note;
 
   function load() {
     var title = frame.getAttribute('data-video-title') || 'Video';

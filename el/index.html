@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margo Animal Care | Φροντίδα ζώων στην Αρτέμιδα</title>
+<meta name="description" content="Η Margo φροντίζει καθημερινά ζώα στην περιοχή της Αρτέμιδας. Η πρωτοβουλία οργανώνει τη στήριξη, τεκμηριώνει τα έξοδα και κάνει το έργο βιώσιμο μακροπρόθεσμα.">
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper);
+       line-height:1.65;margin:0;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:400;letter-spacing:-.014em;text-wrap:balance;margin:0}
+  h1 em,h2 em{font-style:italic;color:var(--petrol)}
+  p{margin:0}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .measure{max-width:64ch}
+  .muted{color:var(--ink-soft)}
+  .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;
+           text-transform:uppercase;font-weight:600;color:var(--petrol)}
+  .eyebrow::before{content:"";width:1.8rem;height:1.5px;background:var(--petrol)}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;border-radius:8px;padding:12px 22px;
+       font-size:.92rem;font-weight:600;text-decoration:none;
+       transition:background .25s var(--ease),border-color .25s var(--ease)}
+  .btn--primary{background:var(--petrol);color:#fff}
+  .btn--primary:hover{background:var(--petrol-mid)}
+  .btn--ghost{border:1px solid var(--hair);color:var(--petrol-dark);background:var(--card)}
+  .btn--ghost:hover{border-color:var(--petrol)}
+  .btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+  .btn:hover svg{transform:translateX(3px)}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:56px 0 20px}
+  .hero__grid{display:grid;gap:38px;align-items:center;grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.4rem);line-height:1.08;color:var(--petrol-dark);margin:.9rem 0 1.1rem}
+  .hero__sub{font-size:1.03rem;color:var(--ink-soft);max-width:56ch}
+  .hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .hero__scope{margin-top:24px;padding-top:18px;border-top:1px solid var(--hair);
+               font-size:.85rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 16px}
+  .hero__scope span{display:inline-flex;align-items:center;gap:7px}
+  .hero__scope span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--petrol)}
+  .hero__media{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--hair);
+               box-shadow:0 2px 6px rgba(14,46,44,.07),0 18px 40px rgba(14,46,44,.09)}
+  .hero__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+  .hero__caption{position:absolute;left:0;right:0;bottom:0;padding:26px 20px 16px;color:#fff;font-size:.82rem;
+                 background:linear-gradient(to top,rgba(14,46,44,.82),rgba(14,46,44,0))}
+  @media(min-width:900px){
+    .hero{padding:76px 0 34px}
+    .hero__grid{grid-template-columns:1.15fr .85fr;gap:56px}
+  }
+
+  /* ---------- Kennzahlen ---------- */
+  .facts{padding:46px 0}
+  .facts__grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .fact{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:20px 20px 17px;
+        display:flex;flex-direction:column}
+  .fact__value{font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.05rem);
+               color:var(--petrol-dark);line-height:1.15}
+  .fact__label{font-size:.92rem;color:var(--ink);margin-top:5px;font-weight:500}
+  .fact__meta{font-size:.78rem;color:var(--ink-soft);margin-top:9px;line-height:1.5}
+  .fact__foot{margin-top:auto;padding-top:13px}
+  .fact__foot a{font-size:.79rem;color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--hair)}
+  .fact__foot a:hover{border-color:var(--petrol)}
+  .fact .status{margin-bottom:11px;align-self:flex-start}
+
+  /* ---------- Drei Wege ---------- */
+  .ways{padding:22px 0 56px}
+  .ways__grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:30px}
+  .way{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:26px 24px 22px;
+       display:flex;flex-direction:column;position:relative;overflow:hidden;
+       transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .way::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--petrol)}
+  @media(pointer:fine){.way:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(14,46,44,.10)}}
+  .way h3{font-size:1.22rem;color:var(--petrol-dark);margin-bottom:.5rem}
+  .way p{font-size:.9rem;color:var(--ink-soft);line-height:1.62}
+  .way__cta{margin-top:18px;padding-top:15px;border-top:1px solid var(--hair-warm);
+            font-size:.88rem;font-weight:600;color:var(--petrol);text-decoration:none;
+            display:inline-flex;align-items:center;gap:7px}
+  .way__cta svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+  .way:hover .way__cta svg{transform:translateX(3px)}
+
+  /* ---------- Margo-Teaser ---------- */
+  .story{background:var(--petrol-dark);color:rgba(237,243,241,.9);padding:60px 0}
+  .story__grid{display:grid;gap:34px;grid-template-columns:1fr;align-items:center}
+  .story h2{font-size:clamp(1.55rem,3.2vw,2.2rem);color:#fff;line-height:1.18;margin-bottom:1rem}
+  .story p{font-size:.98rem;line-height:1.7;max-width:56ch}
+  .story .eyebrow{color:rgba(237,243,241,.72)}
+  .story .eyebrow::before{background:rgba(237,243,241,.6)}
+  .story .btn--ghost{background:transparent;border-color:rgba(237,243,241,.35);color:#fff;margin-top:24px}
+  .story .btn--ghost:hover{border-color:#fff}
+  .story__media{border-radius:12px;overflow:hidden;border:1px solid rgba(237,243,241,.18)}
+  .story__media img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  @media(min-width:900px){.story__grid{grid-template-columns:1fr .82fr;gap:52px}}
+
+  /* ---------- Arbeitsbereiche ---------- */
+  .work{padding:60px 0}
+  .work__grid{display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair);
+              border-radius:12px;overflow:hidden;margin-top:30px;
+              grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .work__item{background:var(--card);padding:24px 22px}
+  .work__item h3{font-size:1.06rem;color:var(--petrol-dark);margin-bottom:.45rem}
+  .work__item p{font-size:.875rem;color:var(--ink-soft);line-height:1.6}
+
+  /* ---------- Route-Teaser ---------- */
+  .route{padding:0 0 60px}
+  .route__box{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--hair)}
+  .route__box img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:center 35%}
+  .route__overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+                  padding:30px 26px;background:linear-gradient(to top,rgba(14,46,44,.9) 12%,rgba(14,46,44,.15))}
+  .route__overlay h2{color:#fff;font-size:clamp(1.35rem,2.8vw,1.9rem);margin-bottom:.5rem}
+  .route__overlay p{color:rgba(237,243,241,.9);font-size:.9rem;max-width:52ch;margin-bottom:16px}
+
+  /* ---------- Vertrauen ---------- */
+  .trust{padding:0 0 66px}
+  .trust__box{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:28px 26px}
+  .trust__list{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:20px}
+  .trust__item h3{font-size:.98rem;color:var(--petrol-dark);margin-bottom:.3rem}
+  .trust__item p{font-size:.85rem;color:var(--ink-soft);line-height:1.58}
+  .trust__foot{margin-top:22px;padding-top:16px;border-top:1px solid var(--hair-warm);font-size:.85rem}
+  .trust__foot a{color:var(--petrol)}
+
+  section h2.section-title{font-size:clamp(1.5rem,3vw,2.05rem);color:var(--petrol-dark);margin:.7rem 0 .7rem}
+
+  /* Sprachumschalter */
+  .site-lang-switch{display:flex;align-items:center;gap:2px;font-size:.76rem;
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden}
+  .site-lang-switch a{padding:4px 8px;color:var(--ink-soft);text-decoration:none;
+    line-height:1;transition:background .2s var(--ease),color .2s var(--ease)}
+  .site-lang-switch a:hover{background:var(--petrol-tint);color:var(--petrol)}
+  .site-lang-switch a[aria-current="true"]{background:var(--petrol);color:#fff;font-weight:600}
+  @media(max-width:899px){.site-lang-switch{display:none}}
+  .site-drawer__langs{display:flex;gap:8px;margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--hair-warm)}
+  .site-drawer__langs a{flex:1;text-align:center;padding:10px;border:1px solid var(--hair);
+    border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:.9rem}
+  .site-drawer__langs a[aria-current="true"]{background:var(--petrol);color:#fff;
+    border-color:var(--petrol);font-weight:600}
+  </style>
+<link rel="stylesheet" href="../assets/css/tw.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/el/index.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/index.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/index.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/index.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/index.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/index.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/index.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/index.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Margo Animal Care | Φροντίδα ζώων στην Αρτέμιδα">
+<meta property="og:description" content="Η Margo φροντίζει καθημερινά ζώα στην περιοχή της Αρτέμιδας. Η πρωτοβουλία οργανώνει τη στήριξη, τεκμηριώνει τα έξοδα και κάνει το έργο βιώσιμο μακροπρόθεσμα.">
+<meta property="og:url" content="https://www.margoanimalcare.org/el/index.html">
+<meta property="og:image" content="https://www.margoanimalcare.org/assets/hero/margo-portrait-1400.webp">
+<meta property="og:locale" content="el_GR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
+<body>
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Το έργο μας</a>
+      <a class="site-nav__link" href="../katzen.html">Γάτες</a>
+      <a class="site-nav__link" href="mitmachen.html">Συμμετοχή</a>
+      <a class="site-nav__link" href="foerdern.html">Δωρεές</a>
+      <a class="site-nav__link" href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a>
+    </nav>
+    <div class="site-header__actions">
+      
+      <a class="site-cta" href="../unterstuetzen.html">Στήριξη <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span><span class="sr-only">Άνοιγμα μενού</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Το έργο μας</a>
+    <a class="site-drawer__link" href="../katzen.html">Γάτες</a>
+    <a class="site-drawer__link" href="mitmachen.html">Συμμετοχή</a>
+    <a class="site-drawer__link" href="foerdern.html">Δωρεές</a>
+    <a class="site-drawer__link" href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a>
+    
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="../unterstuetzen.html">Στήριξη <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
+<main>
+
+  <!-- Modul 1 · Hero -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="eyebrow">Margo Animal Care Initiative · Περιοχή Αρτέμιδας, Ελλάδα</span>
+        <h1>Για να συνεχιστεί η φροντίδα <em>της Margo</em>.</h1>
+        <p class="hero__sub">Η Margo φροντίζει καθημερινά μεγάλο αριθμό ζώων γύρω από την Αρτέμιδα. Οργανώνουμε τη στήριξη,
+          τεκμηριώνουμε τα έξοδα και μοιράζουμε τις εργασίες σε περισσότερους ώμους — ώστε αυτό το έργο
+          να μη στηρίζεται μόνιμα σε ένα άτομο.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="../unterstuetzen.html">Στηρίξτε το έργο
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="btn btn--ghost" href="../katzen.html">Γνωρίστε τις γάτες</a>
+        </div>
+        <div class="hero__scope">
+          <span>Καθημερινή φροντίδα</span><span>Κτηνιατρική περίθαλψη</span><span>Στείρωση</span><span>Υιοθεσία</span>
+        </div>
+      </div>
+      <figure class="hero__media" style="margin:0">
+        <img src="../assets/hero/margo-portrait-900.webp"
+             srcset="../assets/hero/margo-portrait-900.webp 900w, ../assets/hero/margo-portrait-1400.webp 1400w"
+             sizes="(min-width:900px) 40vw, 100vw"
+             width="1105" height="1423" alt="Η Margo με μία από τις γάτες που φροντίζει">
+        <figcaption class="hero__caption">Η Margo κατά την καθημερινή της φροντίδα στην περιοχή της Αρτέμιδας.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Modul 2 · Belegter Umfang -->
+  <section class="facts" aria-labelledby="umfang">
+    <div class="wrap">
+      <span class="eyebrow">Τεκμηριωμένα στοιχεία</span>
+      <h2 class="section-title" id="umfang">Τι είναι τεκμηριωμένο</h2>
+      <p class="muted measure">Δημοσιεύουμε μόνο στοιχεία που είναι τεκμηριωμένα ή επισημαίνονται ρητά ως εκτίμηση.
+        Κάθε αριθμός συνοδεύεται από ορισμό και χρονική περίοδο.</p>
+
+      <div class="facts__grid" style="margin-top:26px">
+        <div class="fact">
+          <span class="status status--verified">Επιβεβαιωμένο</span>
+          <p class="fact__value">3.954,70&nbsp;€</p>
+          <p class="fact__label">Κτηνιατρικά έξοδα</p>
+          <p class="fact__meta">Σύνολο με ΦΠΑ, από 32 επιμέρους τιμολόγια.
+            Περίοδος 23&nbsp;Μαρτίου έως 20&nbsp;Ιουλίου 2026.</p>
+          <p class="fact__foot"><a href="../wirkung-transparenz.html">Πλήρης ανάλυση</a></p>
+        </div>
+
+        <div class="fact">
+          <span class="status status--verified">Επιβεβαιωμένο</span>
+          <p class="fact__value">32</p>
+          <p class="fact__label">Κτηνιατρικά τιμολόγια</p>
+          <p class="fact__meta">Επιμέρους παραστατικά της ίδιας περιόδου, κατά μέσο όρο περίπου
+            1.000&nbsp;€ τον μήνα.</p>
+          <p class="fact__foot"><a href="../wirkung-transparenz.html">Από πού προκύπτουν τα έξοδα</a></p>
+        </div>
+
+        <div class="fact">
+          <span class="status status--estimated">Εκτίμηση</span>
+          <p class="fact__value">250–300</p>
+          <p class="fact__label">Ζώα σε τακτική φροντίδα</p>
+          <p class="fact__meta">Προσέγγιση βάσει των γνωστών σημείων φροντίδας, στοιχεία 2026.
+            Ακριβής καταμέτρηση δεν είναι εφικτή σε ελεύθερα ζώα.</p>
+          <p class="fact__foot"><a href="unsere-arbeit.html">Πώς εργαζόμαστε</a></p>
+        </div>
+
+        <div class="fact">
+          <span class="status status--estimated">Εκτίμηση</span>
+          <p class="fact__value">13+</p>
+          <p class="fact__label">Καταγεγραμμένα σημεία φροντίδας</p>
+          <p class="fact__meta">Η φάρμα, ιδιωτικά σημεία φροντίδας και αποικίες σίτισης στην περιοχή.
+            Οι ακριβείς τοποθεσίες δεν δημοσιεύονται, για την προστασία των ζώων.</p>
+          <p class="fact__foot"><a href="../route.html">Η διαδρομή φροντίδας</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modul 3 · Drei direkte Wege -->
+  <section class="ways" aria-labelledby="wege">
+    <div class="wrap">
+      <span class="eyebrow">Τρεις άμεσοι τρόποι</span>
+      <h2 class="section-title" id="wege">Από πού μπορείτε να ξεκινήσετε</h2>
+      <div class="ways__grid">
+        <article class="way">
+          <h3>Γνωρίστε μια γάτα</h3>
+          <p>Γνωρίστε γάτες με την τρέχουσα κατάστασή τους, ειλικρινή περιγραφή και διαφανή
+            διαδικασία υιοθεσίας.</p>
+          <a class="way__cta" href="../katzen.html">Δείτε τις γάτες
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="way">
+          <h3>Προσφέρετε χρόνο ή δεξιότητες</h3>
+          <p>Αναλάβετε μια σαφώς οριοθετημένη εργασία επιτόπου ή εξ αποστάσεως — με ρεαλιστικό
+            φόρτο και συγκεκριμένο υπεύθυνο επικοινωνίας.</p>
+          <a class="way__cta" href="mitmachen.html">Δείτε τους ανοιχτούς ρόλους
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="way">
+          <h3>Χρηματοδοτήστε τη φροντίδα</h3>
+          <p>Στηρίξτε κτηνιατρική περίθαλψη, στειρώσεις, τροφή ή ένα σαφώς περιγεγραμμένο έργο.</p>
+          <a class="way__cta" href="foerdern.html">Επιλέξτε πώς θα βοηθήσετε
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modul 4 · Margos Geschichte -->
+  <section class="story" aria-labelledby="geschichte">
+    <div class="wrap story__grid">
+      <div>
+        <span class="eyebrow">Πώς ξεκίνησε</span>
+        <h2 id="geschichte">Πώς μια προσωπική ευθύνη γίνεται κοινό έργο.</h2>
+        <p>Πριν από χρόνια η Margo άρχισε να φροντίζει μερικές αδέσποτες γάτες γύρω από την Αρτέμιδα.
+          Από λίγα ζώα έγιναν πολλά. Μια πυρκαγιά κατέστρεψε το beach café που είχε — τα ζώα έμειναν,
+          και μαζί τους η καθημερινή ευθύνη.</p>
+        <p style="margin-top:1rem">Σήμερα κάνει τις διαδρομές της, οργανώνει θεραπείες και επωμίζεται πολλά η ίδια. Ακριβώς εδώ
+          παρεμβαίνει η πρωτοβουλία: να οργανώσει τη γνώση, να δημοσιοποιήσει τα έξοδα, να μοιράσει τα καθήκοντα.</p>
+        <a class="btn btn--ghost" href="unsere-arbeit.html">Δείτε την ιστορία της Margo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <figure class="story__media" style="margin:0">
+        <img src="../assets/hero/margo-versorgung-720.webp"
+             srcset="../assets/hero/margo-versorgung-720.webp 720w, ../assets/hero/margo-versorgung-1200.webp 1200w"
+             sizes="(min-width:900px) 38vw, 100vw"
+             width="1100" height="1430" loading="lazy" alt="Η Margo ταΐζει γάτες σε σημείο σίτισης">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Modul 5 · Was heute geschieht -->
+  <section class="work" aria-labelledby="arbeit">
+    <div class="wrap">
+      <span class="eyebrow">Τομείς εργασίας</span>
+      <h2 class="section-title" id="arbeit">Τι γίνεται σήμερα συγκεκριμένα</h2>
+      <div class="work__grid">
+        <div class="work__item">
+          <h3>Φροντίδα και παρακολούθηση</h3>
+          <p>Τακτική σίτιση και παρακολούθηση σε πολλά σημεία της περιοχής.</p>
+        </div>
+        <div class="work__item">
+          <h3>Περίθαλψη και στείρωση</h3>
+          <p>Κτηνιατρική εκτίμηση, θεραπεία και προληπτικά μέτρα βάσει επαγγελματικής κρίσης.</p>
+        </div>
+        <div class="work__item">
+          <h3>Τεκμηρίωση και υιοθεσίες</h3>
+          <p>Προφίλ, στοιχεία υγείας, σαφείς αρμοδιότητες και υπεύθυνες διαδικασίες υιοθεσίας.</p>
+        </div>
+        <div class="work__item">
+          <h3>Συντονισμός και ανακούφιση</h3>
+          <p>Οργάνωση εργασιών, συνεργατών, εξόδων και προόδου, ώστε να μην εξαρτώνται όλα από ένα άτομο.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route-Teaser -->
+  <section class="route">
+    <div class="wrap">
+      <div class="route__box">
+        <img src="../assets/hero/versorgungstour-1200.webp"
+             width="931" height="1690" loading="lazy"
+             alt="Το όχημα φορτωμένο με τροφή και νερό πριν από μια διαδρομή φροντίδας">
+        <div class="route__overlay">
+          <h2>Η διαδρομή πίσω από τη φροντίδα</h2>
+          <p>Ένα ντοκιμαντέρ-ταξίδι στα σημεία όπου μεμονωμένες σιτίσεις γίνονται καθημερινή ευθύνη.</p>
+          <a class="btn" href="../route.html" style="align-self:flex-start;background:#fff;color:var(--petrol-dark)">Δείτε τη διαδρομή
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modul 7 · Wer mitträgt -->
+  <section class="trust" aria-labelledby="mittraeger">
+    <div class="wrap">
+      <div class="trust__box">
+        <span class="eyebrow">Ποιοι στηρίζουν</span>
+        <h2 class="section-title" id="mittraeger" style="font-size:clamp(1.35rem,2.6vw,1.75rem)">Η Margo δεν το κάνει μόνη της</h2>
+        <div class="trust__list">
+          <div class="trust__item">
+            <h3>Ένας εγγεγραμμένος συνεργαζόμενος σύλλογος</h3>
+            <p>Ο Murka-Katzenhilfe e.&nbsp;V. (Πρωτοδικείο Bochum, VR&nbsp;4939) διαχειρίζεται τις δωρεές και
+              τις υιοθεσίες προς τη Γερμανία.</p>
+          </div>
+          <div class="trust__item">
+            <h3>Δύο κτηνιατρεία</h3>
+            <p>Τα Vets4life και OmniVET περιθάλπουν τα ζώα με μειωμένες χρεώσεις.</p>
+          </div>
+          <div class="trust__item">
+            <h3>Τέσσερα καταστήματα τροφών</h3>
+            <p>Τα Pet City, Pet Shop Manos, Pet Point και Dogit προσφέρουν εκπτώσεις σε τροφές.</p>
+          </div>
+          <div class="trust__item">
+            <h3>Μια σχολή windsurfing</h3>
+            <p>Συνεισφέρει οικονομικά και φιλοξενεί μέρος των γατών που φροντίζονται.</p>
+          </div>
+        </div>
+        <p class="trust__foot muted">Όλους τους συνεργάτες με στοιχεία επικοινωνίας θα βρείτε στη
+          <a href="../partner.html">σελίδα συνεργατών</a>. Πώς αξιοποιούνται οι πόροι φαίνεται στο
+          <a href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a>.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Προσανατολισμός</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Το έργο μας</a></li>
+        <li><a href="../katzen.html">Γάτες</a></li>
+        <li><a href="mitmachen.html">Συμμετοχή</a></li>
+        <li><a href="foerdern.html">Δωρεές</a></li>
+        <li><a href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Περισσότερα</h2>
+      <ul>
+        <li><a href="../route.html">Διαδρομή φροντίδας</a></li>
+        <li><a href="../partner.html">Συνεργάτες</a></li>
+        <li><a href="mitmachen.html#rollen">Ανοιχτοί ρόλοι</a></li>
+        <li><a href="../unterstuetzen.html">Στήριξη</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Επικοινωνία</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Περιοχή Αρτέμιδας / Αθήνας, Ελλάδα</li>
+        <li>Απαντάμε συνήθως εντός 24 ωρών</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Νομικά</h2>
+      <ul>
+        <li><a href="../impressum.html">Στοιχεία ταυτότητας</a></li>
+        <li><a href="../datenschutz.html">Πολιτική απορρήτου</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>English</h2>
+      <ul>
+        <li><a href="../en.html">Key facts &amp; overview</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Τελευταία ενημέρωση: Αύγουστος 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

@@ -115,11 +115,30 @@
     letter-spacing:.04em;color:var(--petrol);background:var(--petrol-tint);padding:2px 9px;border-radius:100px;margin-bottom:8px}
   .mw-step__title{font-family:'Newsreader',Georgia,serif;font-size:1.12rem;color:var(--petrol-dark);margin:0 0 6px}
   .mw-step__text{font-size:.92rem;line-height:1.7;color:var(--ink-soft);margin:0}
+  
+  /* Sprachumschalter */
+  .site-lang-switch{display:flex;align-items:center;gap:2px;font-size:.76rem;
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden}
+  .site-lang-switch a{padding:4px 8px;color:var(--ink-soft);text-decoration:none;
+    line-height:1;transition:background .2s var(--ease),color .2s var(--ease)}
+  .site-lang-switch a:hover{background:var(--petrol-tint);color:var(--petrol)}
+  .site-lang-switch a[aria-current="true"]{background:var(--petrol);color:#fff;font-weight:600}
+  @media(max-width:899px){.site-lang-switch{display:none}}
+  .site-drawer__langs{display:flex;gap:8px;margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--hair-warm)}
+  .site-drawer__langs a{flex:1;text-align:center;padding:10px;border:1px solid var(--hair);
+    border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:.9rem}
+  .site-drawer__langs a[aria-current="true"]{background:var(--petrol);color:#fff;
+    border-color:var(--petrol);font-weight:600}
   </style>
  <link rel="stylesheet" href="assets/css/tw.css">
 <link rel="stylesheet" href="assets/css/fonts.css">
 <!-- SHELL:HEAD:START -->
 <link rel="canonical" href="https://www.margoanimalcare.org/unsere-arbeit.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/unsere-arbeit.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/unsere-arbeit.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/unsere-arbeit.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/unsere-arbeit.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Margo Animal Care Initiative">
 <meta property="og:title" content="Unsere Arbeit | Margo Animal Care">
@@ -146,6 +165,7 @@
       <a class="site-nav__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
     </nav>
     <div class="site-header__actions">
+      <div class="site-lang-switch" role="group" aria-label="Sprache / Language"><a href="unsere-arbeit.html" hreflang="de" lang="de" aria-current="true">DE</a><a href="en/unsere-arbeit.html" hreflang="en" lang="en">EN</a><a href="el/unsere-arbeit.html" hreflang="el" lang="el">ΕΛ</a></div>
       <a class="site-cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <button class="site-burger" type="button" data-nav-toggle
               aria-expanded="false" aria-controls="site-drawer">
@@ -160,6 +180,7 @@
     <a class="site-drawer__link" href="mitmachen.html">Mitmachen</a>
     <a class="site-drawer__link" href="foerdern.html">Fördern</a>
     <a class="site-drawer__link" href="wirkung-transparenz.html">Wirkung &amp; Transparenz</a>
+    <div class="site-drawer__langs" role="group" aria-label="Sprache / Language"><a href="unsere-arbeit.html" hreflang="de" lang="de" aria-current="true">Deutsch</a><a href="en/unsere-arbeit.html" hreflang="en" lang="en">English</a><a href="el/unsere-arbeit.html" hreflang="el" lang="el">Ελληνικά</a></div>
     <div class="site-drawer__foot">
       <a class="site-drawer__cta" href="unterstuetzen.html">Unterstützen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
@@ -675,6 +696,12 @@
       <ul>
         <li><a href="impressum.html">Impressum</a></li>
         <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>English</h2>
+      <ul>
+        <li><a href="en.html">Key facts &amp; overview</a></li>
       </ul>
     </div>
   </div>

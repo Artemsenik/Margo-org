@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="el">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Αντίκτυπος &amp; διαφάνεια | Margo Animal Care</title>
+  <meta name="description" content="Κτηνιατρικά έξοδα, βασικά μεγέθη, αρμοδιότητες, συνεργάτες και ανοιχτά ζητήματα – με ημερομηνίες και ιχνηλάσιμη εξήγηση.">
+  <script src="../assets/js/lucide.min.js"></script>
+  <style>
+    :root{
+      --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
+      --ink:#1B1A16; --ink-soft:#4A473F;
+      --petrol:#143F3C; --petrol-mid:#1C5450; --petrol-dark:#0E2E2C; --petrol-tint:#E7EEEB;
+      --clay:#9A5B3F;
+      --hair:rgba(20,63,60,0.14); --hair-warm:#E3DED2;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-0.012em;text-wrap:balance;}
+    .display em, h1 em, h2 em{font-style:italic;color:var(--petrol);}
+    .muted{color:var(--ink-soft);}
+    a{text-decoration:none;}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--petrol);}
+    .eyebrow::before{content:"";width:1.8rem;height:1.5px;background:var(--petrol);display:inline-block;}
+
+    .soft-shadow{box-shadow:0 1px 2px rgba(14,46,44,0.06),0 6px 14px rgba(14,46,44,0.07),0 18px 40px rgba(14,46,44,0.06);}
+    .framed{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--card);}
+    .accent-top{position:relative;}
+    .accent-top::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--petrol);border-radius:12px 12px 0 0;z-index:2;}
+
+    .ed-card{background:var(--card);border:1px solid var(--hair);border-radius:12px;transition:transform .4s cubic-bezier(0.22,1,0.36,1),box-shadow .4s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .ed-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(14,46,44,0.07),0 10px 22px rgba(14,46,44,0.09),0 24px 48px rgba(14,46,44,0.07);} }
+
+    .icon-circle{width:46px;height:46px;border-radius:9999px;background:var(--petrol-tint);color:var(--petrol);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+    .pill{border-radius:100px;border:1px solid var(--hair);background:var(--card);font-size:.85rem;color:var(--ink-soft);}
+    .pill-invert{border-radius:100px;border:1px solid rgba(20,63,60,0.25);background:var(--petrol-tint);color:var(--petrol-dark);font-size:.85rem;font-weight:500;}
+
+    .btn{border-radius:7px;font-weight:600;font-size:.95rem;transition:transform .3s ease,box-shadow .3s ease,background .3s ease;}
+    .btn-primary{background:var(--petrol);color:#fff;}
+    .btn-primary:hover{background:var(--petrol-mid);box-shadow:0 8px 20px rgba(14,46,44,0.22);}
+    .btn-ghost{border:1px solid var(--hair);color:var(--petrol-dark);background:transparent;}
+    .btn-ghost:hover{background:var(--petrol-tint);}
+    .btn .arrow{transition:transform .3s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .btn:hover .arrow{transform:translateX(3px);} }
+
+    .contact-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--petrol-dark);font-weight:500;padding:.5rem .85rem;border:1px solid var(--hair);border-radius:8px;transition:background .25s ease,border-color .25s ease;}
+    .contact-link:hover{background:var(--petrol-tint);border-color:rgba(20,63,60,0.28);}
+    .contact-link i{color:var(--petrol);}
+
+    .section-dark{background:linear-gradient(165deg,var(--petrol-dark) 0%,var(--petrol) 70%,var(--petrol-mid) 100%);color:#EDF3F1;}
+    .section-dark h2, .section-dark .display{color:#fff;}
+    .section-dark .display em{color:#B9D4CE;}
+
+    .section-tint{background:var(--paper-2);border-top:1px solid var(--hair-warm);border-bottom:1px solid var(--hair-warm);}
+    .section-petrol-tint{background:var(--petrol-tint);}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(0.22,1,0.36,1),transform .8s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.in{opacity:1;transform:none;}
+
+    .grain{position:relative;}
+    @media (min-width:768px){
+      .grain::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.03;
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
+    }
+
+    #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--petrol);z-index:80;transition:width .1s linear;}
+    ::selection{background:var(--petrol);color:#fff;}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:4px;}
+    #nav-shadow-target{transition:box-shadow .3s ease;background:rgba(245,243,238,0.85);}
+    #nav-shadow-target.scrolled{box-shadow:0 1px 0 var(--hair),0 8px 24px rgba(14,46,44,0.06);}
+    .measure{max-width:62ch;}
+
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+      html{scroll-behavior:auto;}
+    }
+  
+  /* Sprachumschalter */
+  .site-lang-switch{display:flex;align-items:center;gap:2px;font-size:.76rem;
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden}
+  .site-lang-switch a{padding:4px 8px;color:var(--ink-soft);text-decoration:none;
+    line-height:1;transition:background .2s var(--ease),color .2s var(--ease)}
+  .site-lang-switch a:hover{background:var(--petrol-tint);color:var(--petrol)}
+  .site-lang-switch a[aria-current="true"]{background:var(--petrol);color:#fff;font-weight:600}
+  @media(max-width:899px){.site-lang-switch{display:none}}
+  .site-drawer__langs{display:flex;gap:8px;margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--hair-warm)}
+  .site-drawer__langs a{flex:1;text-align:center;padding:10px;border:1px solid var(--hair);
+    border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:.9rem}
+  .site-drawer__langs a[aria-current="true"]{background:var(--petrol);color:#fff;
+    border-color:var(--petrol);font-weight:600}
+  </style>
+ <link rel="stylesheet" href="../assets/css/tw.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/el/wirkung-transparenz.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/wirkung-transparenz.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/wirkung-transparenz.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/wirkung-transparenz.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/wirkung-transparenz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Wirkung & Transparenz | Margo Animal Care">
+<meta property="og:description" content="Κτηνιατρικά έξοδα, βασικά μεγέθη, αρμοδιότητες, συνεργάτες και ανοιχτά ζητήματα – με ημερομηνίες και ιχνηλάσιμη εξήγηση.">
+<meta property="og:url" content="https://www.margoanimalcare.org/el/wirkung-transparenz.html">
+<meta property="og:locale" content="el_GR">
+<meta property="og:image" content="https://www.margoanimalcare.org/assets/hero/og-wirkung-transparenz.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.margoanimalcare.org/assets/hero/og-wirkung-transparenz.jpg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
+ <body class="w-full min-h-screen grain">
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Το έργο μας</a>
+      <a class="site-nav__link" href="../katzen.html">Γάτες</a>
+      <a class="site-nav__link" href="mitmachen.html">Συμμετοχή</a>
+      <a class="site-nav__link" href="foerdern.html">Δωρεές</a>
+      <a class="site-nav__link" href="../wirkung-transparenz.html" aria-current="page">Αντίκτυπος &amp; διαφάνεια</a>
+    </nav>
+    <div class="site-header__actions">
+      <div class="site-lang-switch" role="group" aria-label="Sprache / Language"><a href="../wirkung-transparenz.html" hreflang="de" lang="de">DE</a><a href="../en/wirkung-transparenz.html" hreflang="en" lang="en">EN</a><a href="../el/wirkung-transparenz.html" hreflang="el" lang="el" aria-current="true">ΕΛ</a></div>
+      <a class="site-cta" href="unterstuetzen.html">Στήριξη <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Άνοιγμα μενού</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Το έργο μας</a>
+    <a class="site-drawer__link" href="../katzen.html">Γάτες</a>
+    <a class="site-drawer__link" href="mitmachen.html">Συμμετοχή</a>
+    <a class="site-drawer__link" href="foerdern.html">Δωρεές</a>
+    <a class="site-drawer__link" href="../wirkung-transparenz.html" aria-current="page">Αντίκτυπος &amp; διαφάνεια</a>
+    <div class="site-drawer__langs" role="group" aria-label="Sprache / Language"><a href="../wirkung-transparenz.html" hreflang="de" lang="de">Deutsch</a><a href="../en/wirkung-transparenz.html" hreflang="en" lang="en">English</a><a href="../el/wirkung-transparenz.html" hreflang="el" lang="el" aria-current="true">Ελληνικά</a></div>
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="unterstuetzen.html">Στήριξη <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
+  <div id="progress" aria-hidden="true"></div>
+
+  
+
+  <main class="w-full">
+
+   <!-- HERO -->
+   <section class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-6">Αντίκτυπος &amp; διαφάνεια</span>
+     <h1 class="reveal mb-7" style="font-size:clamp(2.2rem,4.8vw,3.6rem);line-height:1.05;">Τι γίνεται, τι κοστίζει και <em>τι παραμένει ανοιχτό</em>.</h1>
+     <p class="reveal measure muted leading-relaxed" style="font-size:1.08rem;">
+      Τεκμηριώνουμε έξοδα, αρμοδιότητες και πρόοδο στον βαθμό που το επιτρέπουν η προστασία δεδομένων, η προστασία των ζώων και τα διαθέσιμα παραστατικά. Τα ανοιχτά σημεία τα επισημαίνουμε ρητά.</p>
+
+     <!-- Datenstand statt Bericht: es existiert noch kein Berichtszeitraum -->
+     <div class="reveal framed mt-9" style="border-left:3px solid var(--petrol);padding:22px 26px;max-width:820px">
+      <span class="status status--verified" style="margin-bottom:12px">Τρέχουσα κατάσταση δεδομένων</span>
+      <h2 style="font-size:1.08rem;color:var(--petrol-dark);margin-bottom:.6rem">Κτηνιατρικά έξοδα 23&nbsp;Μαρτίου έως 20&nbsp;Ιουλίου 2026</h2>
+      <p class="muted" style="font-size:.92rem;line-height:1.7;margin-bottom:.9rem">Ένας τομέας έχει αναλυθεί πλήρως μέχρι σήμερα: η κτηνιατρική φροντίδα. 32 επιμέρους τιμολόγια συνολικού ύψους 3.954,70&nbsp;€ με ΦΠΑ, δηλαδή περίπου 1.000&nbsp;€ τον μήνα. Σε αυτά προστίθενται πρώτες τάξεις μεγέθους από την εκτίμηση της ίδιας της Margo: περίπου 150 έως 180 γάτες ζουν μόνιμα στη φροντίδα της και είναι στειρωμένες, με ενιαία χρέωση 50&nbsp;€ ανά επέμβαση. Στις ελεύθερες αποικίες, κατά την εκτίμησή της, περίπου 150 ακόμη ζώα δεν έχουν στειρωθεί – για οικονομικούς λόγους. Την ανάλυση θα βρείτε παρακάτω σε αυτή τη σελίδα.</p>
+      <p class="muted" style="font-size:.88rem;line-height:1.68"><strong style="color:var(--petrol-dark)">Τι δεν υπάρχει ακόμη:</strong> μια τακτική αναφορά προόδου καθώς και επεξεργασμένα στοιχεία για τροφή, μετακινήσεις και υλικά. Δημοσιεύουμε αυτά τα στοιχεία μόνο όταν τεκμηριωθούν – όχι ως εκτίμηση με τη μορφή δείκτη.</p>
+     </div>
+    </div>
+   </section>
+
+   <!-- KENNZAHLEN -->
+   <section class="section-petrol-tint w-full py-16 md:py-20">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <p class="reveal muted text-sm mb-8" style="letter-spacing:.06em;">Τεκμηριωμένη περίοδος: <strong style="color:var(--petrol-dark);">23 Μαρτίου έως 20 Ιουλίου 2026</strong></p>
+     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="reveal">
+       <p class="display" style="font-size:clamp(2rem,4vw,2.6rem);color:var(--petrol-dark);line-height:1.1;">32</p>
+       <p class="muted text-sm mt-1">Tierarztrechnungen</p>
+      </div>
+      <div class="reveal">
+       <p class="display" style="font-size:clamp(2rem,4vw,2.6rem);color:var(--petrol-dark);line-height:1.1;">3.954,70&nbsp;€</p>
+       <p class="muted text-sm mt-1">συνολικά έξοδα με ΦΠΑ</p>
+      </div>
+      <div class="reveal">
+       <p class="display" style="font-size:clamp(2rem,4vw,2.6rem);color:var(--petrol-dark);line-height:1.1;">περίπου 1.000&nbsp;€</p>
+       <p class="muted text-sm mt-1">μέσα κτηνιατρικά έξοδα ανά μήνα</p>
+      </div>
+      <div class="reveal">
+       <p class="display" style="font-size:clamp(1.5rem,2.6vw,1.9rem);color:var(--petrol-dark);line-height:1.1;">123,58&nbsp;€</p>
+       <p class="muted text-sm mt-1">μέσο ποσό τιμολογίου</p>
+      </div>
+      <div class="reveal">
+       <p class="display" style="font-size:clamp(1.5rem,2.6vw,1.9rem);color:var(--petrol-dark);line-height:1.1;">765,51&nbsp;€</p>
+       <p class="muted text-sm mt-1">συμπεριλαμβανόμενος ΦΠΑ</p>
+      </div>
+      <div class="reveal">
+       <p class="display" style="font-size:clamp(1.5rem,2.6vw,1.9rem);color:var(--clay);line-height:1.1;">307,30&nbsp;€</p>
+       <p class="muted text-sm mt-1">εκπτώσεις που παραχώρησε το κτηνιατρείο</p>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- KOSTENARTEN -->
+   <section class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Υπηρεσίες</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Από πού προκύπτουν τα έξοδα</h2>
+     <p class="reveal muted mb-12 measure">Η φροντίδα περιλαμβάνει τόσο τακτικές προληπτικές υπηρεσίες όσο και ιατρικές ενέργειες που δεν μπορούν να προγραμματιστούν εκ των προτέρων. Στην τεκμηριωμένη περίοδο τιμολογήθηκαν, μεταξύ άλλων, οι εξής υπηρεσίες:</p>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="shield-check" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-3" style="font-size:1.2rem;color:var(--petrol-dark);">Πρόληψη και προστασία</h3>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li>Εμβολιασμοί κατά της λύσσας και άλλων λοιμωδών νοσημάτων</li>
+        <li>Αποπαρασίτωση</li>
+        <li>Θεραπεία κατά εξωπαρασίτων</li>
+        <li>γενικοί έλεγχοι υγείας</li>
+       </ul>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="microscope" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-3" style="font-size:1.2rem;color:var(--petrol-dark);">Διαγνωστική</h3>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li>κλινικές εξετάσεις</li>
+        <li>ταχέα τεστ FIV και FeLV</li>
+        <li>αιματολογικές εξετάσεις</li>
+        <li>εξετάσεις ούρων</li>
+        <li>περαιτέρω εξετάσεις κατά περίπτωση</li>
+       </ul>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="pill" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-3" style="font-size:1.2rem;color:var(--petrol-dark);">Θεραπεία</h3>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li>φάρμακα και αντιβιοτικά</li>
+        <li>αντιμετώπιση πόνου</li>
+        <li>φροντίδα τραυμάτων</li>
+        <li>αντιμετώπιση οξέων νοσημάτων και τραυματισμών</li>
+        <li>ιατρικά αναλώσιμα</li>
+       </ul>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="bed" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-3" style="font-size:1.2rem;color:var(--petrol-dark);">Νοσηλεία</h3>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li>εισαγωγή και παρακολούθηση ασθενών ζώων</li>
+        <li>καθετήρες και περαιτέρω θεραπεία</li>
+        <li>φροντίδα σε πολλαπλές συνεδρίες</li>
+       </ul>
+      </article>
+      <article class="ed-card reveal p-7 md:col-span-2">
+       <span class="icon-circle mb-5"><i data-lucide="scan-line" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-3" style="font-size:1.2rem;color:var(--petrol-dark);">Ταυτοποίηση και τεκμηρίωση</h3>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li>μικροτσίπ</li>
+        <li>διαβατήρια ζώων</li>
+        <li>τεκμηρίωση του εμβολιαστικού ιστορικού</li>
+       </ul>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- DREI FÄLLE -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Συγκεκριμένα</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Τρεις πραγματικές περιπτώσεις κόστους</h2>
+     <p class="reveal muted mb-12 measure">Τι σημαίνει ένα ποσό στην πράξη φαίνεται καλύτερα από περιπτώσεις που όντως τιμολογήθηκαν.</p>
+
+     <div class="grid gap-6 md:grid-cols-3">
+      <article class="reveal framed accent-top soft-shadow p-7 flex flex-col">
+       <p class="display mb-2" style="font-size:2.2rem;color:var(--petrol-dark);line-height:1;">15&nbsp;€</p>
+       <h3 class="mb-3" style="font-size:1.05rem;color:var(--petrol);">Στοχευμένη βασική φροντίδα</h3>
+       <p class="muted text-sm leading-relaxed">Μία μεμονωμένη αποπαρασίτωση μπορεί να τιμολογηθεί με μικρό ποσό. Τέτοιες μικρότερες υπηρεσίες όμως προκύπτουν τακτικά και αθροίζονται όταν φροντίζονται πολλά ζώα.</p>
+      </article>
+      <article class="reveal framed accent-top soft-shadow p-7 flex flex-col">
+       <p class="display mb-2" style="font-size:2.2rem;color:var(--petrol-dark);line-height:1;">145&nbsp;€</p>
+       <h3 class="mb-3" style="font-size:1.05rem;color:var(--petrol);">Πρόληψη και ταυτοποίηση</h3>
+       <p class="muted text-sm leading-relaxed">Σε μία γάτα συνδυάστηκαν σε ένα ραντεβού εμβολιασμός, αντιλυσσικό εμβόλιο, μικροτσίπ, διαβατήριο ζώου και τεστ FIV/FeLV.</p>
+      </article>
+      <article class="reveal framed accent-top soft-shadow p-7 flex flex-col">
+       <p class="display mb-2" style="font-size:2.2rem;color:var(--petrol-dark);line-height:1;">361&nbsp;€</p>
+       <h3 class="mb-3" style="font-size:1.05rem;color:var(--petrol);">Σύνθετο ιατρικό περιστατικό</h3>
+       <p class="muted text-sm leading-relaxed">Σε μία άρρωστη γάτα συνδυάστηκαν τεστ FIV/FeLV, εξέταση ούρων, νοσηλεία, καθετήρας, αιματολογικές εξετάσεις και ιατρικά αναλώσιμα.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- SCHWANKUNGEN -->
+   <section class="w-full py-20 md:py-24">
+    <div class="max-w-[820px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Πλαίσιο</span>
+     <h2 class="reveal mb-6" style="font-size:clamp(1.7rem,3vw,2.3rem);">Γιατί τα έξοδα κυμαίνονται</h2>
+     <p class="reveal muted mb-5 leading-relaxed">Προγραμματίσιμες υπηρεσίες όπως εμβολιασμοί, αντιπαρασιτικές θεραπείες ή τεστ αποτελούν μια σταθερή βασική φροντίδα. Αντίθετα, ασθένειες, τραυματισμοί και νοσηλείες είναι μόνο εν μέρει προβλέψιμα.</p>
+     <p class="reveal muted mb-5 leading-relaxed">Στην αναλυθείσα περίοδο τα επιμέρους τιμολόγια κυμάνθηκαν μεταξύ <strong style="color:var(--petrol-dark);">15&nbsp;€</strong> και <strong style="color:var(--petrol-dark);">439,20&nbsp;€</strong>. Εννέα από τα 32 τιμολόγια ήταν τουλάχιστον 150&nbsp;€.</p>
+     <div class="reveal framed p-6 mb-5" style="border-left:3px solid var(--clay);">
+      <p class="muted text-sm leading-relaxed">Η μέση δαπάνη περίπου 1.000&nbsp;€ τον μήνα περιγράφει <strong style="color:var(--petrol-dark);">αυτή τη συγκεκριμένη περίοδο</strong>. Δεν αποτελεί γενική πρόβλεψη κόστους για μελλοντικούς μήνες.</p>
+     </div>
+     <p class="reveal muted leading-relaxed">Ούτε ο αριθμός των ζώων από μόνος του εξηγεί πλήρως τα έξοδα. Καθοριστικά είναι η κατάσταση της υγείας τους, οι απαραίτητες διαγνωστικές εξετάσεις και η έκταση της θεραπείας κάθε φορά.</p>
+    </div>
+   </section>
+
+   <!-- TRANSPARENZVERSTÄNDNIS -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Αρχή</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Η δική μας αντίληψη για τη διαφάνεια</h2>
+     <p class="reveal muted mb-10 measure">Δημοσιεύουμε συγκεντρωτικά μεγέθη και ιχνηλάσιμα παραδείγματα, χωρίς να αποκαλύπτουμε προσωπικά ή ιατρικά μη απαραίτητα στοιχεία.</p>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <div class="reveal framed p-7">
+       <h3 class="mb-3" style="font-size:1.05rem;color:var(--petrol-dark);">Τα υποκείμενα παραστατικά περιέχουν</h3>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li>ημερομηνία θεραπείας</li>
+        <li>αριθμό τιμολογίου</li>
+        <li>όνομα ζώου ή ομάδα ζώων</li>
+        <li>τιμολογημένες υπηρεσίες</li>
+        <li>εκπτώσεις που παραχωρήθηκαν</li>
+        <li>ΦΠΑ</li>
+        <li>ποσό τιμολογίου</li>
+       </ul>
+      </div>
+      <div class="reveal framed p-7">
+       <h3 class="mb-3" style="font-size:1.05rem;color:var(--petrol-dark);">Ποιος τιμολογεί και ποιος τεκμηριώνει</h3>
+       <p class="muted text-sm leading-relaxed mb-3">Η παρούσα εκκαθάριση εκδόθηκε από το θεράπον κτηνιατρείο προς <strong style="color:var(--petrol-dark);">Murka Katzenhilfe e.&nbsp;V.</strong> . Η Margo Animal Care τεκμηριώνει εδώ τις θεραπείες και τα έξοδα που καταγράφονται σε αυτήν.</p>
+       <p class="muted text-sm leading-relaxed">Η επισκόπηση θα ενημερωθεί μετά την ολοκλήρωση μιας ακόμη, πλήρως ελεγμένης λογιστικής περιόδου. Έτσι παραμένει ιχνηλάσιμο ποιες ιατρικές υπηρεσίες παρασχέθηκαν και ποια πραγματικά έξοδα προέκυψαν.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- DATENGRUNDLAGE -->
+   <section class="w-full py-16 md:py-20">
+    <div class="max-w-[820px] mx-auto px-6">
+     <h2 class="reveal mb-6" style="font-size:clamp(1.3rem,2.2vw,1.6rem);">Βάση δεδομένων</h2>
+     <div class="reveal framed" style="overflow:hidden;">
+      <div class="grid" style="grid-template-columns:1fr;">
+       <div class="flex justify-between gap-4 px-6 py-3.5" style="border-bottom:1px solid var(--hair);">
+        <span class="muted text-sm">Περίοδος ανάλυσης</span><span class="text-sm font-semibold" style="color:var(--petrol-dark);">23 Μαρτίου έως 20 Ιουλίου 2026</span></div>
+       <div class="flex justify-between gap-4 px-6 py-3.5" style="border-bottom:1px solid var(--hair);">
+        <span class="muted text-sm">Τελευταίο καταγεγραμμένο παραστατικό</span><span class="text-sm font-semibold" style="color:var(--petrol-dark);">20 Ιουλίου 2026</span></div>
+       <div class="flex justify-between gap-4 px-6 py-3.5" style="border-bottom:1px solid var(--hair);">
+        <span class="muted text-sm">Αναλυθέντα τιμολόγια</span><span class="text-sm font-semibold" style="color:var(--petrol-dark);">32</span></div>
+       <div class="flex justify-between gap-4 px-6 py-3.5" style="border-bottom:1px solid var(--hair);">
+        <span class="muted text-sm">Τεκμηριωμένα συνολικά έξοδα</span><span class="text-sm font-semibold" style="color:var(--petrol-dark);">3.954,70 € με ΦΠΑ</span></div>
+       <div class="flex justify-between gap-4 px-6 py-3.5">
+        <span class="muted text-sm">Στοιχεία</span><span class="text-sm font-semibold" style="color:var(--petrol-dark);">23 Ιουλίου 2026</span></div>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- CTA -->
+
+   <!-- ROLLEN UND VERANTWORTLICHKEITEN -->
+   <section id="verantwortung" class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Αρμοδιότητες</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Ποιος αποφασίζει τι</h2>
+     <p class="reveal muted mb-10 measure">Διαφάνεια δεν σημαίνει μόνο να δείχνεις αριθμούς, αλλά και ποιος τους ευθύνεται.</p>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <h3 class="mb-2" style="font-size:1.08rem;color:var(--petrol-dark);">Margo</h3>
+       <p class="muted text-sm leading-relaxed">Καθημερινή φροντίδα, αποφάσεις για κάθε ζώο ξεχωριστά, επιλογή θεραπειών μαζί με τα κτηνιατρεία και προσωπική έγκριση κάθε υιοθεσίας.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <h3 class="mb-2" style="font-size:1.08rem;color:var(--petrol-dark);">Η πρωτοβουλία</h3>
+       <p class="muted text-sm leading-relaxed">Τεκμηρίωση, καταγραφή εξόδων, συντονισμός εθελοντών, επικοινωνία και αυτός ο ιστότοπος. Δεν λαμβάνει ιατρικές αποφάσεις και δεν διαχειρίζεται δωρεές.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <h3 class="mb-2" style="font-size:1.08rem;color:var(--petrol-dark);">Murka-Katzenhilfe e.&nbsp;V.</h3>
+       <p class="muted text-sm leading-relaxed">Διαχείριση δωρεών, αποδείξεις δωρεών καθώς και αιτήσεις, έλεγχος και αποφάσεις για υιοθεσίες στη Γερμανία.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <h3 class="mb-2" style="font-size:1.08rem;color:var(--petrol-dark);">Vets4life και OmniVET</h3>
+       <p class="muted text-sm leading-relaxed">Ιατρική διάγνωση και θεραπεία, στειρώσεις καθώς και τιμολόγηση των παρεχόμενων υπηρεσιών. Τα παραστατικά αυτών των κτηνιατρείων αποτελούν τη βάση της ανάλυσης εξόδων.</p>
+      </article>
+     </div>
+
+     <p class="reveal muted text-sm mt-7" style="max-width:760px;line-height:1.7">Ο ακριβής συμβατικός ρόλος του συνεργαζόμενου συλλόγου επιβεβαιώνεται αυτή τη στιγμή εγγράφως. Μέχρι τότε περιγράφουμε εδώ μόνο ό,τι ήδη εφαρμόζεται στην πράξη.</p>
+    </div>
+   </section>
+
+   <section class="section-dark w-full py-20 md:py-24">
+    <div class="max-w-[820px] mx-auto px-6 text-center">
+     <span class="reveal inline-flex items-center gap-2 mb-6" style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#B9D4CE;">
+      <i data-lucide="heart" style="width:15px;height:15px;"></i>Στήριξη
+     </span>
+     <p class="reveal display leading-snug mb-8" style="font-size:clamp(1.5rem,3.4vw,2.2rem);">Αυτά τα έξοδα προκύπτουν <em>από την αρχή κάθε μήνα.</em></p>
+     <p class="reveal mx-auto mb-9" style="max-width:54ch;color:rgba(237,243,241,0.82);">
+      Περίπου 1.000 € τον μήνα μόνο για κτηνιατρική φροντίδα – και σε αυτά προστίθενται τροφή, στειρώσεις και μετακινήσεις. Όποιος στηρίζει αυτό το έργο το κάνει προβλέψιμο.</p>
+     <div class="reveal flex flex-wrap gap-3 justify-center">
+      <a href="foerdern.html" class="btn inline-flex items-center gap-2 px-6 py-3" style="background:#fff;color:var(--petrol-dark);">
+       <span>Δείτε τρόπους στήριξης</span>
+       <i data-lucide="arrow-right" class="arrow" style="width:16px;height:16px;"></i>
+      </a>
+      <a href="mailto:hello@margoanimalcare.org?subject=Veterin%C3%A4rkosten%20%E2%80%93%20R%C3%BCckfrage" class="btn inline-flex items-center gap-2 px-6 py-3" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.35);">
+       <i data-lucide="mail" style="width:16px;height:16px;"></i><span>Υποβάλετε ερώτημα</span>
+      </a>
+     </div>
+    </div>
+   </section>
+
+  </main>
+
+  
+
+  <script>
+    try { lucide.createIcons(); } catch (e) {}
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            e.target.style.transitionDelay = Math.min(i * 55, 220) + 'ms';
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+    const bar = document.getElementById('progress');
+    const nav = document.getElementById('nav-shadow-target'); // kann fehlen (Shell-Header)
+    function onScroll() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+      if (nav) nav.classList.toggle('scrolled', h.scrollTop > 8);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+ <!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Προσανατολισμός</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Το έργο μας</a></li>
+        <li><a href="../katzen.html">Γάτες</a></li>
+        <li><a href="mitmachen.html">Συμμετοχή</a></li>
+        <li><a href="foerdern.html">Δωρεές</a></li>
+        <li><a href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Περισσότερα</h2>
+      <ul>
+        <li><a href="../route.html">Διαδρομή φροντίδας</a></li>
+        <li><a href="../partner.html">Συνεργάτες</a></li>
+        <li><a href="mitmachen.html#rollen">Ανοιχτοί ρόλοι</a></li>
+        <li><a href="unterstuetzen.html">Στήριξη</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Επικοινωνία</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Περιοχή Αρτέμιδας / Αθήνας, Ελλάδα</li>
+        <li>Απαντάμε συνήθως εντός 24 ωρών</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Νομικά</h2>
+      <ul>
+        <li><a href="../impressum.html">Στοιχεία ταυτότητας</a></li>
+        <li><a href="../datenschutz.html">Πολιτική απορρήτου</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>English</h2>
+      <ul>
+        <li><a href="../en.html">Key facts &amp; overview</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Τελευταία ενημέρωση: Αύγουστος 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

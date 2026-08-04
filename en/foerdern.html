@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fördern — Spenden &amp; Partnerschaften | Margo Animal Care Initiative</title>
+  <meta name="description" content="What funds are used for, who already helps carry this work, and how private or institutional giving works.">
+  <script src="../assets/js/lucide.min.js"></script>
+  <style>
+    :root{
+      --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
+      --ink:#1B1A16; --ink-soft:#4A473F;
+      --petrol:#143F3C; --petrol-mid:#1C5450; --petrol-dark:#0E2E2C; --petrol-tint:#E7EEEB;
+      --clay:#9A5B3F;
+      --hair:rgba(20,63,60,0.14); --hair-warm:#E3DED2;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-0.012em;text-wrap:balance;}
+    .display em, h1 em, h2 em{font-style:italic;color:var(--petrol);}
+    .muted{color:var(--ink-soft);}
+    a{text-decoration:none;}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--petrol);}
+    .eyebrow::before{content:"";width:1.8rem;height:1.5px;background:var(--petrol);display:inline-block;}
+
+    .soft-shadow{box-shadow:0 1px 2px rgba(14,46,44,0.06),0 6px 14px rgba(14,46,44,0.07),0 18px 40px rgba(14,46,44,0.06);}
+    .framed{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--card);}
+    .accent-top{position:relative;}
+    .accent-top::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--petrol);border-radius:12px 12px 0 0;z-index:2;}
+
+    .ed-card{background:var(--card);border:1px solid var(--hair);border-radius:12px;transition:transform .4s cubic-bezier(0.22,1,0.36,1),box-shadow .4s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .ed-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(14,46,44,0.07),0 10px 22px rgba(14,46,44,0.09),0 24px 48px rgba(14,46,44,0.07);} }
+
+    .icon-circle{width:46px;height:46px;border-radius:9999px;background:var(--petrol-tint);color:var(--petrol);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+    .pill{border-radius:100px;border:1px solid var(--hair);background:var(--card);font-size:.85rem;color:var(--ink-soft);}
+    .pill-invert{border-radius:100px;border:1px solid rgba(20,63,60,0.25);background:var(--petrol-tint);color:var(--petrol-dark);font-size:.85rem;font-weight:500;}
+
+    .btn{border-radius:7px;font-weight:600;font-size:.95rem;transition:transform .3s ease,box-shadow .3s ease,background .3s ease;}
+    .btn-primary{background:var(--petrol);color:#fff;}
+    .btn-primary:hover{background:var(--petrol-mid);box-shadow:0 8px 20px rgba(14,46,44,0.22);}
+    .btn-ghost{border:1px solid var(--hair);color:var(--petrol-dark);background:transparent;}
+    .btn-ghost:hover{background:var(--petrol-tint);}
+    .btn .arrow{transition:transform .3s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .btn:hover .arrow{transform:translateX(3px);} }
+
+    .contact-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--petrol-dark);font-weight:500;padding:.5rem .85rem;border:1px solid var(--hair);border-radius:8px;transition:background .25s ease,border-color .25s ease;}
+    .contact-link:hover{background:var(--petrol-tint);border-color:rgba(20,63,60,0.28);}
+    .contact-link i{color:var(--petrol);}
+
+    .section-dark{background:linear-gradient(165deg,var(--petrol-dark) 0%,var(--petrol) 70%,var(--petrol-mid) 100%);color:#EDF3F1;}
+    .section-dark h2, .section-dark .display{color:#fff;}
+    .section-dark .display em{color:#B9D4CE;}
+
+    .section-tint{background:var(--paper-2);border-top:1px solid var(--hair-warm);border-bottom:1px solid var(--hair-warm);}
+    .section-petrol-tint{background:var(--petrol-tint);}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(0.22,1,0.36,1),transform .8s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.in{opacity:1;transform:none;}
+
+    .grain{position:relative;}
+    @media (min-width:768px){
+      .grain::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.03;
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
+    }
+
+    #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--petrol);z-index:80;transition:width .1s linear;}
+    ::selection{background:var(--petrol);color:#fff;}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:4px;}
+    #nav-shadow-target{transition:box-shadow .3s ease;background:rgba(245,243,238,0.85);}
+    #nav-shadow-target.scrolled{box-shadow:0 1px 0 var(--hair),0 8px 24px rgba(14,46,44,0.06);}
+    .measure{max-width:62ch;}
+
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+      html{scroll-behavior:auto;}
+    }
+  
+  /* Sprachumschalter */
+  .site-lang-switch{display:flex;align-items:center;gap:2px;font-size:.76rem;
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden}
+  .site-lang-switch a{padding:4px 8px;color:var(--ink-soft);text-decoration:none;
+    line-height:1;transition:background .2s var(--ease),color .2s var(--ease)}
+  .site-lang-switch a:hover{background:var(--petrol-tint);color:var(--petrol)}
+  .site-lang-switch a[aria-current="true"]{background:var(--petrol);color:#fff;font-weight:600}
+  @media(max-width:899px){.site-lang-switch{display:none}}
+  .site-drawer__langs{display:flex;gap:8px;margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--hair-warm)}
+  .site-drawer__langs a{flex:1;text-align:center;padding:10px;border:1px solid var(--hair);
+    border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:.9rem}
+  .site-drawer__langs a[aria-current="true"]{background:var(--petrol);color:#fff;
+    border-color:var(--petrol);font-weight:600}
+  </style>
+ <link rel="stylesheet" href="../assets/css/tw.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/en/foerdern.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/foerdern.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/foerdern.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/foerdern.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/foerdern.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/foerdern.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/foerdern.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/foerdern.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/foerdern.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Fördern — Spenden & Partnerschaften | Margo Animal Care Initiative">
+<meta property="og:description" content="What funds are used for, who already helps carry this work, and how private or institutional giving works.">
+<meta property="og:url" content="https://www.margoanimalcare.org/en/foerdern.html">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://www.margoanimalcare.org/assets/hero/og-foerdern.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.margoanimalcare.org/assets/hero/og-foerdern.jpg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
+ <body class="w-full min-h-screen grain">
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Our work</a>
+      <a class="site-nav__link" href="../katzen.html">Cats</a>
+      <a class="site-nav__link" href="mitmachen.html">Get involved</a>
+      <a class="site-nav__link" href="foerdern.html" aria-current="page">Donate</a>
+      <a class="site-nav__link" href="../wirkung-transparenz.html">Impact &amp; transparency</a>
+    </nav>
+    <div class="site-header__actions">
+      
+      <a class="site-cta" href="../unterstuetzen.html">Support us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Our work</a>
+    <a class="site-drawer__link" href="../katzen.html">Cats</a>
+    <a class="site-drawer__link" href="mitmachen.html">Get involved</a>
+    <a class="site-drawer__link" href="foerdern.html" aria-current="page">Donate</a>
+    <a class="site-drawer__link" href="../wirkung-transparenz.html">Impact &amp; transparency</a>
+    
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="../unterstuetzen.html">Support us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
+  <div id="progress" aria-hidden="true"></div>
+
+  
+
+  <main class="w-full">
+
+   <!-- HERO -->
+   <section class="w-full py-20 md:py-28">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-6">Donate &amp; support</span>
+     <h1 class="reveal mb-7" style="font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.04;">Daily care needs <em>reliable funding.</em></h1>
+     <p class="reveal measure muted leading-relaxed" style="font-size:1.1rem;">
+      In Artemida near Athens, an estimated 250–300 cats (as of 2026) along with a few dogs and rabbits are cared for daily with food, water and medical treatment – across private care locations, a farm and several feeding colonies. This page shows what funds are needed for, who already helps carry the work, and what supporting it can look like in practice.</p>
+     <div class="reveal mt-9 flex flex-wrap gap-3">
+      <a href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rderung%20der%20Margo%20Animal%20Care%20Initiative" class="btn btn-primary inline-flex items-center gap-2 px-6 py-3">
+       <i data-lucide="mail" style="width:16px;height:16px;"></i><span>Arrange a conversation</span>
+      </a>
+      <a href="#spendenweg" class="btn btn-ghost inline-flex items-center gap-2 px-6 py-3">
+       <span>How your donation arrives</span>
+       <i data-lucide="arrow-down" class="arrow" style="width:16px;height:16px;"></i>
+      </a>
+     </div>
+    </div>
+   </section>
+
+   <!-- ZAHLEN -->
+   <section class="section-petrol-tint w-full py-14 md:py-16">
+    <div class="max-w-[1160px] mx-auto px-6 grid gap-8 sm:grid-cols-3 text-center">
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">250–300</p>
+      <p class="muted text-sm mt-1">Animals cared for regularly</p>
+      <p class="data-note">Estimate · as of 2026</p>
+     </div>
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">13+</p>
+      <p class="muted text-sm mt-1">Recorded care locations</p>
+      <p class="data-note">Estimate · exact locations not published</p>
+     </div>
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">365</p>
+      <p class="muted text-sm mt-1">Days of care per year</p>
+      <p class="data-note">Daily operation</p>
+     </div>
+    </div>
+   </section>
+
+
+   <!-- GOVERNANCE — für institutionelle Prüfung zuerst -->
+   <section id="governance" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Legal framework &amp; responsibility</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Who is responsible, who settles accounts</h2>
+     <p class="reveal muted mb-10 measure">For foundations, companies and associations this question comes first. So here it is up front: the initiative itself is not a registered association. Donations and rehoming are handled through a registered German partner association.</p>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <span class="status status--verified" style="margin-bottom:14px">Verified</span>
+       <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Registered partner association</h3>
+       <dl style="font-size:.9rem;line-height:1.7">
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Association</dt>
+         <dd style="margin:0;color:var(--petrol-dark);font-weight:500">Murka-Katzenhilfe e.&nbsp;V.</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Registered office</dt>
+         <dd style="margin:0">44795 Bochum, Germany</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Register court</dt>
+         <dd style="margin:0">Bochum Local Court, VR&nbsp;4939</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Status</dt>
+         <dd style="margin:0">Recognised as a non-profit association</dd></div>
+       </dl>
+       <p class="muted text-sm mt-4" style="line-height:1.65">Donations through this account are tax-deductible in Germany. The current tax exemption certificate is provided on request.</p>
+      </article>
+
+      <article class="ed-card reveal p-7">
+       <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">A clear division of roles</h3>
+       <ul class="muted" style="font-size:.9rem;line-height:1.7;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
+        <li><strong style="color:var(--petrol-dark)">Margo on site:</strong> daily care, decisions about each individual animal, approval of every rehoming.</li>
+        <li><strong style="color:var(--petrol-dark)">The initiative:</strong> documentation, cost records, coordination of volunteers and communication.</li>
+        <li><strong style="color:var(--petrol-dark)">The partner association:</strong> donation processing, donation receipts and rehoming to Germany.</li>
+        <li><strong style="color:var(--petrol-dark)">The veterinary practices:</strong> medical decisions and billing of treatments.</li>
+       </ul>
+       <p class="muted text-sm mt-4" style="line-height:1.65">Funds are earmarked via the payment reference, for example &bdquo;Griechenland&ldquo;, &bdquo;Kastration Griechenland&ldquo; or the name of a specific cat.</p>
+      </article>
+     </div>
+
+     <div class="reveal framed mt-8" style="border-left:3px solid var(--petrol);padding:22px 24px;max-width:900px">
+      <h3 style="font-size:1.02rem;color:var(--petrol-dark);margin-bottom:.5rem">For organisations</h3>
+      <p class="muted" style="font-size:.9rem;line-height:1.7;margin-bottom:1rem">We provide receipts, cost breakdowns and contact persons for due diligence, and agree the reporting format and period in advance. A first conversation takes about 15 minutes.</p>
+      <a class="btn inline-flex items-center gap-2 px-5 py-2.5"
+         style="background:var(--petrol);color:#fff;border-radius:7px;font-size:.88rem;font-weight:600;text-decoration:none"
+         href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rdergespr%C3%A4ch%20%E2%80%94%20Margo%20Animal%20Care&amp;body=Guten%20Tag%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20eine%20F%C3%B6rderung%20und%20m%C3%B6chten%20ein%20kurzes%20Gespr%C3%A4ch%20vereinbaren.%0A%0AOrganisation%3A%20%0AAnsprechperson%3A%20%0AM%C3%B6gliche%20Termine%3A%20%0A%0AFreundliche%20Gr%C3%BCsse">Arrange a funding conversation</a>
+     </div>
+    </div>
+   </section>
+
+   <!-- MITTELVERWENDUNG -->
+   <section id="mittel" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Use of funds</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">What funds are needed for</h2>
+     <p class="reveal muted mb-12 measure">Four cost areas carry the ongoing work. A complete breakdown is now available for veterinary care; the remaining areas are currently being recorded.</p>
+     <div class="reveal framed p-5 mb-10" style="border-left:3px solid var(--petrol);max-width:680px;">
+      <p class="text-sm muted"><strong style="color:var(--petrol-dark);">Care takes place in the Artemida/Athens region: a farm, several private care locations and outdoor feeding colonies. Exact locations are not published, to protect the animals and private households.</p>
+     </div>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="utensils" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Food</h3>
+       <p class="muted text-sm leading-relaxed">The largest ongoing item: dry and wet food for all care locations and colonies – every day, in any weather. Four pet food shops already grant discounts; the quantities remain considerable nonetheless.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="stethoscope" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Veterinary treatment</h3>
+       <p class="muted text-sm leading-relaxed mb-4">Examinations, medication, operations and emergencies. Two partner practices treat at reduced rates.</p>
+       <div class="p-4 mb-4" style="background:var(--petrol-tint);border-radius:8px;">
+        <p class="text-sm" style="color:var(--petrol-dark);"><strong>Documented:</strong> 32 invoices totalling €3,954.70 between 23 March and 20 July 2026 – around €1,000 per month.</p>
+       </div>
+       <a href="../wirkung-transparenz.html" class="contact-link"><i data-lucide="file-text" style="width:15px;height:15px;"></i>View the full breakdown</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="scissors" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Neutering</h3>
+       <p class="muted text-sm leading-relaxed mb-4">The most effective lever against growing animal suffering: every neutering prevents new litters on the street – and permanently reduces the cost of food and treatment.</p>
+       <a href="#kastration" class="contact-link"><i data-lucide="arrow-down" style="width:15px;height:15px;"></i>Neutering in detail</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="truck" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Transport &amp; materials</h3>
+       <p class="muted text-sm leading-relaxed">Daily care routes, veterinary transport, water canisters, bowls, carriers and winter shelter for the colonies.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- KASTRATION -->
+   <section id="kastration" class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Core task</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Neutering: the lever that <em>reduces costs</em></h2>
+     <p class="reveal muted mb-12 measure">Feeding keeps animals alive. Neutering stops new ones from constantly arriving. That is why neutering is not a side task for us, but the most effective use of every euro donated.</p>
+
+     <div class="reveal framed p-7 mb-10" style="border-left:3px solid var(--clay);max-width:820px;">
+      <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Why this makes every contribution more sustainable</h3>
+      <p class="muted text-sm leading-relaxed mb-3">An unneutered pair of cats can produce a double-digit number of offspring within a few years. Each of those animals then needs food, water and medical care every day – permanently.</p>
+      <p class="muted text-sm leading-relaxed"><strong style="color:var(--petrol-dark);">Every neutering reduces future food requirements</strong> and future veterinary costs. Funding a neutering is therefore not a recurring expense but a one-off investment that permanently lowers the need.</p>
+     </div>
+
+     <div class="grid gap-8 sm:grid-cols-3 mb-10" style="max-width:900px;">
+      <div class="reveal">
+       <span class="status status--verified" style="margin-bottom:10px">Verified</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">50&nbsp;€</p>
+       <p class="muted text-sm mt-1">Cost per neutering</p>
+       <p class="data-note">A single flat rate, regardless of the animal's sex.</p>
+      </div>
+      <div class="reveal">
+       <span class="status status--estimated" style="margin-bottom:10px">Estimate</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">150–180</p>
+       <p class="muted text-sm mt-1">Cats in Margo's care – all neutered</p>
+       <p class="data-note">Margo's own estimate, August 2026. Based on the documented breakdown (farm, family home, second residence, surf school) around 145 animals.</p>
+      </div>
+      <div class="reveal">
+       <span class="status status--estimated" style="margin-bottom:10px">Estimate</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">~150</p>
+       <p class="muted text-sm mt-1">Colony cats not yet neutered</p>
+       <p class="data-note">All animals in the free-living colonies would need to be neutered. So far the funds for this are lacking.</p>
+      </div>
+     </div>
+
+     <div class="reveal framed p-7 mb-10" style="border-left:3px solid var(--clay);max-width:820px;">
+      <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">The concrete need: neutering the colonies completely</h3>
+      <p class="muted text-sm leading-relaxed mb-3">Every cat living permanently with Margo – on the farm, in the family home, at the second residence or at the surf school – is neutered. In the free-living colonies this has so far happened only where an animal needed medical treatment anyway. By Margo's estimate, around 150 colony cats are still unneutered.</p>
+      <p class="muted text-sm leading-relaxed mb-4">The reason is not a lack of willingness but a lack of money. At the stated flat rate of €50, this would amount to a funding need of roughly <strong style="color:var(--petrol-dark);">7.500&nbsp;€</strong> – a rough order of magnitude, not a fixed budget, since Margo has not yet set a timeframe or a specific campaign.</p>
+      <a href="mailto:hello@margoanimalcare.org?subject=Kolonie-Kastration%20unterst%C3%BCtzen&amp;body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20die%20Kastration%20der%20Kolonie-Katzen%20unterst%C3%BCtzen.%0A%0AFreundliche%20Gr%C3%BCsse" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Support colony neutering</a>
+     </div>
+
+     <div class="grid gap-6 md:grid-cols-3">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="target" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Fund a single neutering</h3>
+       <p class="muted text-sm leading-relaxed">With €50 you fund a single neutering – independent of any larger campaign, possible at any time.</p>
+      </article>
+      <!-- AUSGEBLENDET bis verifiziert (F3 Geplante Kastrationsaktion) — Auftrag 3.0 Abschnitt 2.2: unbestätigte Angaben werden nicht als Platzhalter gezeigt.
+<article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="calendar-check" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(&#45;&#45;petrol-dark);">Geplante Kastrationsaktion</h3>
+       <p class="muted text-sm leading-relaxed">Für [Zeitraum X] ist eine Aktion mit [X] Tieren geplant. Benötigtes Budget: [X] €. Durchführung gemeinsam mit [Partnerpraxis X].</p>
+      </article>
+-->
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="clipboard-check" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Documentation</h3>
+       <p class="muted text-sm leading-relaxed">Every neutering is recorded with date, animal and practice. On request, funders receive a list of the procedures financed from their contribution.</p>
+      </article>
+     </div>
+
+     <p class="reveal muted text-sm mt-8" style="max-width:760px;">Note: neutering is carried out by our partner practices Vets4life and OmniVET. For earmarked neutering support, the payment reference <strong style="color:var(--petrol-dark);">&bdquo;Kastration Griechenland&ldquo;</strong>.</p>
+    </div>
+   </section>
+
+   <!-- VERTRAUEN -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Why you can trust us</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Others already share the load</h2>
+     <p class="reveal muted mb-10 measure">Giving is a matter of trust. These structures already exist – verifiable and with named contacts:</p>
+     <div class="grid gap-5 md:grid-cols-2">
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Animal welfare association Murka-Katzenhilfe e.&nbsp;V. (Germany)</h3>
+       <p class="muted text-sm">Already funds food and veterinary costs and handles the responsible rehoming of individual cats to Germany.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Two veterinary practices</h3>
+       <p class="muted text-sm">Vets4life and OmniVET treat the animals expertly at reduced prices – a long-standing, direct collaboration.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Four pet food shops</h3>
+       <p class="muted text-sm">Pet City, Pet Shop Manos, Pet Point and Dogit support with discounts on food.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">The windsurfing school</h3>
+       <p class="muted text-sm">Contributes financially and is home to around 25 cats; Margo works there as a surf instructor – the initiative is part of everyday life.</p>
+      </div>
+     </div>
+     <p class="reveal mt-8"><a href="../partner.html" class="contact-link"><i data-lucide="users" style="width:15px;height:15px;"></i>All partners in detail</a></p>
+    </div>
+   </section>
+
+   <!-- TRANSPARENZ -->
+   <section class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Transparency</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">What funders can expect from us</h2>
+     <div class="grid gap-6 md:grid-cols-3 mt-10">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="file-text" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Traceable use of funds</h3>
+       <p class="muted text-sm leading-relaxed mb-3">On request we report regularly on what funds were used for – with receipts instead of blanket statements.</p><a href="../wirkung-transparenz.html" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Example: veterinary costs</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="eye" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Honest communication</h3>
+       <p class="muted text-sm leading-relaxed">We present animal numbers as estimates, flag open questions and promise nothing we cannot deliver.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="shield" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Clear responsibilities</h3>
+       <p class="muted text-sm leading-relaxed">Rehoming runs through Murka-Katzenhilfe e.&nbsp;V.; the initiative brings together care, documentation and local availability.</p>
+      </article>
+     </div>
+     <div class="reveal mt-10 framed p-6" style="border-left:3px solid var(--clay);">
+      <p class="muted text-sm leading-relaxed"><strong style="color:var(--petrol-dark);">Openly stated:</strong> The Margo Animal Care Initiative is not itself a registered association. Donations therefore run through our partner association Murka-Katzenhilfe e.&nbsp;V. – with the advantage that they are tax-deductible there. How the allocation to Margo's work functions is explained in the next section.</p>
+     </div>
+    </div>
+   </section>
+
+   <!-- SO KOMMT DIE SPENDE AN -->
+   <section id="spendenweg" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">The path of a donation</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">How your donation reaches Margo</h2>
+     <p class="reveal muted mb-12 measure">Donations run through the account of Murka-Katzenhilfe e.&nbsp;V. The association does not use sub-accounts but works with <strong style="color:var(--petrol-dark);">earmarked payments</strong> – allocation happens via the payment reference.</p>
+
+     <div class="grid gap-6 md:grid-cols-3 mb-10">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="edit-3" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">1. State the payment reference</h3>
+       <p class="muted text-sm leading-relaxed mb-4">So that your donation is allocated to Margo's work, use one of these keywords as the payment reference:</p>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li><strong style="color:var(--petrol-dark);">Griechenland</strong></li>
+        <li><strong style="color:var(--petrol-dark);">Athen</strong></li>
+        <li>or the <strong style="color:var(--petrol-dark);">name of a specific cat</strong></li>
+       </ul>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="git-branch" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">2. Allocation within the association</h3>
+       <p class="muted text-sm leading-relaxed">Murka-Katzenhilfe e.&nbsp;V. allocates the payment to the work in Greece based on the reference. Without a reference the donation goes into the association's general work.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="receipt" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">3. Tax-deductible</h3>
+       <p class="muted text-sm leading-relaxed">Donations through the association's account can be claimed for tax purposes. Direct payments to Margo personally are <strong style="color:var(--petrol-dark);">not</strong> deductible.</p>
+      </article>
+     </div>
+
+     <div class="reveal framed p-6 mb-6" style="border-left:3px solid var(--clay);max-width:760px;">
+      <p class="muted text-sm leading-relaxed">If tax deductibility matters to you, please make the payment through the account of Murka-Katzenhilfe e.&nbsp;V.</p>
+     </div>
+
+     <div class="reveal framed soft-shadow p-7" style="max-width:760px;">
+      <h3 class="mb-4" style="font-size:1.05rem;color:var(--petrol-dark);">Bank details</h3>
+      <dl class="facts" style="border:none;margin-bottom:1.2rem;">
+       <div style="border-bottom:1px solid var(--hair);"><dt>Recipient</dt><dd>Murka-Katzenhilfe e.&nbsp;V.</dd></div>
+       <div style="border-bottom:1px solid var(--hair);"><dt>Bank</dt><dd>Volksbank Bochum Witten</dd></div>
+       <div><dt>IBAN</dt><dd style="font-family:ui-monospace,monospace;letter-spacing:.02em;">DE43 4306 0129 0108 3127 00</dd></div>
+      </dl>
+      <div class="p-4 mb-5" style="background:var(--clay-tint);border-radius:8px;">
+       <p class="text-sm" style="color:#7C4630;"><strong>Please use exactly &bdquo;Murka-Katzenhilfe e.&nbsp;V.&ldquo; as the recipient name</strong> – the former account name with the addition &bdquo;Russland&ldquo; is no longer current.</p>
+      </div>
+      <p class="muted text-sm leading-relaxed mb-5">Do not forget the payment reference: <strong style="color:var(--petrol-dark);">„Griechenland“</strong>, <strong style="color:var(--petrol-dark);">„Athen“</strong> or the name of a specific cat.</p>
+      <div style="border-top:1px solid var(--hair);padding-top:1.1rem;">
+       <p class="text-sm"><strong style="color:var(--petrol-dark);">PayPal:</strong> murka-p@web.de <span class="muted">(please send as &bdquo;friends and family&ldquo;)</span></p>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- FÖRDERWEGE -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Ways to give</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">How you can support</h2>
+     <p class="reveal muted mb-12 measure">From a one-off contribution to a long-term partnership – every form helps make daily care more predictable.</p>
+     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="heart" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">One-off contribution</h3>
+       <p class="muted text-sm leading-relaxed">A one-off contribution via the association account – with the reference &bdquo;Griechenland&ldquo; or &bdquo;Athen&ldquo; it goes directly into Margo's work.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="repeat" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Monthly giving</h3>
+       <p class="muted text-sm leading-relaxed">The most valuable route: recurring contributions make food and veterinary costs predictable. Set up as a standing order with a fixed reference.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="package" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Donations in kind</h3>
+       <p class="muted text-sm leading-relaxed">Food, carriers, bowls or medical supplies – we are happy to agree what is currently needed.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="paw-print" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Sponsorships</h3>
+       <p class="muted text-sm leading-relaxed">A sponsorship for a specific cat – its name in the payment reference ensures direct allocation. With updates on request.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="building-2" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Companies &amp; organisations</h3>
+       <p class="muted text-sm leading-relaxed">From food sponsorship to project funding (e.g. a neutering programme) – with visibility on the partners page if desired.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="megaphone" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Reach &amp; contacts</h3>
+       <p class="muted text-sm leading-relaxed">Introducing contacts, reach or know-how (fundraising, law, logistics) is valuable support too.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- CTA -->
+   <section class="section-dark w-full py-20 md:py-24">
+    <div class="max-w-[820px] mx-auto px-6 text-center">
+     <span class="reveal inline-flex items-center gap-2 mb-6" style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#B9D4CE;">
+      <i data-lucide="mail" style="width:15px;height:15px;"></i>The next step
+     </span>
+     <p class="reveal display leading-snug mb-8" style="font-size:clamp(1.5rem,3.4vw,2.2rem);">One conversation is enough to see <em>whether it fits.</em></p>
+     <p class="reveal mx-auto mb-9" style="max-width:54ch;color:rgba(237,243,241,0.82);">
+      Write us a short note about who you are and what form of support you have in mind. We reply personally and share figures and evidence as far as they are available.</p>
+     <a href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rderung%20der%20Margo%20Animal%20Care%20Initiative" class="btn reveal inline-flex items-center gap-2 px-6 py-3" style="background:#fff;color:var(--petrol-dark);">
+      <i data-lucide="mail" style="width:16px;height:16px;"></i><span>hello@margoanimalcare.org</span>
+     </a>
+     <p class="reveal mt-8" style="color:rgba(237,243,241,0.6);font-size:.85rem;">
+      More background: <a href="unsere-arbeit.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Our approach</a> ·
+      <a href="../route.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Experience the care route</a></p>
+    </div>
+   </section>
+
+  </main>
+
+  
+
+  <script>
+    try { lucide.createIcons(); } catch (e) { /* Icon-CDN nicht erreichbar */ }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            e.target.style.transitionDelay = Math.min(i * 55, 220) + 'ms';
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+    const bar = document.getElementById('progress');
+    const nav = document.getElementById('nav-shadow-target'); // kann fehlen (Shell-Header)
+    function onScroll() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+      if (nav) nav.classList.toggle('scrolled', h.scrollTop > 8);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+ <!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Overview</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Our work</a></li>
+        <li><a href="../katzen.html">Cats</a></li>
+        <li><a href="mitmachen.html">Get involved</a></li>
+        <li><a href="foerdern.html">Donate</a></li>
+        <li><a href="../wirkung-transparenz.html">Impact &amp; transparency</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore further</h2>
+      <ul>
+        <li><a href="../route.html">Care route</a></li>
+        <li><a href="../partner.html">Partners</a></li>
+        <li><a href="mitmachen.html#rollen">Open roles</a></li>
+        <li><a href="../unterstuetzen.html">Support us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Artemida / Athens region, Greece</li>
+        <li>We usually reply within 24 hours</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="../impressum.html">Legal notice</a></li>
+        <li><a href="../datenschutz.html">Privacy policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>English</h2>
+      <ul>
+        <li><a href="../en.html">Key facts &amp; overview</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Last updated: August 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

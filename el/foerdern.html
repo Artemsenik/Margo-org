@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="el">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fördern — Spenden &amp; Partnerschaften | Margo Animal Care Initiative</title>
+  <meta name="description" content="Πού αξιοποιούνται οι πόροι, ποιοι στηρίζουν ήδη το έργο και πώς λειτουργεί η ιδιωτική ή θεσμική υποστήριξη.">
+  <script src="../assets/js/lucide.min.js"></script>
+  <style>
+    :root{
+      --paper:#F5F3EE; --paper-2:#FBFAF7; --card:#FFFFFF;
+      --ink:#1B1A16; --ink-soft:#4A473F;
+      --petrol:#143F3C; --petrol-mid:#1C5450; --petrol-dark:#0E2E2C; --petrol-tint:#E7EEEB;
+      --clay:#9A5B3F;
+      --hair:rgba(20,63,60,0.14); --hair-warm:#E3DED2;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-0.012em;text-wrap:balance;}
+    .display em, h1 em, h2 em{font-style:italic;color:var(--petrol);}
+    .muted{color:var(--ink-soft);}
+    a{text-decoration:none;}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--petrol);}
+    .eyebrow::before{content:"";width:1.8rem;height:1.5px;background:var(--petrol);display:inline-block;}
+
+    .soft-shadow{box-shadow:0 1px 2px rgba(14,46,44,0.06),0 6px 14px rgba(14,46,44,0.07),0 18px 40px rgba(14,46,44,0.06);}
+    .framed{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--card);}
+    .accent-top{position:relative;}
+    .accent-top::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--petrol);border-radius:12px 12px 0 0;z-index:2;}
+
+    .ed-card{background:var(--card);border:1px solid var(--hair);border-radius:12px;transition:transform .4s cubic-bezier(0.22,1,0.36,1),box-shadow .4s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .ed-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(14,46,44,0.07),0 10px 22px rgba(14,46,44,0.09),0 24px 48px rgba(14,46,44,0.07);} }
+
+    .icon-circle{width:46px;height:46px;border-radius:9999px;background:var(--petrol-tint);color:var(--petrol);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+    .pill{border-radius:100px;border:1px solid var(--hair);background:var(--card);font-size:.85rem;color:var(--ink-soft);}
+    .pill-invert{border-radius:100px;border:1px solid rgba(20,63,60,0.25);background:var(--petrol-tint);color:var(--petrol-dark);font-size:.85rem;font-weight:500;}
+
+    .btn{border-radius:7px;font-weight:600;font-size:.95rem;transition:transform .3s ease,box-shadow .3s ease,background .3s ease;}
+    .btn-primary{background:var(--petrol);color:#fff;}
+    .btn-primary:hover{background:var(--petrol-mid);box-shadow:0 8px 20px rgba(14,46,44,0.22);}
+    .btn-ghost{border:1px solid var(--hair);color:var(--petrol-dark);background:transparent;}
+    .btn-ghost:hover{background:var(--petrol-tint);}
+    .btn .arrow{transition:transform .3s cubic-bezier(0.22,1,0.36,1);}
+    @media (pointer:fine){ .btn:hover .arrow{transform:translateX(3px);} }
+
+    .contact-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--petrol-dark);font-weight:500;padding:.5rem .85rem;border:1px solid var(--hair);border-radius:8px;transition:background .25s ease,border-color .25s ease;}
+    .contact-link:hover{background:var(--petrol-tint);border-color:rgba(20,63,60,0.28);}
+    .contact-link i{color:var(--petrol);}
+
+    .section-dark{background:linear-gradient(165deg,var(--petrol-dark) 0%,var(--petrol) 70%,var(--petrol-mid) 100%);color:#EDF3F1;}
+    .section-dark h2, .section-dark .display{color:#fff;}
+    .section-dark .display em{color:#B9D4CE;}
+
+    .section-tint{background:var(--paper-2);border-top:1px solid var(--hair-warm);border-bottom:1px solid var(--hair-warm);}
+    .section-petrol-tint{background:var(--petrol-tint);}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(0.22,1,0.36,1),transform .8s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.in{opacity:1;transform:none;}
+
+    .grain{position:relative;}
+    @media (min-width:768px){
+      .grain::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.03;
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
+    }
+
+    #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--petrol);z-index:80;transition:width .1s linear;}
+    ::selection{background:var(--petrol);color:#fff;}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:4px;}
+    #nav-shadow-target{transition:box-shadow .3s ease;background:rgba(245,243,238,0.85);}
+    #nav-shadow-target.scrolled{box-shadow:0 1px 0 var(--hair),0 8px 24px rgba(14,46,44,0.06);}
+    .measure{max-width:62ch;}
+
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+      html{scroll-behavior:auto;}
+    }
+  
+  /* Sprachumschalter */
+  .site-lang-switch{display:flex;align-items:center;gap:2px;font-size:.76rem;
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden}
+  .site-lang-switch a{padding:4px 8px;color:var(--ink-soft);text-decoration:none;
+    line-height:1;transition:background .2s var(--ease),color .2s var(--ease)}
+  .site-lang-switch a:hover{background:var(--petrol-tint);color:var(--petrol)}
+  .site-lang-switch a[aria-current="true"]{background:var(--petrol);color:#fff;font-weight:600}
+  @media(max-width:899px){.site-lang-switch{display:none}}
+  .site-drawer__langs{display:flex;gap:8px;margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--hair-warm)}
+  .site-drawer__langs a{flex:1;text-align:center;padding:10px;border:1px solid var(--hair);
+    border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:.9rem}
+  .site-drawer__langs a[aria-current="true"]{background:var(--petrol);color:#fff;
+    border-color:var(--petrol);font-weight:600}
+  </style>
+ <link rel="stylesheet" href="../assets/css/tw.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/el/foerdern.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/foerdern.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/foerdern.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/foerdern.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/foerdern.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/foerdern.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/foerdern.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/foerdern.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/foerdern.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Fördern — Spenden & Partnerschaften | Margo Animal Care Initiative">
+<meta property="og:description" content="Πού αξιοποιούνται οι πόροι, ποιοι στηρίζουν ήδη το έργο και πώς λειτουργεί η ιδιωτική ή θεσμική υποστήριξη.">
+<meta property="og:url" content="https://www.margoanimalcare.org/el/foerdern.html">
+<meta property="og:locale" content="el_GR">
+<meta property="og:image" content="https://www.margoanimalcare.org/assets/hero/og-foerdern.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.margoanimalcare.org/assets/hero/og-foerdern.jpg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
+ <body class="w-full min-h-screen grain">
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Το έργο μας</a>
+      <a class="site-nav__link" href="../katzen.html">Γάτες</a>
+      <a class="site-nav__link" href="mitmachen.html">Συμμετοχή</a>
+      <a class="site-nav__link" href="foerdern.html" aria-current="page">Δωρεές</a>
+      <a class="site-nav__link" href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a>
+    </nav>
+    <div class="site-header__actions">
+      
+      <a class="site-cta" href="../unterstuetzen.html">Στήριξη <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Άνοιγμα μενού</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Το έργο μας</a>
+    <a class="site-drawer__link" href="../katzen.html">Γάτες</a>
+    <a class="site-drawer__link" href="mitmachen.html">Συμμετοχή</a>
+    <a class="site-drawer__link" href="foerdern.html" aria-current="page">Δωρεές</a>
+    <a class="site-drawer__link" href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a>
+    
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="../unterstuetzen.html">Στήριξη <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
+  <div id="progress" aria-hidden="true"></div>
+
+  
+
+  <main class="w-full">
+
+   <!-- HERO -->
+   <section class="w-full py-20 md:py-28">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-6">Δωρεές &amp; στήριξη</span>
+     <h1 class="reveal mb-7" style="font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.04;">Η καθημερινή φροντίδα χρειάζεται <em>σταθερούς πόρους.</em></h1>
+     <p class="reveal measure muted leading-relaxed" style="font-size:1.1rem;">
+      Στην Αρτέμιδα κοντά στην Αθήνα, περίπου 250–300 γάτες (στοιχεία 2026) καθώς και μερικοί σκύλοι και κουνέλια φροντίζονται καθημερινά με τροφή, νερό και ιατρική περίθαλψη – σε ιδιωτικά σημεία φροντίδας, μια φάρμα και αρκετές αποικίες σίτισης. Αυτή η σελίδα δείχνει πού χρειάζονται οι πόροι, ποιοι στηρίζουν ήδη και πώς μπορεί να μοιάζει συγκεκριμένα μια υποστήριξη.</p>
+     <div class="reveal mt-9 flex flex-wrap gap-3">
+      <a href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rderung%20der%20Margo%20Animal%20Care%20Initiative" class="btn btn-primary inline-flex items-center gap-2 px-6 py-3">
+       <i data-lucide="mail" style="width:16px;height:16px;"></i><span>Κλείστε μια συζήτηση</span>
+      </a>
+      <a href="#spendenweg" class="btn btn-ghost inline-flex items-center gap-2 px-6 py-3">
+       <span>Πώς φτάνει η δωρεά σας</span>
+       <i data-lucide="arrow-down" class="arrow" style="width:16px;height:16px;"></i>
+      </a>
+     </div>
+    </div>
+   </section>
+
+   <!-- ZAHLEN -->
+   <section class="section-petrol-tint w-full py-14 md:py-16">
+    <div class="max-w-[1160px] mx-auto px-6 grid gap-8 sm:grid-cols-3 text-center">
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">250–300</p>
+      <p class="muted text-sm mt-1">Ζώα σε τακτική φροντίδα</p>
+      <p class="data-note">Εκτίμηση · στοιχεία 2026</p>
+     </div>
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">13+</p>
+      <p class="muted text-sm mt-1">Καταγεγραμμένα σημεία φροντίδας</p>
+      <p class="data-note">Εκτίμηση · οι ακριβείς τοποθεσίες δεν δημοσιεύονται</p>
+     </div>
+     <div class="reveal">
+      <p class="display" style="font-size:clamp(2rem,4vw,2.8rem);color:var(--petrol-dark);">365</p>
+      <p class="muted text-sm mt-1">Ημέρες φροντίδας τον χρόνο</p>
+      <p class="data-note">Καθημερινή λειτουργία</p>
+     </div>
+    </div>
+   </section>
+
+
+   <!-- GOVERNANCE — für institutionelle Prüfung zuerst -->
+   <section id="governance" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Νομικό πλαίσιο &amp; αρμοδιότητες</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Ποιος έχει την ευθύνη, ποιος διαχειρίζεται</h2>
+     <p class="reveal muted mb-10 measure">Για ιδρύματα, εταιρείες και συλλόγους αυτό είναι το πρώτο ερώτημα. Γι' αυτό εξαρχής: η πρωτοβουλία δεν αποτελεί η ίδια εγγεγραμμένο σωματείο. Οι δωρεές και οι υιοθεσίες διεκπεραιώνονται μέσω εγγεγραμμένου γερμανικού συνεργαζόμενου συλλόγου.</p>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <span class="status status--verified" style="margin-bottom:14px">Επιβεβαιωμένο</span>
+       <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Εγγεγραμμένος συνεργαζόμενος σύλλογος</h3>
+       <dl style="font-size:.9rem;line-height:1.7">
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Σύλλογος</dt>
+         <dd style="margin:0;color:var(--petrol-dark);font-weight:500">Murka-Katzenhilfe e.&nbsp;V.</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Έδρα</dt>
+         <dd style="margin:0">44795 Bochum, Γερμανία</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Δικαστήριο μητρώου</dt>
+         <dd style="margin:0">Πρωτοδικείο Bochum, VR&nbsp;4939</dd></div>
+        <div style="display:flex;gap:10px"><dt style="min-width:118px;color:var(--ink-soft)">Καθεστώς</dt>
+         <dd style="margin:0">Αναγνωρισμένος ως μη κερδοσκοπικός σύλλογος</dd></div>
+       </dl>
+       <p class="muted text-sm mt-4" style="line-height:1.65">Οι δωρεές μέσω αυτού του λογαριασμού εκπίπτουν φορολογικά στη Γερμανία. Το ισχύον πιστοποιητικό απαλλαγής προσκομίζεται κατόπιν αιτήματος.</p>
+      </article>
+
+      <article class="ed-card reveal p-7">
+       <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Σαφής κατανομή ρόλων</h3>
+       <ul class="muted" style="font-size:.9rem;line-height:1.7;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
+        <li><strong style="color:var(--petrol-dark)">Η Margo επιτόπου:</strong> καθημερινή φροντίδα, αποφάσεις για κάθε ζώο ξεχωριστά, έγκριση κάθε υιοθεσίας.</li>
+        <li><strong style="color:var(--petrol-dark)">Η πρωτοβουλία:</strong> τεκμηρίωση, καταγραφή εξόδων, συντονισμός εθελοντών και επικοινωνία.</li>
+        <li><strong style="color:var(--petrol-dark)">Ο συνεργαζόμενος σύλλογος:</strong> διαχείριση δωρεών, αποδείξεις δωρεών και υιοθεσίες προς τη Γερμανία.</li>
+        <li><strong style="color:var(--petrol-dark)">Τα κτηνιατρεία:</strong> ιατρικές αποφάσεις και τιμολόγηση των θεραπειών.</li>
+       </ul>
+       <p class="muted text-sm mt-4" style="line-height:1.65">Η δέσμευση σκοπού γίνεται μέσω της αιτιολογίας πληρωμής, π.χ. &bdquo;Griechenland&ldquo;, &bdquo;Kastration Griechenland&ldquo; ή το όνομα μιας συγκεκριμένης γάτας.</p>
+      </article>
+     </div>
+
+     <div class="reveal framed mt-8" style="border-left:3px solid var(--petrol);padding:22px 24px;max-width:900px">
+      <h3 style="font-size:1.02rem;color:var(--petrol-dark);margin-bottom:.5rem">Για οργανισμούς</h3>
+      <p class="muted" style="font-size:.9rem;line-height:1.7;margin-bottom:1rem">Παρέχουμε παραστατικά, αναλύσεις εξόδων και υπεύθυνους επικοινωνίας για έλεγχο, και συμφωνούμε εκ των προτέρων τη μορφή και την περίοδο αναφοράς. Μια πρώτη συζήτηση διαρκεί περίπου 15 λεπτά.</p>
+      <a class="btn inline-flex items-center gap-2 px-5 py-2.5"
+         style="background:var(--petrol);color:#fff;border-radius:7px;font-size:.88rem;font-weight:600;text-decoration:none"
+         href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rdergespr%C3%A4ch%20%E2%80%94%20Margo%20Animal%20Care&amp;body=Guten%20Tag%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20eine%20F%C3%B6rderung%20und%20m%C3%B6chten%20ein%20kurzes%20Gespr%C3%A4ch%20vereinbaren.%0A%0AOrganisation%3A%20%0AAnsprechperson%3A%20%0AM%C3%B6gliche%20Termine%3A%20%0A%0AFreundliche%20Gr%C3%BCsse">Κλείστε συζήτηση για στήριξη</a>
+     </div>
+    </div>
+   </section>
+
+   <!-- MITTELVERWENDUNG -->
+   <section id="mittel" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Αξιοποίηση πόρων</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Πού χρειάζονται οι πόροι</h2>
+     <p class="reveal muted mb-12 measure">Τέσσερις κατηγορίες εξόδων στηρίζουν το τρέχον έργο. Για την κτηνιατρική φροντίδα υπάρχει πλέον πλήρης ανάλυση· οι υπόλοιπες κατηγορίες καταγράφονται αυτή την περίοδο.</p>
+     <div class="reveal framed p-5 mb-10" style="border-left:3px solid var(--petrol);max-width:680px;">
+      <p class="text-sm muted"><strong style="color:var(--petrol-dark);">Η φροντίδα γίνεται στην περιοχή Αρτέμιδας/Αθήνας: μια φάρμα, αρκετά ιδιωτικά σημεία φροντίδας και υπαίθριες αποικίες σίτισης. Οι ακριβείς τοποθεσίες δεν δημοσιεύονται, για την προστασία των ζώων και ιδιωτικών νοικοκυριών.</p>
+     </div>
+
+     <div class="grid gap-6 md:grid-cols-2">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="utensils" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Τροφή</h3>
+       <p class="muted text-sm leading-relaxed">Το μεγαλύτερο τρέχον κονδύλι: ξηρά και υγρή τροφή για όλα τα σημεία φροντίδας και τις αποικίες – κάθε μέρα, με κάθε καιρό. Τέσσερα καταστήματα τροφών προσφέρουν ήδη εκπτώσεις· οι ποσότητες παραμένουν ωστόσο σημαντικές.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="stethoscope" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Κτηνιατρικές θεραπείες</h3>
+       <p class="muted text-sm leading-relaxed mb-4">Εξετάσεις, φάρμακα, χειρουργεία και επείγοντα. Δύο συνεργαζόμενα κτηνιατρεία περιθάλπουν με μειωμένες χρεώσεις.</p>
+       <div class="p-4 mb-4" style="background:var(--petrol-tint);border-radius:8px;">
+        <p class="text-sm" style="color:var(--petrol-dark);"><strong>Τεκμηριωμένο:</strong> 32 τιμολόγια συνολικού ύψους 3.954,70 € την περίοδο 23 Μαρτίου έως 20 Ιουλίου 2026 – περίπου 1.000 € τον μήνα.</p>
+       </div>
+       <a href="../wirkung-transparenz.html" class="contact-link"><i data-lucide="file-text" style="width:15px;height:15px;"></i>Δείτε την πλήρη ανάλυση</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="scissors" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Στειρώσεις</h3>
+       <p class="muted text-sm leading-relaxed mb-4">Ο πιο αποτελεσματικός μοχλός κατά της αυξανόμενης ταλαιπωρίας των ζώων: κάθε στείρωση αποτρέπει νέες γέννες στον δρόμο – και μειώνει μόνιμα το κόστος τροφής και περίθαλψης.</p>
+       <a href="#kastration" class="contact-link"><i data-lucide="arrow-down" style="width:15px;height:15px;"></i>Οι στειρώσεις αναλυτικά</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="truck" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.2rem;color:var(--petrol-dark);">Μετακινήσεις &amp; υλικά</h3>
+       <p class="muted text-sm leading-relaxed">Καθημερινές διαδρομές φροντίδας, μεταφορές στον κτηνίατρο, δοχεία νερού, μπολ, κλουβιά μεταφοράς και χειμερινή προστασία για τις αποικίες.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- KASTRATION -->
+   <section id="kastration" class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Βασικό έργο</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Στείρωση: ο μοχλός που <em>μειώνει το κόστος</em></h2>
+     <p class="reveal muted mb-12 measure">Η σίτιση κρατά τα ζώα στη ζωή. Η στείρωση αποτρέπει να προστίθενται συνεχώς καινούργια. Γι' αυτό η στείρωση δεν είναι για εμάς δευτερεύον έργο, αλλά η πιο αποτελεσματική αξιοποίηση κάθε ευρώ που δωρίζεται.</p>
+
+     <div class="reveal framed p-7 mb-10" style="border-left:3px solid var(--clay);max-width:820px;">
+      <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Γιατί αυτό κάνει κάθε στήριξη πιο βιώσιμη</h3>
+      <p class="muted text-sm leading-relaxed mb-3">Ένα αστείρωτο ζευγάρι γατών μπορεί μέσα σε λίγα χρόνια να αποκτήσει διψήφιο αριθμό απογόνων. Κάθε ένα από αυτά τα ζώα χρειάζεται στη συνέχεια καθημερινά τροφή, νερό και ιατρική φροντίδα – μόνιμα.</p>
+      <p class="muted text-sm leading-relaxed"><strong style="color:var(--petrol-dark);">Κάθε στείρωση μειώνει τις μελλοντικές ανάγκες σε τροφή</strong> και τα μελλοντικά κτηνιατρικά έξοδα. Η χρηματοδότηση μιας στείρωσης δεν είναι επομένως τρέχουσα δαπάνη, αλλά μια εφάπαξ επένδυση που μειώνει μόνιμα την ανάγκη.</p>
+     </div>
+
+     <div class="grid gap-8 sm:grid-cols-3 mb-10" style="max-width:900px;">
+      <div class="reveal">
+       <span class="status status--verified" style="margin-bottom:10px">Επιβεβαιωμένο</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">50&nbsp;€</p>
+       <p class="muted text-sm mt-1">Κόστος ανά στείρωση</p>
+       <p class="data-note">Ενιαία χρέωση, ανεξάρτητα από το φύλο του ζώου.</p>
+      </div>
+      <div class="reveal">
+       <span class="status status--estimated" style="margin-bottom:10px">Εκτίμηση</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">150–180</p>
+       <p class="muted text-sm mt-1">Γάτες στη φροντίδα της Margo – όλες στειρωμένες</p>
+       <p class="data-note">Εκτίμηση της ίδιας της Margo, Αύγουστος 2026. Βάσει της τεκμηριωμένης κατανομής (φάρμα, πατρικό, δεύτερη κατοικία, σχολή surf) περίπου 145 ζώα.</p>
+      </div>
+      <div class="reveal">
+       <span class="status status--estimated" style="margin-bottom:10px">Εκτίμηση</span>
+       <p class="display" style="font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--petrol-dark);line-height:1.1;">~150</p>
+       <p class="muted text-sm mt-1">Γάτες αποικιών χωρίς στείρωση</p>
+       <p class="data-note">Όλα τα ζώα των ελεύθερων αποικιών θα έπρεπε να στειρωθούν. Μέχρι τώρα λείπουν οι οικονομικοί πόροι.</p>
+      </div>
+     </div>
+
+     <div class="reveal framed p-7 mb-10" style="border-left:3px solid var(--clay);max-width:820px;">
+      <h3 class="mb-3" style="font-size:1.15rem;color:var(--petrol-dark);">Η συγκεκριμένη ανάγκη: πλήρης στείρωση των αποικιών</h3>
+      <p class="muted text-sm leading-relaxed mb-3">Κάθε γάτα που ζει μόνιμα με τη Margo – στη φάρμα, στο πατρικό, στη δεύτερη κατοικία ή στη σχολή surf – είναι στειρωμένη. Στις ελεύθερες αποικίες αυτό έχει γίνει μέχρι τώρα μόνο εκεί όπου ένα ζώο χρειαζόταν έτσι κι αλλιώς ιατρική περίθαλψη. Κατά την εκτίμηση της Margo, περίπου 150 γάτες αποικιών παραμένουν αστείρωτες.</p>
+      <p class="muted text-sm leading-relaxed mb-4">Ο λόγος δεν είναι έλλειψη διάθεσης, αλλά έλλειψη χρημάτων. Με την αναφερόμενη ενιαία χρέωση των 50&nbsp;€, αυτό θα σήμαινε ανάγκη χρηματοδότησης περίπου <strong style="color:var(--petrol-dark);">7.500&nbsp;€</strong> – μια χονδρική τάξη μεγέθους, όχι σταθερός προϋπολογισμός, καθώς η Margo δεν έχει ορίσει ακόμη ούτε χρονικό πλαίσιο ούτε συγκεκριμένη δράση.</p>
+      <a href="mailto:hello@margoanimalcare.org?subject=Kolonie-Kastration%20unterst%C3%BCtzen&amp;body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20die%20Kastration%20der%20Kolonie-Katzen%20unterst%C3%BCtzen.%0A%0AFreundliche%20Gr%C3%BCsse" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Στηρίξτε τη στείρωση αποικιών</a>
+     </div>
+
+     <div class="grid gap-6 md:grid-cols-3">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="target" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Χρηματοδοτήστε μία στείρωση</h3>
+       <p class="muted text-sm leading-relaxed">Με 50&nbsp;€ χρηματοδοτείτε μία στείρωση – ανεξάρτητα από κάποια μεγαλύτερη δράση, οποιαδήποτε στιγμή.</p>
+      </article>
+      <!-- AUSGEBLENDET bis verifiziert (F3 Geplante Kastrationsaktion) — Auftrag 3.0 Abschnitt 2.2: unbestätigte Angaben werden nicht als Platzhalter gezeigt.
+<article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="calendar-check" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(&#45;&#45;petrol-dark);">Geplante Kastrationsaktion</h3>
+       <p class="muted text-sm leading-relaxed">Für [Zeitraum X] ist eine Aktion mit [X] Tieren geplant. Benötigtes Budget: [X] €. Durchführung gemeinsam mit [Partnerpraxis X].</p>
+      </article>
+-->
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="clipboard-check" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Τεκμηρίωση</h3>
+       <p class="muted text-sm leading-relaxed">Κάθε στείρωση καταγράφεται με ημερομηνία, ζώο και κτηνιατρείο. Οι υποστηρικτές λαμβάνουν κατόπιν αιτήματος κατάσταση των επεμβάσεων που χρηματοδοτήθηκαν από τη συνεισφορά τους.</p>
+      </article>
+     </div>
+
+     <p class="reveal muted text-sm mt-8" style="max-width:760px;">Σημείωση: οι στειρώσεις πραγματοποιούνται από τα συνεργαζόμενα κτηνιατρεία Vets4life και OmniVET. Για δεσμευμένη στήριξη στειρώσεων αρκεί η αιτιολογία πληρωμής <strong style="color:var(--petrol-dark);">&bdquo;Kastration Griechenland&ldquo;</strong>.</p>
+    </div>
+   </section>
+
+   <!-- VERTRAUEN -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Γιατί μπορείτε να μας εμπιστευτείτε</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Άλλοι στηρίζουν ήδη</h2>
+     <p class="reveal muted mb-10 measure">Η στήριξη είναι ζήτημα εμπιστοσύνης. Αυτές οι δομές υπάρχουν ήδη – ελέγξιμες και με υπεύθυνους επικοινωνίας:</p>
+     <div class="grid gap-5 md:grid-cols-2">
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Σύλλογος προστασίας ζώων Murka-Katzenhilfe e.&nbsp;V. (Γερμανία)</h3>
+       <p class="muted text-sm">Χρηματοδοτεί ήδη τροφή και κτηνιατρικά έξοδα και αναλαμβάνει την υπεύθυνη υιοθεσία μεμονωμένων γατών στη Γερμανία.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Δύο κτηνιατρεία</h3>
+       <p class="muted text-sm">Τα Vets4life και OmniVET περιθάλπουν τα ζώα με εξειδίκευση και μειωμένες τιμές – πολυετής, άμεση συνεργασία.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Τέσσερα καταστήματα τροφών</h3>
+       <p class="muted text-sm">Τα Pet City, Pet Shop Manos, Pet Point και Dogit στηρίζουν με εκπτώσεις σε τροφές.</p>
+      </div>
+      <div class="reveal framed p-6">
+       <h3 class="mb-1.5" style="font-size:1.05rem;color:var(--petrol-dark);">Η σχολή windsurfing</h3>
+       <p class="muted text-sm">Συνεισφέρει οικονομικά και φιλοξενεί περίπου 25 γάτες· η Margo εργάζεται εκεί ως εκπαιδεύτρια surf – η πρωτοβουλία είναι μέρος της καθημερινότητας.</p>
+      </div>
+     </div>
+     <p class="reveal mt-8"><a href="../partner.html" class="contact-link"><i data-lucide="users" style="width:15px;height:15px;"></i>Όλοι οι συνεργάτες αναλυτικά</a></p>
+    </div>
+   </section>
+
+   <!-- TRANSPARENZ -->
+   <section class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Διαφάνεια</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Τι μπορούν να περιμένουν οι υποστηρικτές από εμάς</h2>
+     <div class="grid gap-6 md:grid-cols-3 mt-10">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="file-text" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Ιχνηλάσιμη αξιοποίηση</h3>
+       <p class="muted text-sm leading-relaxed mb-3">Κατόπιν αιτήματος αναφέρουμε τακτικά πού αξιοποιήθηκαν οι πόροι – με παραστατικά αντί για γενικόλογες δηλώσεις.</p><a href="../wirkung-transparenz.html" class="contact-link"><i data-lucide="arrow-right" style="width:15px;height:15px;"></i>Παράδειγμα: κτηνιατρικά έξοδα</a>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="eye" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Ειλικρινής επικοινωνία</h3>
+       <p class="muted text-sm leading-relaxed">Παρουσιάζουμε τους αριθμούς ζώων ως εκτιμήσεις, επισημαίνουμε τα ανοιχτά ζητήματα και δεν υποσχόμαστε ό,τι δεν μπορούμε να τηρήσουμε.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="shield" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Σαφείς αρμοδιότητες</h3>
+       <p class="muted text-sm leading-relaxed">Οι υιοθεσίες γίνονται μέσω του Murka-Katzenhilfe e.&nbsp;V.· η πρωτοβουλία συντονίζει τη φροντίδα, την τεκμηρίωση και την επιτόπου επικοινωνία.</p>
+      </article>
+     </div>
+     <div class="reveal mt-10 framed p-6" style="border-left:3px solid var(--clay);">
+      <p class="muted text-sm leading-relaxed"><strong style="color:var(--petrol-dark);">Με ειλικρίνεια:</strong> Η Margo Animal Care Initiative δεν είναι η ίδια εγγεγραμμένο σωματείο. Οι δωρεές γίνονται γι' αυτό μέσω του συνεργαζόμενου συλλόγου Murka-Katzenhilfe e.&nbsp;V. – με το πλεονέκτημα ότι εκεί εκπίπτουν φορολογικά. Πώς λειτουργεί η απόδοση στο έργο της Margo εξηγείται στην επόμενη ενότητα.</p>
+     </div>
+    </div>
+   </section>
+
+   <!-- SO KOMMT DIE SPENDE AN -->
+   <section id="spendenweg" class="w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Η διαδρομή της δωρεάς</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Πώς φτάνει η δωρεά σας στη Margo</h2>
+     <p class="reveal muted mb-12 measure">Οι δωρεές γίνονται μέσω του λογαριασμού του Murka-Katzenhilfe e.&nbsp;V. Ο σύλλογος δεν χρησιμοποιεί υπολογαριασμούς, αλλά <strong style="color:var(--petrol-dark);">δεσμευμένες πληρωμές</strong> – η κατανομή γίνεται μέσω της αιτιολογίας πληρωμής.</p>
+
+     <div class="grid gap-6 md:grid-cols-3 mb-10">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="edit-3" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">1. Δηλώστε την αιτιολογία πληρωμής</h3>
+       <p class="muted text-sm leading-relaxed mb-4">Για να αποδοθεί η δωρεά σας στο έργο της Margo, αναφέρετε στην αιτιολογία μία από αυτές τις λέξεις-κλειδιά:</p>
+       <ul class="muted text-sm leading-relaxed" style="list-style:disc;padding-left:1.1rem;">
+        <li><strong style="color:var(--petrol-dark);">Griechenland</strong></li>
+        <li><strong style="color:var(--petrol-dark);">Athen</strong></li>
+        <li>ή το <strong style="color:var(--petrol-dark);">όνομα μιας συγκεκριμένης γάτας</strong></li>
+       </ul>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="git-branch" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">2. Κατανομή στον σύλλογο</h3>
+       <p class="muted text-sm leading-relaxed">Ο Murka-Katzenhilfe e.&nbsp;V. αποδίδει την πληρωμή στο έργο στην Ελλάδα βάσει της αιτιολογίας. Χωρίς αναφορά, η δωρεά κατευθύνεται στο γενικό έργο του συλλόγου.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="receipt" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">3. Φορολογικά εκπεστέο</h3>
+       <p class="muted text-sm leading-relaxed">Οι δωρεές μέσω του λογαριασμού του συλλόγου μπορούν να δηλωθούν φορολογικά. Οι απευθείας πληρωμές προσωπικά στη Margo <strong style="color:var(--petrol-dark);">δεν είναι</strong> εκπεστέες.</p>
+      </article>
+     </div>
+
+     <div class="reveal framed p-6 mb-6" style="border-left:3px solid var(--clay);max-width:760px;">
+      <p class="muted text-sm leading-relaxed">Αν η φορολογική έκπτωση είναι σημαντική για εσάς, πραγματοποιήστε την πληρωμή μέσω του λογαριασμού του Murka-Katzenhilfe e.&nbsp;V.</p>
+     </div>
+
+     <div class="reveal framed soft-shadow p-7" style="max-width:760px;">
+      <h3 class="mb-4" style="font-size:1.05rem;color:var(--petrol-dark);">Τραπεζικά στοιχεία</h3>
+      <dl class="facts" style="border:none;margin-bottom:1.2rem;">
+       <div style="border-bottom:1px solid var(--hair);"><dt>Δικαιούχος</dt><dd>Murka-Katzenhilfe e.&nbsp;V.</dd></div>
+       <div style="border-bottom:1px solid var(--hair);"><dt>Τράπεζα</dt><dd>Volksbank Bochum Witten</dd></div>
+       <div><dt>IBAN</dt><dd style="font-family:ui-monospace,monospace;letter-spacing:.02em;">DE43 4306 0129 0108 3127 00</dd></div>
+      </dl>
+      <div class="p-4 mb-5" style="background:var(--clay-tint);border-radius:8px;">
+       <p class="text-sm" style="color:#7C4630;"><strong>Χρησιμοποιήστε ως όνομα δικαιούχου ακριβώς &bdquo;Murka-Katzenhilfe e.&nbsp;V.&ldquo;</strong> – το παλαιότερο όνομα λογαριασμού με την προσθήκη &bdquo;Russland&ldquo; δεν ισχύει πλέον.</p>
+      </div>
+      <p class="muted text-sm leading-relaxed mb-5">Μην ξεχάσετε την αιτιολογία πληρωμής: <strong style="color:var(--petrol-dark);">„Griechenland“</strong>, <strong style="color:var(--petrol-dark);">„Athen“</strong> ή το όνομα μιας συγκεκριμένης γάτας.</p>
+      <div style="border-top:1px solid var(--hair);padding-top:1.1rem;">
+       <p class="text-sm"><strong style="color:var(--petrol-dark);">PayPal:</strong> murka-p@web.de <span class="muted">(παρακαλούμε αποστολή ως &bdquo;φίλοι και οικογένεια&ldquo;)</span></p>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- FÖRDERWEGE -->
+   <section class="section-tint w-full py-20 md:py-24">
+    <div class="max-w-[1160px] mx-auto px-6">
+     <span class="eyebrow reveal mb-5">Τρόποι στήριξης</span>
+     <h2 class="reveal mb-3" style="font-size:clamp(1.7rem,3vw,2.3rem);">Πώς μπορείτε να στηρίξετε</h2>
+     <p class="reveal muted mb-12 measure">Από την εφάπαξ συνεισφορά έως τη μακροχρόνια συνεργασία – κάθε μορφή βοηθά να γίνει η καθημερινή φροντίδα πιο προβλέψιμη.</p>
+     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="heart" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Εφάπαξ συνεισφορά</h3>
+       <p class="muted text-sm leading-relaxed">Μια εφάπαξ συνεισφορά μέσω του λογαριασμού του συλλόγου – με την αιτιολογία &bdquo;Griechenland&ldquo; ή &bdquo;Athen&ldquo; κατευθύνεται απευθείας στο έργο της Margo.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="repeat" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Μηνιαία στήριξη</h3>
+       <p class="muted text-sm leading-relaxed">Ο πιο πολύτιμος τρόπος: οι επαναλαμβανόμενες συνεισφορές καθιστούν προβλέψιμα τα έξοδα τροφής και κτηνιάτρου. Ως πάγια εντολή με σταθερή αιτιολογία.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="package" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Δωρεές σε είδος</h3>
+       <p class="muted text-sm leading-relaxed">Τροφή, κλουβιά μεταφοράς, μπολ ή ιατρικό υλικό – συνεννοούμαστε ευχαρίστως για το τι χρειάζεται αυτή τη στιγμή.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="paw-print" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Αναδοχές</h3>
+       <p class="muted text-sm leading-relaxed">Μια αναδοχή για συγκεκριμένη γάτα – το όνομά της στην αιτιολογία εξασφαλίζει την άμεση κατανομή. Με ενημερώσεις κατόπιν αιτήματος.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="building-2" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Εταιρείες &amp; οργανισμοί</h3>
+       <p class="muted text-sm leading-relaxed">Από την αναδοχή τροφής έως τη χρηματοδότηση έργου (π.χ. πρόγραμμα στειρώσεων) – εφόσον επιθυμείτε, με προβολή στη σελίδα συνεργατών.</p>
+      </article>
+      <article class="ed-card reveal p-7">
+       <span class="icon-circle mb-5"><i data-lucide="megaphone" style="width:22px;height:22px;"></i></span>
+       <h3 class="mb-2" style="font-size:1.15rem;color:var(--petrol-dark);">Δικτύωση &amp; επαφές</h3>
+       <p class="muted text-sm leading-relaxed">Και η διαμεσολάβηση επαφών, η προβολή ή η τεχνογνωσία (fundraising, νομικά, logistics) αποτελεί πολύτιμη στήριξη.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+
+   <!-- CTA -->
+   <section class="section-dark w-full py-20 md:py-24">
+    <div class="max-w-[820px] mx-auto px-6 text-center">
+     <span class="reveal inline-flex items-center gap-2 mb-6" style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#B9D4CE;">
+      <i data-lucide="mail" style="width:15px;height:15px;"></i>Το επόμενο βήμα
+     </span>
+     <p class="reveal display leading-snug mb-8" style="font-size:clamp(1.5rem,3.4vw,2.2rem);">Μία συζήτηση αρκεί για να δούμε <em>αν ταιριάζει.</em></p>
+     <p class="reveal mx-auto mb-9" style="max-width:54ch;color:rgba(237,243,241,0.82);">
+      Γράψτε μας σύντομα ποιοι είστε και τι μορφή στήριξης έχετε στο μυαλό σας. Απαντάμε προσωπικά και παραθέτουμε αριθμούς και παραστατικά, εφόσον υπάρχουν.</p>
+     <a href="mailto:hello@margoanimalcare.org?subject=F%C3%B6rderung%20der%20Margo%20Animal%20Care%20Initiative" class="btn reveal inline-flex items-center gap-2 px-6 py-3" style="background:#fff;color:var(--petrol-dark);">
+      <i data-lucide="mail" style="width:16px;height:16px;"></i><span>hello@margoanimalcare.org</span>
+     </a>
+     <p class="reveal mt-8" style="color:rgba(237,243,241,0.6);font-size:.85rem;">
+      Περισσότερο υπόβαθρο: <a href="unsere-arbeit.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Η προσέγγισή μας</a> ·
+      <a href="../route.html" style="text-decoration:underline;text-underline-offset:4px;color:rgba(237,243,241,0.85);">Ζήστε τη διαδρομή φροντίδας</a></p>
+    </div>
+   </section>
+
+  </main>
+
+  
+
+  <script>
+    try { lucide.createIcons(); } catch (e) { /* Icon-CDN nicht erreichbar */ }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            e.target.style.transitionDelay = Math.min(i * 55, 220) + 'ms';
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+    const bar = document.getElementById('progress');
+    const nav = document.getElementById('nav-shadow-target'); // kann fehlen (Shell-Header)
+    function onScroll() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+      if (nav) nav.classList.toggle('scrolled', h.scrollTop > 8);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+ <!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Προσανατολισμός</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Το έργο μας</a></li>
+        <li><a href="../katzen.html">Γάτες</a></li>
+        <li><a href="mitmachen.html">Συμμετοχή</a></li>
+        <li><a href="foerdern.html">Δωρεές</a></li>
+        <li><a href="../wirkung-transparenz.html">Αντίκτυπος &amp; διαφάνεια</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Περισσότερα</h2>
+      <ul>
+        <li><a href="../route.html">Διαδρομή φροντίδας</a></li>
+        <li><a href="../partner.html">Συνεργάτες</a></li>
+        <li><a href="mitmachen.html#rollen">Ανοιχτοί ρόλοι</a></li>
+        <li><a href="../unterstuetzen.html">Στήριξη</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Επικοινωνία</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Περιοχή Αρτέμιδας / Αθήνας, Ελλάδα</li>
+        <li>Απαντάμε συνήθως εντός 24 ωρών</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Νομικά</h2>
+      <ul>
+        <li><a href="../impressum.html">Στοιχεία ταυτότητας</a></li>
+        <li><a href="../datenschutz.html">Πολιτική απορρήτου</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>English</h2>
+      <ul>
+        <li><a href="../en.html">Key facts &amp; overview</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Τελευταία ενημέρωση: Αύγουστος 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>
