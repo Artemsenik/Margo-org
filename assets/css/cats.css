@@ -189,3 +189,21 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--petrol);outline-off
   .reveal{opacity:1!important;transform:none!important}
 }
 ::selection{background:var(--petrol);color:#fff}
+
+
+/* ---- Sprachumschalter (gleiches Aussehen wie auf den übrigen Seiten) ---- */
+
+  /* Sprachumschalter */
+  .site-lang-switch{display:flex;align-items:center;gap:2px;font-size:.76rem;
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden}
+  .site-lang-switch a{padding:4px 8px;color:var(--ink-soft);text-decoration:none;
+    line-height:1;transition:background .2s var(--ease),color .2s var(--ease)}
+  .site-lang-switch a:hover{background:var(--petrol-tint);color:var(--petrol)}
+  .site-lang-switch a[aria-current="true"]{background:var(--petrol);color:#fff;font-weight:600}
+  @media(max-width:899px){.site-lang-switch{display:none}}
+  .site-drawer__langs{display:flex;gap:8px;margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--hair-warm)}
+  .site-drawer__langs a{flex:1;text-align:center;padding:10px;border:1px solid var(--hair);
+    border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:.9rem}
+  .site-drawer__langs a[aria-current="true"]{background:var(--petrol);color:#fff;
+    border-color:var(--petrol);font-weight:600}

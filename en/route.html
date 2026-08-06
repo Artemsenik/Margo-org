@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Care route — Margo Animal Care Initiative</title>
+  <meta name="description" content="A documentary journey through the places where individual feedings grow into a daily responsibility.">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --bg: #071412;
+      --bg-soft: #0d211e;
+      --paper: #f3eee5;
+      --paper-muted: rgba(243, 238, 229, 0.72);
+      --paper-soft: rgba(243, 238, 229, 0.12);
+      --line: rgba(243, 238, 229, 0.16);
+      --line-strong: rgba(243, 238, 229, 0.28);
+      --glass: rgba(8, 24, 21, 0.74);
+      --glass-soft: rgba(255, 255, 255, 0.08);
+      --rose: #e0ad99;
+      --sand: #d1b076;
+      --green: #7fa99f;
+      --shadow: 0 28px 100px rgba(0, 0, 0, 0.46);
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --header-h: 76px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(127, 169, 159, 0.13), transparent 28%),
+        radial-gradient(circle at 92% 12%, rgba(224, 173, 153, 0.10), transparent 24%),
+        var(--bg);
+      font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    img { max-width: 100%; }
+    button, a { font: inherit; }
+    a { color: inherit; }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-h);
+      z-index: 80;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 clamp(18px, 4vw, 52px);
+      background: linear-gradient(180deg, rgba(7,20,18,0.92), rgba(7,20,18,0.62));
+      border-bottom: 1px solid rgba(243,238,229,0.10);
+      backdrop-filter: blur(22px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .brand-mark svg { width: 19px; height: 19px; }
+    .brand-copy { line-height: 1.05; min-width: 0; }
+    .brand-copy strong {
+      display: block;
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+    .brand-copy span {
+      display: block;
+      margin-top: 4px;
+      color: var(--paper-muted);
+      font-size: 0.67rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .top-actions { display: flex; align-items: center; gap: 10px; }
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      text-decoration: none;
+      color: var(--paper-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .top-link:hover { background: rgba(255,255,255,0.10); color: var(--paper); transform: translateY(-1px); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      padding: calc(var(--header-h) + 46px) clamp(20px, 5vw, 72px) clamp(40px, 6vw, 76px);
+      border-bottom: 1px solid rgba(243,238,229,0.12);
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #0c1c1a;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.03);
+      animation: mapDrift 18s ease-in-out alternate infinite;
+    }
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(4,13,12,0.88) 0%, rgba(4,13,12,0.50) 42%, rgba(4,13,12,0.18) 70%, rgba(4,13,12,0.42) 100%),
+        linear-gradient(180deg, rgba(4,13,12,0.18), rgba(4,13,12,0.78) 82%, rgba(4,13,12,0.94));
+    }
+
+    @keyframes mapDrift {
+      from { transform: scale(1.03) translate3d(0,0,0); }
+      to { transform: scale(1.08) translate3d(-1.1%, -0.7%, 0); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 1260px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, .72fr);
+      gap: clamp(32px, 6vw, 90px);
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: rgba(243,238,229,0.78);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .76; }
+
+    .hero h1 {
+      margin: 24px 0 0;
+      max-width: 9.5ch;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(3.6rem, 8.6vw, 8.3rem);
+      line-height: .91;
+      letter-spacing: -0.055em;
+      font-weight: 400;
+      text-wrap: balance;
+    }
+    .hero h1 em { color: var(--rose); font-style: italic; }
+
+    .hero-lead {
+      max-width: 640px;
+      margin: 28px 0 0;
+      color: rgba(243,238,229,0.80);
+      font-size: clamp(1rem, 1.45vw, 1.18rem);
+      line-height: 1.75;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line-strong);
+      background: rgba(8, 25, 22, 0.56);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(26px);
+      padding: clamp(22px, 3vw, 34px);
+    }
+    .hero-card-label {
+      color: var(--paper-muted);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .73rem;
+      font-weight: 700;
+    }
+    .hero-card strong {
+      display: block;
+      margin-top: 12px;
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: .9;
+      letter-spacing: -.05em;
+    }
+    .hero-card strong span { color: var(--rose); }
+    .hero-card p { margin: 16px 0 0; color: var(--paper-muted); line-height: 1.65; }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .hero-meta div {
+      padding: 13px 12px;
+      border: 1px solid rgba(243,238,229,0.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+    }
+    .hero-meta b { display: block; font-size: .98rem; }
+    .hero-meta span { display: block; margin-top: 4px; color: var(--paper-muted); font-size: .77rem; line-height: 1.4; }
+
+    .start-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 24px;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 13px;
+      background: var(--paper);
+      color: #10201e;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 14px 32px rgba(0,0,0,.25);
+    }
+    .start-button:hover { transform: translateY(-2px); box-shadow: 0 18px 38px rgba(0,0,0,.32); }
+
+    .privacy-note {
+      position: absolute;
+      right: clamp(20px, 5vw, 72px);
+      bottom: 18px;
+      z-index: 3;
+      max-width: 430px;
+      color: rgba(243,238,229,0.55);
+      font-size: .76rem;
+      text-align: right;
+      line-height: 1.45;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: min(640px, 52%) minmax(380px, 1fr);
+      align-items: start;
+      min-height: 100vh;
+    }
+
+    .stage {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      overflow: hidden;
+      background: #0a1715;
+      border-right: 1px solid rgba(243,238,229,0.12);
+    }
+
+    .stage-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity .7s ease, transform 1.2s cubic-bezier(.22,1,.36,1);
+    }
+    .stage-layer.active { opacity: 1; transform: scale(1); }
+
+    .stage-shade {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5,15,14,.14), rgba(5,15,14,.10) 44%, rgba(5,15,14,.82)),
+        linear-gradient(90deg, rgba(5,15,14,.15), transparent 45%, rgba(5,15,14,.16));
+      pointer-events: none;
+    }
+
+    .stage-ui {
+      position: absolute;
+      left: clamp(20px, 4vw, 54px);
+      right: clamp(20px, 4vw, 54px);
+      bottom: clamp(24px, 5vw, 58px);
+      z-index: 4;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .stage-caption {
+      max-width: 680px;
+      padding: 20px 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(243,238,229,0.16);
+      background: rgba(5,18,16,0.56);
+      backdrop-filter: blur(18px);
+    }
+    .stage-kicker {
+      color: var(--paper-muted);
+      font-size: .73rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .stage-title {
+      margin: 9px 0 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(2.1rem, 4vw, 4.3rem);
+      line-height: .98;
+      letter-spacing: -.04em;
+      font-weight: 400;
+    }
+    .stage-subtitle { margin: 12px 0 0; color: var(--paper-muted); line-height: 1.55; }
+
+    .stage-counter {
+      flex: 0 0 auto;
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(5,18,16,0.58);
+      backdrop-filter: blur(16px);
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 1.35rem;
+    }
+
+    .story-rail {
+      background: linear-gradient(180deg, #0a1917, #071412);
+    }
+
+    .chapter {
+      min-height: 92svh;
+      display: grid;
+      align-items: center;
+      padding: clamp(84px, 10vw, 140px) clamp(22px, 5vw, 58px);
+      border-bottom: 1px solid rgba(243,238,229,0.09);
+    }
+
+    .chapter-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.045));
+      box-shadow: 0 24px 70px rgba(0,0,0,.24);
+      padding: clamp(24px, 4vw, 38px);
+      opacity: .58;
+      transform: translateY(18px);
+      transition: opacity .5s ease, transform .65s cubic-bezier(.22,1,.36,1), border-color .4s ease;
+    }
+    .chapter.is-active .chapter-card { opacity: 1; transform: none; border-color: var(--line-strong); }
+
+    .chapter-number {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--paper-muted);
+      font-size: .76rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .chapter-number span:last-child {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(243,238,229,0.10);
+      letter-spacing: .04em;
+      text-transform: none;
+      font-size: .75rem;
+    }
+
+    .chapter h2 {
+      margin: 23px 0 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(2.45rem, 5vw, 4.7rem);
+      line-height: .96;
+      letter-spacing: -.045em;
+      font-weight: 400;
+    }
+    .chapter h2 em { color: var(--rose); font-style: italic; }
+    .chapter-intro {
+      margin: 22px 0 0;
+      color: rgba(243,238,229,.82);
+      font-size: 1.03rem;
+      line-height: 1.75;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .fact {
+      padding: 15px 14px;
+      border-radius: 17px;
+      border: 1px solid rgba(243,238,229,0.11);
+      background: rgba(4,15,13,0.28);
+    }
+    .fact strong { display: block; color: var(--paper); font-size: .93rem; }
+    .fact span { display: block; margin-top: 5px; color: var(--paper-muted); font-size: .81rem; line-height: 1.45; }
+
+    .insight {
+      margin-top: 22px;
+      padding: 17px 18px;
+      border-left: 2px solid var(--rose);
+      background: rgba(224,173,153,0.07);
+      color: rgba(243,238,229,.86);
+      line-height: 1.65;
+    }
+
+    .thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+    .thumb {
+      width: 62px;
+      height: 62px;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 13px;
+      border: 1px solid rgba(243,238,229,.20);
+      background: rgba(255,255,255,.05);
+      cursor: pointer;
+      opacity: .72;
+      transition: opacity .2s ease, transform .2s ease, border-color .2s ease;
+    }
+    .thumb:hover, .thumb.is-current { opacity: 1; transform: translateY(-2px); border-color: rgba(243,238,229,.55); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .progress {
+      position: fixed;
+      left: 14px;
+      top: 50%;
+      z-index: 60;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 7px;
+    }
+    .progress button {
+      position: relative;
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(243,238,229,.25);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .progress button.is-active { transform: scale(1.45); background: var(--rose); }
+    .progress button span {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: max-content;
+      max-width: 180px;
+      padding: 7px 9px;
+      border-radius: 9px;
+      background: rgba(5,18,16,.92);
+      border: 1px solid var(--line);
+      color: var(--paper);
+      font-size: .72rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+    }
+    .progress button:hover span { opacity: 1; }
+
+    .summary {
+      position: relative;
+      padding: clamp(86px, 10vw, 150px) clamp(20px, 6vw, 80px);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(127,169,159,.10), transparent 30%),
+        #091917;
+      border-top: 1px solid rgba(243,238,229,.10);
+    }
+    .summary-inner { width: min(100%, 1240px); margin: 0 auto; }
+    .summary-head {
+      display: grid;
+      grid-template-columns: 1fr .72fr;
+      gap: 40px;
+      align-items: end;
+    }
+    .summary h2 {
+      margin: 18px 0 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      line-height: .92;
+      letter-spacing: -.055em;
+      font-weight: 400;
+      max-width: 9ch;
+    }
+    .summary-copy { color: var(--paper-muted); line-height: 1.75; font-size: 1.04rem; }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 48px;
+    }
+    .location-tile {
+      min-height: 170px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(243,238,229,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .location-tile b {
+      display: block;
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 1.05;
+    }
+    .location-tile span { display: block; margin-top: 9px; color: var(--paper-muted); font-size: .83rem; line-height: 1.5; }
+    .location-tile small { display: block; margin-top: 16px; color: var(--rose); font-weight: 700; }
+
+    .closing {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin-top: 54px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(243,238,229,.12);
+    }
+    .closing p { margin: 0; max-width: 760px; color: var(--paper-muted); line-height: 1.7; }
+    .closing a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 13px;
+      background: var(--paper);
+      color: #10201e;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: rgba(2,8,7,.92);
+      backdrop-filter: blur(18px);
+    }
+    .lightbox.open { display: grid; }
+    .lightbox img { max-width: min(96vw, 1500px); max-height: 88vh; border-radius: 18px; box-shadow: var(--shadow); }
+    .lightbox button {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      color: var(--paper);
+      cursor: pointer;
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-card { max-width: 640px; }
+      .journey { grid-template-columns: 1fr; }
+      .stage { top: var(--header-h); height: 56svh; z-index: 20; border-right: 0; border-bottom: 1px solid rgba(243,238,229,.12); }
+      .chapter { min-height: auto; padding: 64px 20px; }
+      .progress { display: none; }
+      .summary-head { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 700px) {
+      :root { --header-h: 68px; }
+      .topbar { padding-inline: 14px; }
+      .brand-copy strong { font-size: .94rem; }
+      .brand-copy span { font-size: .58rem; }
+      .top-link { width: 42px; padding: 0; justify-content: center; }
+      .top-link span { display: none; }
+      .hero { padding-inline: 18px; }
+      .hero h1 { font-size: clamp(3.3rem, 18vw, 5.4rem); }
+      .hero-meta { grid-template-columns: 1fr; }
+      .privacy-note { position: relative; right: auto; bottom: auto; margin: 20px 0 0; text-align: left; }
+      .stage { height: 48svh; }
+      .stage-ui { left: 14px; right: 14px; bottom: 14px; }
+      .stage-caption { padding: 14px 15px; border-radius: 17px; }
+      .stage-title { font-size: 1.9rem; }
+      .stage-subtitle { display: none; }
+      .stage-counter { width: 52px; height: 52px; font-size: 1rem; }
+      .chapter-card { border-radius: 24px; }
+      .facts { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+      .closing { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-media img { animation: none; }
+      .stage-layer, .chapter-card, .thumb, .start-button, .top-link { transition: none !important; }
+    }
+  
+  /* Sprachumschalter */
+  .site-lang-switch{display:flex;align-items:center;gap:2px;font-size:.76rem;
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden}
+  .site-lang-switch a{padding:4px 8px;color:var(--ink-soft);text-decoration:none;
+    line-height:1;transition:background .2s var(--ease),color .2s var(--ease)}
+  .site-lang-switch a:hover{background:var(--petrol-tint);color:var(--petrol)}
+  .site-lang-switch a[aria-current="true"]{background:var(--petrol);color:#fff;font-weight:600}
+  @media(max-width:899px){.site-lang-switch{display:none}}
+  .site-drawer__langs{display:flex;gap:8px;margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--hair-warm)}
+  .site-drawer__langs a{flex:1;text-align:center;padding:10px;border:1px solid var(--hair);
+    border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:.9rem}
+  .site-drawer__langs a[aria-current="true"]{background:var(--petrol);color:#fff;
+    border-color:var(--petrol);font-weight:600}
+  </style>
+<link rel="stylesheet" href="../assets/css/tw.css">
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<!-- SHELL:HEAD:START -->
+<link rel="canonical" href="https://www.margoanimalcare.org/en/route.html">
+<link rel="alternate" hreflang="de" href="https://www.margoanimalcare.org/route.html">
+<link rel="alternate" hreflang="en" href="https://www.margoanimalcare.org/en/route.html">
+<link rel="alternate" hreflang="el" href="https://www.margoanimalcare.org/el/route.html">
+<link rel="alternate" hreflang="x-default" href="https://www.margoanimalcare.org/route.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margo Animal Care Initiative">
+<meta property="og:title" content="Care route — Margo Animal Care Initiative">
+<meta property="og:description" content="A documentary journey through the places where individual feedings grow into a daily responsibility.">
+<meta property="og:url" content="https://www.margoanimalcare.org/en/route.html">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/site.css">
+<!-- SHELL:HEAD:END -->
+</head>
+<body>
+<!-- SHELL:HEADER:START -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a class="site-header__brand" href="index.html">Margo <em>Animal Care</em> Initiative</a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a class="site-nav__link" href="unsere-arbeit.html">Our work</a>
+      <a class="site-nav__link" href="katzen.html">Cats</a>
+      <a class="site-nav__link" href="mitmachen.html">Get involved</a>
+      <a class="site-nav__link" href="foerdern.html">Donate</a>
+      <a class="site-nav__link" href="wirkung-transparenz.html">Impact &amp; transparency</a>
+    </nav>
+    <div class="site-header__actions">
+      <div class="site-lang-switch" role="group" aria-label="Sprache / Language"><a href="../route.html" hreflang="de" lang="de">DE</a><a href="../en/route.html" hreflang="en" lang="en" aria-current="true">EN</a><a href="../el/route.html" hreflang="el" lang="el">ΕΛ</a></div>
+      <a class="site-cta" href="unterstuetzen.html">Support us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="site-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="site-drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-drawer" id="site-drawer" data-nav-drawer data-open="false">
+    <a class="site-drawer__link" href="unsere-arbeit.html">Our work</a>
+    <a class="site-drawer__link" href="katzen.html">Cats</a>
+    <a class="site-drawer__link" href="mitmachen.html">Get involved</a>
+    <a class="site-drawer__link" href="foerdern.html">Donate</a>
+    <a class="site-drawer__link" href="wirkung-transparenz.html">Impact &amp; transparency</a>
+    <div class="site-drawer__langs" role="group" aria-label="Sprache / Language"><a href="../route.html" hreflang="de" lang="de">Deutsch</a><a href="../en/route.html" hreflang="en" lang="en" aria-current="true">English</a><a href="../el/route.html" hreflang="el" lang="el">Ελληνικά</a></div>
+    <div class="site-drawer__foot">
+      <a class="site-drawer__cta" href="unterstuetzen.html">Support us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+<!-- SHELL:HEADER:END -->
+<div id="main" tabindex="-1"></div>
+  
+
+  <main>
+    <section class="hero" aria-labelledby="journey-title">
+      <div class="hero-media" aria-hidden="true"><img src="../assets/journey/intro-map.webp" alt=""></div>
+      <div class="hero-content">
+        <div>
+          <div class="eyebrow">Artemida and surroundings · documentary route</div>
+          <h1 id="journey-title">The route behind the <em>care.</em></h1>
+          <p class="hero-lead">A visual journey through the places where individual feedings grow into a daily responsibility for more than 250 animals. Not as dramatic staging, but as a precise look at closeness, routes, uncertainty and care as it is actually lived.</p>
+        </div>
+        <aside class="hero-card">
+          <div class="hero-card-label">The scope recorded so far</div>
+          <strong>250<span>+</span></strong>
+          <p>Animals are cared for across private care locations, colonies, family settings and several stations in public space.</p>
+          <div class="hero-meta">
+            <div><b>13</b><span>recorded stations</span></div>
+            <div><b>1</b><span>farm still open</span></div>
+            <div><b>daily</b><span>care and monitoring</span></div>
+          </div>
+          <a class="start-button" href="#journey-start">Begin the journey
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </aside>
+      </div>
+      <div class="privacy-note">To protect private households and sensitive colonies, this public journey shows no exact plus codes or precise residential locations.</div>
+    </section>
+
+    <section class="journey" id="journey-start" aria-label="Stationen der Versorgungsroute">
+      <div class="stage" aria-live="polite">
+        <img class="stage-layer active" id="stage-a" src="../assets/journey/surf-01.webp" alt="">
+        <img class="stage-layer" id="stage-b" src="../assets/journey/surf-01.webp" alt="">
+        <div class="stage-shade" aria-hidden="true"></div>
+        <div class="stage-ui">
+          <div class="stage-caption">
+            <div class="stage-kicker" id="stage-kicker">Station 01 · network location</div>
+            <h2 class="stage-title" id="stage-title">Where care reaches other people</h2>
+            <p class="stage-subtitle" id="stage-subtitle">The windsurfing school shows how Margo’s personal commitment grows into a small local network of support.</p>
+          </div>
+          <div class="stage-counter" id="stage-counter">01</div>
+        </div>
+      </div>
+      <div class="story-rail" id="story-rail"></div>
+    </section>
+
+    <section class="summary" id="summary">
+      <div class="summary-inner">
+        <div class="summary-head">
+          <div>
+            <div class="eyebrow">Interim state of the documentation</div>
+            <h2>One route. Many different forms of responsibility.</h2>
+          </div>
+          <p class="summary-copy">The images show no uniform infrastructure. Some animals live in sheltered private areas, others at open feeding points, in bushes or unfinished buildings. It is precisely these differences that will later have to be reflected in the knowledge, rehoming and care systems.</p>
+        </div>
+        <div class="location-grid" id="location-grid"></div>
+        <div class="closing">
+          <p>The farm is already earmarked as a further care location. As soon as its situation, animal numbers, photos and context are available, it will be placed within the route. The existing stations can later also be deepened with videos, confirmed animal numbers and individual animal stories.</p>
+          <a href="index.html">To the public site
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="progress" id="progress" aria-label="Direktnavigation zwischen den Stationen"></nav>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vergrösserte Aufnahme">
+    <button type="button" id="lightbox-close" aria-label="Bild schliessen">×</button>
+    <img id="lightbox-image" alt="">
+  </div>
+  <noscript><p style="padding:120px 24px;color:#f3eee5">JavaScript must be enabled for the guided picture journey.</p></noscript>
+
+  <script>
+    const journeyData = [
+      {
+        title: "Where care reaches other people",
+        short: "Windsurfing school",
+        type: "Network location",
+        count: "15 cats",
+        images: ["surf-01.webp","surf-02.webp","surf-03.webp","surf-04.webp"],
+        intro: "The windsurfing school run by Margo’s sister is a workplace, a refuge and a concrete example of how Margo’s attitude spreads to other people.",
+        facts: [
+          ["Taken in", "15 cats live at the surf school today."],
+          ["Shared", "The location contributes partly to food and veterinary costs."],
+          ["Connected", "Margo works here as a surf instructor and remains present in the care work at the same time."],
+          ["Lesson", "Help becomes more resilient when enthusiasm turns into shared responsibility."]
+        ],
+        insight: "This place is more than a colony: it shows the transition from individual care to a small local network."
+      },
+      {
+        title: "Care on dry, open ground",
+        short: "Colony at the field edge",
+        type: "Open colony",
+        count: "at least 3 visible",
+        images: ["colony-02.webp"],
+        intro: "The cats eat at an improvised spot between dry vegetation, rubble and a few simple water containers.",
+        facts: [["Surroundings","Unprotected and severely parched in summer."],["Supply","Food and water have to be brought in regularly."],["Monitoring","The actual number can vary from visit to visit."],["Risk","Weather, traffic and the lack of shelter remain hard to control."]],
+        insight: "What looks small in a photo becomes, as a recurring station, part of a long daily route."
+      },
+      {
+        title: "A single feeding point is never just one point",
+        short: "Unfinished building by the path",
+        type: "Single station",
+        count: "1 visible",
+        images: ["colony-03.webp"],
+        intro: "At an unfinished building, food lies on reused sacks. Only one cat is visible – yet single animals can point to shifting groups.",
+        facts: [["Shelter","The building offers some cover, but no safe space."],["Documentation","With single sightings, the size of the group remains unclear."],["Hygiene","Improvised feeding surfaces are hard to keep clean."],["Significance","Small stations also require time, materials and monitoring."]],
+        insight: "The burden does not come only from large colonies, but from the sum of many small stops."
+      },
+      {
+        title: "When a building becomes a makeshift shelter",
+        short: "Colony at the building",
+        type: "Partly sheltered location",
+        count: "several visible",
+        images: ["colony-04.webp"],
+        intro: "A group uses the covered edge of a building. Food is distributed in the open; the structure protects partly against the weather, but not against every risk.",
+        facts: [["Group","Several animals appear at the same time."],["Cover","The building offers limited protection from sun and rain."],["Observation","Individual animals are hard to track within the group."],["Need","Regular cleaning and structured feeding places would improve oversight."]],
+        insight: "Shelter without responsibility stays fragile: nobody but the people providing care guarantees that this place will still be usable tomorrow."
+      },
+      {
+        title: "Natural cover, but no reliable infrastructure",
+        short: "Fig grove",
+        type: "Vegetated location",
+        count: "at least 5 visible",
+        images: ["colony-05.webp"],
+        intro: "Dense fig leaves provide shade and retreat. Feeding still takes place directly on improvised surfaces on the ground.",
+        facts: [["Advantage","Vegetation protects from sun and from view."],["Disadvantage","Animals and feeding points are hard to see."],["Hygiene","Moisture, insects and dirt are barely controllable."],["Insight","Natural cover is no substitute for predictable care."]],
+        insight: "The surroundings look green and sheltered. For health checks and counting animals they remain difficult nonetheless."
+      },
+      {
+        title: "What you do not see at first glance",
+        short: "Hidden young animals",
+        type: "High need for protection",
+        count: "7 visible + 4 kittens",
+        images: ["kittens-01.webp","kittens-02.webp","kittens-03.webp"],
+        intro: "Among tall grass and dense vegetation, four small kittens are also hidden. The actual number only becomes visible through detailed knowledge of the place.",
+        facts: [["Young animals","Four small kittens are in the bushes."],["Recording","Not all animals come to the feeding point at the same time."],["Risk","Illness and injury can go unnoticed for a long time."],["Priority","Young animals increase the need for observation and medical planning."]],
+        insight: "The hardest responsibility is often the one no overview picture ever fully shows."
+      },
+      {
+        title: "Shelter without a home",
+        short: "Unfinished building",
+        type: "Shell-building colony",
+        count: "7–8 visible",
+        images: ["building-01.webp","building-02.webp","building-03.webp"],
+        intro: "An unfinished, seemingly abandoned building serves as a feeding place and refuge. The concrete provides cover, but no reliable safety.",
+        facts: [["Structure","Partly protected from the weather by ceilings and walls."],["Group","Several animals use the same area."],["Hazard","Building materials, open edges and use by others remain uncontrollable."],["Effort","Food, water and observation still have to be organised from outside."]],
+        insight: "A place can offer short-term shelter and still remain unsafe in the long run."
+      },
+      {
+        title: "Some animals stay almost invisible",
+        short: "Shy bush colony",
+        type: "Concealed colony",
+        count: "2 visible, more hidden",
+        images: ["shy-01.webp","shy-02.webp"],
+        intro: "As soon as strangers pass by, the cats withdraw deep into the bushes. Only part of the group appears openly at the feeding point.",
+        facts: [["Behaviour","Shy animals avoid people and movement."],["Numbers","The total number is hard to establish reliably."],["Health","Changes are noticed later than with trusting animals."],["Skill","Patience and repeated observation matter more here than closeness."]],
+        insight: "For these animals, good help does not mean touching them straight away – it means respecting their distance and still being reliable."
+      },
+      {
+        title: "The route does not end when it gets dark",
+        short: "Evening station",
+        type: "Twilight location",
+        count: "at least 4 visible",
+        images: ["dusk-01.webp"],
+        intro: "This location is already reached in darkness. Portable lighting makes feeding possible, but is no substitute for a clear view of every animal.",
+        facts: [["Timing","Care takes place late in the evening."],["Visibility","Health checks are limited in the dark."],["Terrain","Uneven ground and vegetation make the work harder."],["Documentation","Better daytime images will follow."]],
+        insight: "The longer the route lasts, the more tiredness, darkness and limited observation time compound each other."
+      },
+      {
+        title: "Care without daylight",
+        short: "Night station",
+        type: "Late stop",
+        count: "at least 2 visible",
+        images: ["night-01.webp","night-02.webp"],
+        intro: "Food is laid out on old surfaces and at the edge of dense vegetation. Individual animals are visible; others may remain outside the beam of light.",
+        facts: [["Conditions","Lighting comes almost exclusively from a flash or a lamp."],["Recording","Animals outside the lit area go unnoticed."],["Supply","Dry and wet food are combined depending on the situation."],["Risk","Materials and terrain can only be controlled to a limited extent."]],
+        insight: "A night photograph documents the feeding – but not automatically the full state of the place."
+      },
+      {
+        title: "When one feeding point gathers a whole colony",
+        short: "Large evening colony",
+        type: "Larger colony",
+        count: ">10 visible at once",
+        images: ["large-01.webp","large-02.webp","large-03.webp","large-04.webp","large-05.webp"],
+        intro: "More than ten animals appear at the same time. Several bowls, open surfaces and simple places of retreat spread the group across the whole area.",
+        facts: [["Size","More than ten cats are documented at the same time."],["Feeding","Several feeding points reduce competition but increase the effort."],["Observation","Individual animals are easily lost in the group dynamic."],["System need","Profiles and repeated recording become especially important at this group size."]],
+        insight: "Beyond a certain group size, memory alone is no longer enough. Observation has to become a knowledge system."
+      },
+      {
+        title: "When a home becomes a care location for fifty cats",
+        short: "Family care location",
+        type: "Private · sensitive",
+        count: "approx. 50 cats",
+        images: ["parents-01.webp","parents-02.webp","parents-03.webp","parents-04.webp"],
+        intro: "Margo’s parents are both around 90 years old and look after roughly 50 cats at their home. Private everyday life and animal care have merged completely.",
+        facts: [["Scale","Around 50 cats live at this care location."],["Care","The responsibility rests with two people of about 90."],["Burden","Feeding, cleaning and observing shape the entire domestic routine."],["Privacy","The exact location is deliberately not shown publicly."]],
+        insight: "This place makes the urgency of the initiative particularly clear: relief protects not only animals, but also the people who have carried them for years."
+      },
+      {
+        title: "Many animals, a tightly limited private space",
+        short: "Private courtyard",
+        type: "Private · sensitive",
+        count: "approx. 15 visible",
+        images: ["yard-01.webp","yard-02.webp"],
+        intro: "A larger group gathers in a private, partly sheltered outdoor area. Walls and parts of the building give structure, while at the same time care is concentrated into very little space.",
+        facts: [["Group","About 15 animals are visible in the images."],["Space","Walls and courtyard areas serve as waiting and feeding zones."],["Proximity","The location combines private use with daily animal care."],["Shelter","Here too the exact location remains concealed for safety reasons."]],
+        insight: "Private space can make care possible – but quickly becomes entirely shaped by that responsibility itself."
+      },
+      {
+        title: "The farm will be added as the next building block",
+        short: "Farm",
+        type: "Data to follow",
+        count: "still open",
+        images: ["intro-map.webp"],
+        intro: "The farm location is part of the overall structure but is not yet sufficiently documented. Its situation, animal numbers, photos and specific role will follow.",
+        facts: [["Status","Earmarked as a further care location."],["Open","Animal numbers and exact function are still missing."],["Media","Photos and videos will follow."],["Placement","The station will later be added at the appropriate point on the route."]],
+        insight: "A serious journey also shows its gaps. Missing data is not replaced by assumptions."
+      }
+    ];
+
+    const storyRail = document.getElementById('story-rail');
+    const locationGrid = document.getElementById('location-grid');
+    const progress = document.getElementById('progress');
+    const stageA = document.getElementById('stage-a');
+    const stageB = document.getElementById('stage-b');
+    const stageTitle = document.getElementById('stage-title');
+    const stageKicker = document.getElementById('stage-kicker');
+    const stageSubtitle = document.getElementById('stage-subtitle');
+    const stageCounter = document.getElementById('stage-counter');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const assetBase = 'assets/journey/';
+    let activeLayer = stageA;
+    let inactiveLayer = stageB;
+    let activeIndex = 0;
+
+    function esc(value) {
+      return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    }
+
+    function chapterMarkup(item, index) {
+      const facts = item.facts.map(([title, copy]) => `<div class="fact"><strong>${esc(title)}</strong><span>${esc(copy)}</span></div>`).join('');
+      const thumbs = item.images.length > 1
+        ? `<div class="thumbs" aria-label="Weitere Aufnahmen">${item.images.map((image, imageIndex) => `<button class="thumb${imageIndex === 0 ? ' is-current' : ''}" type="button" data-image="${assetBase + image}" data-title="${esc(item.title)}"><img loading="lazy" src="${assetBase + image}" alt="Weitere Aufnahme: ${esc(item.short)}"></button>`).join('')}</div>`
+        : '';
+      return `<article class="chapter${index === 0 ? ' is-active' : ''}" id="station-${index + 1}" data-index="${index}">
+        <div class="chapter-card">
+          <div class="chapter-number"><span>Station ${String(index + 1).padStart(2,'0')} · ${esc(item.type)}</span><span>${esc(item.count)}</span></div>
+          <h2>${esc(item.title)}</h2>
+          <p class="chapter-intro">${esc(item.intro)}</p>
+          <div class="facts">${facts}</div>
+          <div class="insight">${esc(item.insight)}</div>
+          ${thumbs}
+        </div>
+      </article>`;
+    }
+
+    storyRail.innerHTML = journeyData.map(chapterMarkup).join('');
+    locationGrid.innerHTML = journeyData.map((item, index) => `<div class="location-tile"><b>${String(index + 1).padStart(2,'0')} · ${esc(item.short)}</b><span>${esc(item.type)}. ${esc(item.intro)}</span><small>${esc(item.count)}</small></div>`).join('');
+    progress.innerHTML = journeyData.map((item, index) => `<button type="button" class="${index === 0 ? 'is-active' : ''}" data-target="station-${index + 1}" aria-label="Zu Station ${index + 1}: ${esc(item.short)}"><span>${esc(item.short)}</span></button>`).join('');
+
+    function setStage(index, imageOverride) {
+      const item = journeyData[index];
+      if (!item) return;
+      const src = imageOverride || assetBase + item.images[0];
+      if (activeLayer.getAttribute('src') !== src) {
+        const incoming = inactiveLayer;
+        const outgoing = activeLayer;
+        incoming.alt = item.title;
+        incoming.onload = () => {
+          incoming.classList.add('active');
+          outgoing.classList.remove('active');
+          activeLayer = incoming;
+          inactiveLayer = outgoing;
+        };
+        incoming.onerror = () => {
+          // Bild nicht ladbar: aktuelles Stage-Bild sichtbar lassen statt schwarz zu werden
+          incoming.onload = null;
+        };
+        incoming.src = src;
+      }
+      stageKicker.textContent = `Station ${String(index + 1).padStart(2,'0')} · ${item.type}`;
+      stageTitle.textContent = item.title;
+      stageSubtitle.textContent = item.intro;
+      stageCounter.textContent = String(index + 1).padStart(2,'0');
+      activeIndex = index;
+      document.querySelectorAll('.chapter').forEach((chapter, i) => chapter.classList.toggle('is-active', i === index));
+      document.querySelectorAll('.progress button').forEach((button, i) => button.classList.toggle('is-active', i === index));
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setStage(Number(visible.target.dataset.index));
+    }, { rootMargin: '-24% 0px -35% 0px', threshold: [0.12, 0.28, 0.5, 0.72] });
+
+    document.querySelectorAll('.chapter').forEach(chapter => observer.observe(chapter));
+
+    progress.addEventListener('click', event => {
+      const button = event.target.closest('button[data-target]');
+      if (!button) return;
+      document.getElementById(button.dataset.target)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    storyRail.addEventListener('click', event => {
+      const thumb = event.target.closest('.thumb');
+      if (!thumb) return;
+      const chapter = thumb.closest('.chapter');
+      const index = Number(chapter.dataset.index);
+      chapter.querySelectorAll('.thumb').forEach(el => el.classList.toggle('is-current', el === thumb));
+      setStage(index, thumb.dataset.image);
+    });
+
+    document.querySelector('.stage').addEventListener('click', () => {
+      const src = activeLayer.getAttribute('src');
+      if (!src) return;
+      lightboxImage.src = src;
+      lightboxImage.alt = journeyData[activeIndex].title;
+      lightbox.classList.add('open');
+      lightboxClose.focus();
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImage.removeAttribute('src');
+    }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+  </script>
+<!-- SHELL:FOOTER:START -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <h2>Overview</h2>
+      <ul>
+        <li><a href="unsere-arbeit.html">Our work</a></li>
+        <li><a href="katzen.html">Cats</a></li>
+        <li><a href="mitmachen.html">Get involved</a></li>
+        <li><a href="foerdern.html">Donate</a></li>
+        <li><a href="wirkung-transparenz.html">Impact &amp; transparency</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore further</h2>
+      <ul>
+        <li><a href="route.html">Care route</a></li>
+        <li><a href="partner.html">Partners</a></li>
+        <li><a href="mitmachen.html#rollen">Open roles</a></li>
+        <li><a href="unterstuetzen.html">Support us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@margoanimalcare.org">hello@margoanimalcare.org</a></li>
+        <li>Artemida / Athens region, Greece</li>
+        <li>We usually reply within 24 hours</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="../impressum.html">Legal notice</a></li>
+        <li><a href="../datenschutz.html">Privacy policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>English</h2>
+      <ul>
+        <li><a href="../en.html">Key facts &amp; overview</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <span>© 2026 Margo Animal Care Initiative</span>
+    <span>Last updated: August 2026</span>
+  </div>
+</footer>
+<!-- SHELL:FOOTER:END -->
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

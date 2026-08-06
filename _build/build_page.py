@@ -24,13 +24,19 @@ def build(page, dicts, depth=0):
         html, h2, m2 = apply_translations(html, common, report=True)
         # Rückfall: Links auf noch nicht übersetzte Seiten zeigen auf die deutsche Fassung.
         # Sobald die Übersetzung existiert, greift beim nächsten Bauen automatisch der lokale Pfad.
+        page_dir = os.path.dirname(page)          # z. B. 'rollen'
+        up_to_lang = '../' * (page.count('/'))    # von der Seite zurück zur Sprachwurzel
+
         def _fallback(m):
             target = m.group(1)
-            if target.startswith(('http', 'mailto:', '#', '../')):
+            if target.startswith(('http', 'mailto:', '#')):
                 return m.group(0)
-            if os.path.exists(os.path.join(lang, target)):
+            # Pfad relativ zur Sprachwurzel auflösen
+            resolved = os.path.normpath(os.path.join(page_dir, target))
+            if os.path.exists(os.path.join(lang, resolved)):
                 return m.group(0)
-            return 'href="../' + target + '"'
+            # Rückfall: gleiche Datei in der deutschen Fassung
+            return 'href="' + up_to_lang + '../' + resolved + '"'
         html = re.sub(r'href="([^"#?:]+\.html)"', _fallback, html)
 
         out = os.path.join(lang, page)

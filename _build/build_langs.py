@@ -41,14 +41,14 @@ LANGS = {
 def fix_asset_paths(html, depth_extra=1):
     """Assets liegen weiterhin im Wurzelverzeichnis -> eine Ebene höher verweisen."""
     prefix = "../" * depth_extra
-    # href und src
-    html = re.sub(r'(href|src)="(?!https?:|mailto:|#|\.\./)(assets/)', rf'\1="{prefix}\2', html)
+    # href und src – auch bereits relative Pfade wie ../assets/ müssen eine Ebene tiefer zeigen
+    html = re.sub(r'(href|src)="((?:\.\./)*)(assets/)', rf'\1="{prefix}\2\3', html)
     # srcset enthält mehrere kommagetrennte Pfade mit Breitenangabe
     def _srcset(m):
         parts = []
         for item in m.group(2).split(','):
             item = item.strip()
-            if item.startswith('assets/'):
+            if item.startswith('assets/') or item.lstrip('./').startswith('assets/'):
                 item = prefix + item
             parts.append(item)
         return f'{m.group(1)}="' + ', '.join(parts) + '"'
@@ -138,18 +138,27 @@ def build_lang_switch(current_lang, page_path, depth):
 
 def inject_lang_switch(html, current_lang, page_path, depth):
     """Setzt den Sprachumschalter in Kopfzeile und Mobilmenü ein."""
-    if 'site-lang-switch' in html:
+    # Prüfen auf das MARKUP, nicht auf den CSS-Namen: sonst greift die Abfrage
+    # bereits beim eingefügten Stylesheet und der Umschalter fehlt.
+    if '<div class="site-lang-switch"' in html:
         return html
     desktop, drawer = build_lang_switch(current_lang, page_path, depth)
 
     # CSS ergänzen
-    if '.site-lang-switch' not in html:
+    if '.site-lang-switch{' not in html:
         html = re.sub(r'</style>', LANG_SWITCH_CSS + '  </style>', html, count=1)
 
-    # Desktop: vor dem CTA-Button in den Aktionen
-    html = re.sub(r'(<div class="site-header__actions">)',
-                  r'\1\n      ' + desktop, html, count=1)
-    # Mobil: im Menü-Fuss
-    html = re.sub(r'(<div class="site-drawer__foot">)',
-                  drawer + r'\n    \1', html, count=1)
+    # Variante A: Standard-Shell mit site-header__actions
+    if '<div class="site-header__actions">' in html:
+        html = html.replace('<div class="site-header__actions">',
+                            '<div class="site-header__actions">\n      ' + desktop, 1)
+    # Variante B: Katzenprofile – eigener Header mit .nav-links, kein Mobilmenü
+    elif '<div class="nav-links">' in html:
+        html = re.sub(r'(</div>)(\s*\n\s*)(<a class="btn btn-primary")',
+                      lambda m: m.group(1) + m.group(2) + desktop + m.group(2) + m.group(3),
+                      html, count=1)
+    # Mobil: im Menü-Fuss (nur wo ein Mobilmenü existiert)
+    if '<div class="site-drawer__foot">' in html:
+        html = html.replace('<div class="site-drawer__foot">',
+                            drawer + '\n    <div class="site-drawer__foot">', 1)
     return html
